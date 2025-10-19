@@ -189,6 +189,40 @@ const testimonials = [
     }
 ];
 
+const dealers = [
+    {
+        name: "Leny Motor Bandar",
+        address: "Jl. Kh. Agus Salim No.12 Bandar Kidul - Kediri Jawa Timur 64118",
+        phone: "(0354) 774195",
+        whatsapp: "0813 3086 8885",
+        image: "../assets/mobil.png",
+        maps: "#"
+    },
+    {
+        name: "Leny Motor Pare",
+        address: "Jl. Raya Pamenang No.433 Ngasem - Kediri Jawa Timur 62154",
+        phone: "",
+        whatsapp: "0813 3086 8886",
+        image: "../assets/mobil.png",
+        maps: "#"
+    },
+    {
+        name: "Leny Motor Blitar",
+        address: "Jl. Letjen Panjaitan No.18 Tinalan - Kediri Jawa Timur 64131",
+        phone: "",
+        whatsapp: "0813 3086 8887",
+        image: "../assets/mobil.png",
+        maps: "#"
+    },
+    {
+        name: "Leny Motor Blitar",
+        address: "Jl. Kh. Agus Salim No.79 Bandar Kidul - Kediri Jawa Timur 64118",
+        phone: "",
+        whatsapp: "0811 3312 555",
+        image: "../assets/mobil.png",
+        maps: "#"
+    }
+];
 
 
 $(document).ready(function () {
@@ -384,5 +418,69 @@ $(document).ready(function () {
                 </div>
             `;
         $("#card-s4").append(card);
+    });
+
+    $.each(dealers, function (index, dealer) {
+        let contact = '';
+
+        if(dealer.phone != ''){
+            contact = `
+                <span class="fw-bold" style="color: #D40000;">
+                    <img src="../assets/icon/phone.png" alt="" width="24px"> ${dealer.phone}
+                </span>
+            `;
+        }
+
+        if(dealer.whatsapp != ''){
+            contact = `
+                ${contact}
+                <span class="fw-bold" style="color: #D40000;">
+                    <img src="../assets/icon/whatsapp.png" alt="" width="24px"> ${dealer.whatsapp}
+                </span>
+            `;
+        }
+
+        const card = `
+                <div class="card position-relative" 
+                    style="width: 18rem;border-radius: 20px;margin-right: 15px;">
+                    <img src="${dealer.image}" class="card-img-top" alt="${dealer.name}"
+                        style="border-top-left-radius: 5.5%;border-top-right-radius: 5.5%;
+                        height: 397px;object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title" style="font-size: 30px;">
+                            ${dealer.name}
+                        </h5>
+                        <div class="card-text">
+                            <span class="d-block" style="margin: 5px 5px;color: #AFAFAF;height: 60px">
+                                ${dealer.address}
+                            </span>
+                            <span class="d-flex text-center" 
+                                style="margin: 5px 5px;color: #AFAFAF;justify-content: space-between;">
+                                ${contact}
+                            </span>
+                            <hr>
+                            <span class="d-block" style="margin: 25px 5px;color: #AFAFAF;">
+                                <div class="row">
+                                    <div class="col-8">
+                                        <img src="../assets/icon/maps.png" alt="" width="24px">
+                                        &nbsp;
+                                        <a href="${dealer.maps}" target="_blank" style="text-decoration:none;color:#AFAFAF;">
+                                            Lihat via Google Maps
+                                        </a>
+                                    </div>
+                                    <div class="col" style="text-align: right;">
+                                        <span class="shadow" 
+                                            style="background-color: white;border-radius: 100%;
+                                            font-size: 12pt;padding: 10px 13px;color: black;">
+                                            <i class="fa fa-arrow-right"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        $("#card-s5").append(card);
     });
 })

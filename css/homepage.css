@@ -62,7 +62,8 @@
     padding: 10px 15px;
 }
 
-#card-s4 .card {
+#card-s4 .card,
+#card-s5 .card {
     flex: 0 0 calc(25% - 20px);
     min-width: 300px;
     background: white;
@@ -72,6 +73,7 @@
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-#card-s4 .card-body {
+#card-s4 .card-body,
+#card-s5 .card-body {
     padding: 10px 15px;
 }
