@@ -7,7 +7,11 @@
     color: black;
 }
 
-#navbar #menubar a:hover {
+#navbar #menubar td:hover {
+    cursor: pointer;
+}
+
+#navbar #menubar td:hover a {
     padding-top: 28px;
     border-top: 2px solid red;
 }

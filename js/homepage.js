@@ -226,6 +226,70 @@ const dealers = [
 
 
 $(document).ready(function () {
+    const images = [
+        "../assets/carousel-1.png",
+        "../assets/carousel-1.png",
+        "../assets/carousel-1.png",
+        "../assets/carousel-1.png",
+        "../assets/carousel-1.png"
+    ];
+
+    const $track = $("#carousel-banner .carousel-track");
+    const $indicators = $("#carousel-page");
+
+    let currentIndex = 0;
+    const total = images.length;
+
+    // Tambahkan semua gambar
+    $.each(images, function (i, src) {
+        $track.append(`
+            <img src="${src}" alt="Carousel ${i + 1}" 
+                 class="object-fit-cover rounded-3"
+                 style="width:100%; height:504px; ">
+        `);
+
+        $indicators.append(i == 0 ? `<i class="fa fa-circle text-white"></i>` : `<i class="far fa-circle text-white"></i>`);
+    });
+
+    // Set lebar track total agar bisa digeser
+    $track.css("width", `${total * 100}%`);
+
+    // Fungsi update slide
+    function updateCarousel(index) {
+        $track.css("transform", `translateX(-${index * (100 / total)}%)`);
+
+        $indicators.empty();
+        $.each(images, function (i, src) {
+            $indicators.append(i == index ? `<i class="fa fa-circle text-white"></i>` : `<i class="far fa-circle text-white"></i>`);
+        });
+    }
+
+    // Next & Prev
+    $(".carousel-next").on("click", function () {
+        currentIndex = (currentIndex + 1) % total;
+        updateCarousel(currentIndex);
+    });
+
+    $(".carousel-prev").on("click", function () {
+        currentIndex = (currentIndex - 1 + total) % total;
+        updateCarousel(currentIndex);
+    });
+
+    // Klik indikator
+
+    $indicators.each(function (i) {
+        $(this).on("click", function () {
+            currentIndex = i;
+            updateCarousel(currentIndex);
+        });
+    });
+
+    // Auto-slide setiap 4 detik
+    // setInterval(function () {
+    //     currentIndex = (currentIndex + 1) % images.length;
+    //     updateCarousel(currentIndex);
+    // }, 3000);
+
     const $carousel_motor = $("#carousel-motor");
 
     $.each(motor_products, function (i, p) {
@@ -276,7 +340,7 @@ $(document).ready(function () {
                     </div>
                 </div>
                 <div class="position-absolute top-0 start-100 translate-middle shadow" style="background-color: white;border-radius: 100%; padding: 5px 10px;font-size: 18pt;margin-left: -40px;margin-top: 40px;">
-                    <i class="far fa-star text-dark"></i>
+                    <i class="far fa-star text-dark" style="cursor: pointer;"></i>
                 </div>
             </div>
         `;
@@ -290,13 +354,11 @@ $(document).ready(function () {
         isDown = true;
         startX = e.pageX;
         scrollLeft = $carousel_motor.scrollLeft();
-        $carousel_motor.css("cursor", "grabbing");
         e.preventDefault(); // cegah block teks
     });
 
     $(window).on("mouseup", function () {
         isDown = false;
-        $carousel_motor.css("cursor", "grab");
     });
 
     $carousel_motor.on("mousemove", function (e) {
@@ -357,7 +419,7 @@ $(document).ready(function () {
                     </div>
                 </div>
                 <div class="position-absolute top-0 start-100 translate-middle shadow" style="background-color: white;border-radius: 100%; padding: 5px 10px;font-size: 18pt;margin-left: -40px;margin-top: 40px;">
-                    <i class="far fa-star text-dark"></i>
+                    <i class="far fa-star text-dark" style="cursor: pointer;"></i>
                 </div>
             </div>
         `;
@@ -368,13 +430,11 @@ $(document).ready(function () {
         isDown = true;
         startX = e.pageX;
         scrollLeft = $carousel_mobil.scrollLeft();
-        $carousel_mobil.css("cursor", "grabbing");
         e.preventDefault(); // cegah block teks
     });
 
     $(window).on("mouseup", function () {
         isDown = false;
-        $carousel_mobil.css("cursor", "grab");
     });
 
     $carousel_mobil.on("mousemove", function (e) {
@@ -423,7 +483,7 @@ $(document).ready(function () {
     $.each(dealers, function (index, dealer) {
         let contact = '';
 
-        if(dealer.phone != ''){
+        if (dealer.phone != '') {
             contact = `
                 <span class="fw-bold" style="color: #D40000;">
                     <img src="../assets/icon/phone.png" alt="" width="24px"> ${dealer.phone}
@@ -431,7 +491,7 @@ $(document).ready(function () {
             `;
         }
 
-        if(dealer.whatsapp != ''){
+        if (dealer.whatsapp != '') {
             contact = `
                 ${contact}
                 <span class="fw-bold" style="color: #D40000;">
@@ -455,11 +515,11 @@ $(document).ready(function () {
                                 ${dealer.address}
                             </span>
                             <span class="d-flex text-center" 
-                                style="margin: 5px 5px;color: #AFAFAF;justify-content: space-between;">
+                                style="margin: 5px 5px;color: #AFAFAF;justify-content: space-between;cursor: pointer;">
                                 ${contact}
                             </span>
                             <hr>
-                            <span class="d-block" style="margin: 25px 5px;color: #AFAFAF;">
+                            <span class="d-block" style="margin: 25px 5px;color: #AFAFAF;cursor: pointer;">
                                 <div class="row">
                                     <div class="col-8">
                                         <img src="../assets/icon/maps.png" alt="" width="24px">
