@@ -158,13 +158,45 @@ const motor_products = [
     }
 ];
 
+const testimonials = [
+    {
+        rating: 5.0,
+        message: "Pelayanan ramah, proses cepat! Rekomendasi terbaik untuk mencari kendaraan second. Good job, puas banget!",
+        product: "HONDA PCX 150 2022",
+        date: "17/08/2025",
+        image: "../assets/mobil.png"
+    },
+    {
+        rating: 4.8,
+        message: "Unit sesuai deskripsi, penjual jujur dan fast respon. Sangat puas!",
+        product: "YAMAHA NMAX 2021",
+        date: "10/07/2025",
+        image: "../assets/mobil.png"
+    },
+    {
+        rating: 4.9,
+        message: "Motor masih sangat bagus, pelayanan terbaik dari LENY MOTOR!",
+        product: "HONDA VARIO 160 2023",
+        date: "05/05/2025",
+        image: "../assets/mobil.png"
+    },
+    {
+        rating: 4.9,
+        message: "Motor masih sangat bagus, pelayanan terbaik dari LENY MOTOR!",
+        product: "HONDA VARIO 160 2023",
+        date: "05/05/2025",
+        image: "../assets/mobil.png"
+    }
+];
+
+
 
 $(document).ready(function () {
     const $carousel_motor = $("#carousel-motor");
 
     $.each(motor_products, function (i, p) {
         const card = `
-            <div class="card position-relative"  style="width: 30rem;border-radius: 5%;margin: 0 15px;">
+            <div class="card position-relative"  style="width: 30rem;border-radius: 25px;margin: 0 15px;">
                 <img src="${p.img}" class="card-img-top" alt="..." style="border-top-left-radius: 5.5%;border-top-right-radius: 5.5%;height: 397px; object-fit: cover;">
                 <div class="card-body">
                     <h5 class="card-title" style="font-size: 36px;color: #D40000;">${p.price}</h5>
@@ -245,7 +277,7 @@ $(document).ready(function () {
 
     $.each(car_products, function (i, p) {
         const card = `
-            <div class="card position-relative"  style="width: 30rem;border-radius: 5%;margin: 0 15px;">
+            <div class="card position-relative"  style="width: 30rem;border-radius: 25px;margin: 0 15px;">
                 <img src="${p.img}" class="card-img-top" alt="..." style="border-top-left-radius: 5.5%;border-top-right-radius: 5.5%;height: 397px; object-fit: cover;">
                 <div class="card-body">
                     <h5 class="card-title" style="font-size: 36px;color: #D40000;">${p.price}</h5>
@@ -317,5 +349,40 @@ $(document).ready(function () {
         const x = e.pageX;
         const walk = (x - startX); // seberapa jauh mouse digeser
         $carousel_mobil.scrollLeft(scrollLeft - walk);
+    });
+
+    $.each(testimonials, function (i, t) {
+        let text = t.message;
+        if (text.length > 90) {
+            text = text.substring(0, text.lastIndexOf(" "));
+            text = text.replace(/\s*\S+$/, " ...");
+        };
+
+        const card = `
+                <div class="card position-relative" style="width: 18rem;border-radius: 25px;margin-right: 15px;">
+                    <img src="${t.image}" class="card-img-top" alt="..."
+                        style="border-top-left-radius: 5.5%;border-top-right-radius: 5.5%;height: 397px; object-fit: cover;">
+                    <div class="card-body">
+                        <span class="text-center" style="width: 100%;">
+                            <h5 class="card-title d-flex align-items-center justify-content-center" style="font-size: 30px;">
+                                ${t.rating} &nbsp;
+                                ${'<img src="../assets/icon/star.png" width="36px">'.repeat(5)}
+                            </h5>
+                        </span>
+                        <div class="card-text">
+                            <span class="d-block" style="margin: 5px 5px;height: 75px;">
+                                ${text}
+                            </span>
+                            <span class="d-block pt-4" style="margin: 5px 5px;color: #AFAFAF;">
+                                ${t.product}
+                            </span>
+                            <span class="d-block" style="margin: 5px 5px;color: #AFAFAF">
+                                ${t.date}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            `;
+        $("#card-s4").append(card);
     });
 })
