@@ -1,0 +1,22 @@
+#main-content {
+    padding-top: 210px;
+}
+
+#navbar a {
+    text-decoration: none;
+    color: black;
+}
+
+#navbar #menubar a:hover {
+    padding-top: 28px;
+    border-top: 2px solid red;
+}
+
+#footbar a {
+    text-decoration: none;
+    color: white;
+}
+
+#footbar a:hover {
+    text-decoration: none;
+}

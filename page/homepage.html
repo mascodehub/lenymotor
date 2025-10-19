@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/fa-all.min.css">
+    <link rel="stylesheet" href="../css/homepage.css">
 
     <script src="../js/jquery-3.7.1.min.js"></script>
     <script src="../js/bootstrap.bundle.min.js"></script>
@@ -15,68 +16,156 @@
 
 </head>
 
-<body class="container-fluid p-0">
-    <div id="navbar">
+<body class="container-fluid" style="padding: 1;">
+    <div class="fixed-top" id="navbar">
         <div class="row" style="background-color: #D40000;">
             <div class="col d-flex align-items-center justify-content-center text-center fw-bold text-white"
                 style="height: 30px;">
                 HATI-HATI PENIPUAN YANG MENGATASNAMAKAN LENY MOTOR! | KAMI TIDAK MENERIMA TRANSAKSI SELAIN DI KASIR.
             </div>
         </div>
-        <div class="row border-bottom" style="height: 100px;">
+        <div class="row border-bottom" style="height: 100px;background-color: white;">
             <div class="col-3 d-flex align-items-center justify-content-center text-center">
                 <img src="../assets/Leny Logo Horizontal 1.png" alt="">
             </div>
             <div class="col-6 d-flex align-items-center justify-content-center text-center">
-                <input type="text" placeholder="Lagi cari kendaraan apa?" class="w-100">
+                <div class="input-group">
+                    <span class="input-group-text" id="labelSearch"><i class="fa fa-search"></i></span>
+                    <input type="text" class="form-control" id="txtSearch" placeholder="Lagi cari kendaraan apa?"
+                        aria-label="Lagi cari kendaraan apa?" aria-describedby="labelSearch">
+                </div>
             </div>
             <div class="col-2 d-flex align-items-center justify-content-center text-center">
                 <div class="row w-100">
-                    <div class="col border-end text-center">
+                    <div class="col-4 border-end text-center">
                         <i class="far fa-star"></i>
                     </div>
-                    <div class="col">
-                        <a href="javascript(0)" style="text-decoration: none;color: black;"><i
-                                class="far fa-user"></i>&nbsp;Login</a>
+                    <div class="col-6">
+                        <a href="javascript:void(0)"><i class="far fa-user"></i>&nbsp;Login</a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row justify-content-center">
-            <div class="col col-9">
-                <div class="row">
-                    <div class="col">
-                        Mobil
-                    </div>
-                    <div class="col">
-                        Motor
-                    </div>
-                    <div class="col">
-                        Promo
-                    </div>
-                    <div class="col">
-                        Produk Finance
-                    </div>
-                    <div class="col">
-                        Leny News
-                    </div>
-                    <div class="col">
-                        Testimoni
-                    </div>
-                    <div class="col">
-                        Tentang Kami
-                    </div>
-                </div>
+        <div class="row d-flex align-items-center justify-content-center text-center" id="menubar" style="background-color: white;">
+            <div class="col col-6 d-flex align-items-center justify-content-center text-center" style="height: 80px;">
+                <table style="width: 100%;">
+                    <tr style="height: 50px;">
+                        <td class="text-center">
+                            <a href="javascript:void(0)" class="ps-2 pe-2">Mobil</a>
+                        </td>
+                        <td class="text-center border-end">
+                            <a href="javascript:void(0)" class="ps-2 pe-2">Motor</a>
+                        </td>
+                        <td class="text-center">
+                            <a href="javascript:void(0)" class="ps-2 pe-2">Promo</a>
+                        </td>
+                        <td class="text-center">
+                            <a href="javascript:void(0)" class="ps-2 pe-2">Produk Finance</a>
+                        </td>
+                        <td class="text-center">
+                            <a href="javascript:void(0)" class="ps-2 pe-2">Leny News</a>
+                        </td>
+                        <td class="text-center">
+                            <a href="javascript:void(0)" class="ps-2 pe-2">Testimoni</a>
+                        </td>
+                        <td class="text-center">
+                            <a href="javascript:void(0)" class="ps-2 pe-2">Tentang Kami</a>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>
 
-    <div id="content">
-        content
-    </div>
-
-    <div id="footer">
-        footer
+    <div id="main-content">
+        <div id="content" style="height: 1000px;" >
+            content
+        </div>
+        
+        <div id="footbar">
+            <div class="row" style="background-color: #EA4335;">
+                <div class="col d-flex align-items-center justify-content-center text-center fw-bold text-white"
+                    style="height: 60px;font-size: 24px;font-weight: bold;color: white;">
+                    Sahabat Jual Beli Motor — Proses Cepat, Tanpa Ribet
+                </div>
+            </div>
+            <div class="row" style="background-color: #D40000;">
+                <div class="col d-flex align-items-center justify-content-center text-white" style="height: 275px;">
+                    <div class="row">
+                        <div class="col text-center fw-bold">
+                            <img src="../assets/Leny Logo Square white 1.png" alt="">
+                        </div>
+                        <div class="col">
+                            <span>
+                                Sebagai Pusat Jual, Beli, Tukar Tambah Motor dan Mobil Bekas Berkualitas (Bergaransi)
+                                Pertama dan Terlengkap di Karisidenan Kediri.
+                                <br>
+                                <br>
+                                "Kepuasan Anda Kebanggaan Kami"
+                            </span>
+                        </div>
+                        <div class="col">
+                            <b>
+                                Dealer Utama Kami
+                            </b>
+                            <br>
+                            <span>
+                                <a href="javascript:void(0)">
+                                    Jl. Kh. Agus Salim 12 Bandar Kidul - Kediri Jawa Timur 64118
+                                </a>
+                            </span>
+                        </div>
+                        <div class="col">
+                            <b>
+                                Pusat Bantuan
+                            </b>
+                            <br>
+                            <span>
+                                <a href="javascript:void(0)">
+                                    FAQ
+                                </a>
+                                <br>
+                                <a href="javascript:void(0)">
+                                    Leny News
+                                </a>
+                                <br>
+                                <a href="javascript:void(0)">
+                                    Tentang Kami
+                                </a>
+                            </span>
+                        </div>
+                        <div class="col">
+                            <b>
+                                Hubungi Kami
+                            </b>
+                            <br>
+                            <span>
+                                <span>
+                                    (0354) 774195
+                                </span>
+                                <br>
+                                <span>
+                                    info@lenymotor.com
+                                </span>
+                                <br>
+                                <a href="javascript:void(0)" class="ps-2 pe-2">
+                                    <img src="../assets/instagram.png" alt="" width="24px">
+                                </a>
+                                <a href="javascript:void(0)" class="ps-2 pe-2">
+                                    <img src="../assets/facebook.png" alt="" width="24px">
+                                </a>
+                                <a href="javascript:void(0)" class="ps-2 pe-2">
+                                    <img src="../assets/youtube.png" alt="" width="24px">
+                                </a>
+                                <a href="javascript:void(0)" class="ps-2 pe-2">
+                                    <img src="../assets/tiktok.png" alt="" width="24px">
+                                </a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 
