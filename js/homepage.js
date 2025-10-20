@@ -225,7 +225,7 @@ const dealers = [
 ];
 
 
-$(document).ready(function () {
+$(document).ready(async function () {
     const images = [
         "../assets/carousel-1.png",
         "../assets/carousel-1.png",
@@ -240,29 +240,37 @@ $(document).ready(function () {
     let currentIndex = 0;
     const total = images.length;
 
-    // Tambahkan semua gambar
-    $.each(images, function (i, src) {
-        $track.append(`
-            <img src="${src}" alt="Carousel ${i + 1}" 
-                class="rounded-3"
-            >
-        `);
-
-        $indicators.append(i == 0 ? `<i class="fa fa-circle text-white"></i>` : `<i class="far fa-circle text-white"></i>`);
-    });
-
-    // Set lebar track total agar bisa digeser
-    $track.css("width", `${total * 100}%`);
+    function renderIndicators(index){
+        $indicators.empty();
+        $.each(images, function (i, src) {
+            $indicators.append(i == index ? `<i class="fa fa-circle text-white banner-indicator" data-index="${i}"></i>` : `<i class="far fa-circle text-white banner-indicator" data-index="${i}"></i>`);
+        });
+    }
 
     // Fungsi update slide
     function updateCarousel(index) {
         $track.css("transform", `translateX(-${index * (100 / total)}%)`);
 
-        $indicators.empty();
-        $.each(images, function (i, src) {
-            $indicators.append(i == index ? `<i class="fa fa-circle text-white"></i>` : `<i class="far fa-circle text-white"></i>`);
-        });
+        renderIndicators(index)
     }
+
+    // Tambahkan semua gambar
+    $.each(images, function (i, src) {
+        $track.append(`
+            <img src="${src}" alt="Carousel ${i + 1}"  class="rounded-3" >
+        `);
+    });
+
+    renderIndicators(0);
+
+    $(document).on("click", ".banner-indicator", function () {
+        const index = $(this).data("index");
+        currentIndex = index;
+        updateCarousel(index);
+    });
+
+    // Set lebar track total agar bisa digeser
+    $track.css("width", `${total * 100}%`);
 
     // Next & Prev
     $(".carousel-next").on("click", function () {
@@ -273,15 +281,6 @@ $(document).ready(function () {
     $(".carousel-prev").on("click", function () {
         currentIndex = (currentIndex - 1 + total) % total;
         updateCarousel(currentIndex);
-    });
-
-    // Klik indikator
-
-    $indicators.each(function (i) {
-        $(this).on("click", function () {
-            currentIndex = i;
-            updateCarousel(currentIndex);
-        });
     });
 
     // Auto-slide setiap 4 detik
