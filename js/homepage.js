@@ -225,7 +225,7 @@ const dealers = [
 ];
 
 
-$(document).ready(function () {
+$(document).ready(async function () {
     const images = [
         "../assets/carousel-1.png",
         "../assets/carousel-1.png",
@@ -240,29 +240,37 @@ $(document).ready(function () {
     let currentIndex = 0;
     const total = images.length;
 
-    // Tambahkan semua gambar
-    $.each(images, function (i, src) {
-        $track.append(`
-            <img src="${src}" alt="Carousel ${i + 1}" 
-                 class="object-fit-cover rounded-3"
-                 style="width:100%; height:504px; ">
-        `);
-
-        $indicators.append(i == 0 ? `<i class="fa fa-circle text-white"></i>` : `<i class="far fa-circle text-white"></i>`);
-    });
-
-    // Set lebar track total agar bisa digeser
-    $track.css("width", `${total * 100}%`);
+    function renderIndicators(index){
+        $indicators.empty();
+        $.each(images, function (i, src) {
+            $indicators.append(i == index ? `<i class="fa fa-circle text-white banner-indicator" data-index="${i}"></i>` : `<i class="far fa-circle text-white banner-indicator" data-index="${i}"></i>`);
+        });
+    }
 
     // Fungsi update slide
     function updateCarousel(index) {
         $track.css("transform", `translateX(-${index * (100 / total)}%)`);
 
-        $indicators.empty();
-        $.each(images, function (i, src) {
-            $indicators.append(i == index ? `<i class="fa fa-circle text-white"></i>` : `<i class="far fa-circle text-white"></i>`);
-        });
+        renderIndicators(index)
     }
+
+    // Tambahkan semua gambar
+    $.each(images, function (i, src) {
+        $track.append(`
+            <img src="${src}" alt="Carousel ${i + 1}"  class="rounded-3" >
+        `);
+    });
+
+    renderIndicators(0);
+
+    $(document).on("click", ".banner-indicator", function () {
+        const index = $(this).data("index");
+        currentIndex = index;
+        updateCarousel(index);
+    });
+
+    // Set lebar track total agar bisa digeser
+    $track.css("width", `${total * 100}%`);
 
     // Next & Prev
     $(".carousel-next").on("click", function () {
@@ -275,29 +283,20 @@ $(document).ready(function () {
         updateCarousel(currentIndex);
     });
 
-    // Klik indikator
-
-    $indicators.each(function (i) {
-        $(this).on("click", function () {
-            currentIndex = i;
-            updateCarousel(currentIndex);
-        });
-    });
-
     // Auto-slide setiap 4 detik
-    // setInterval(function () {
-    //     currentIndex = (currentIndex + 1) % images.length;
-    //     updateCarousel(currentIndex);
-    // }, 3000);
+    setInterval(function () {
+        currentIndex = (currentIndex + 1) % images.length;
+        updateCarousel(currentIndex);
+    }, 3000);
 
     const $carousel_motor = $("#carousel-motor");
 
     $.each(motor_products, function (i, p) {
         const card = `
             <div class="card position-relative"  style="width: 30rem;border-radius: 25px;margin: 0 15px;">
-                <img src="${p.img}" class="card-img-top" alt="..." style="border-top-left-radius: 5.5%;border-top-right-radius: 5.5%;height: 397px; object-fit: cover;">
+                <img src="${p.img}" class="card-img-top" alt="..." style="border-top-left-radius: 5.5%;border-top-right-radius: 5.5%; object-fit: cover;">
                 <div class="card-body">
-                    <h5 class="card-title" style="font-size: 36px;color: #D40000;">${p.price}</h5>
+                    <h5 class="card-title section-price" style="font-size: 36px;color: #D40000;">${p.price}</h5>
                     <div class="card-text">
                         <span class="d-block" style="margin: 5px 0px;">${p.name}</span>
                         <span class="d-block" style="margin: 5px 0px;">${p.location}</span>
@@ -327,7 +326,7 @@ $(document).ready(function () {
                                 </tr>
                             </table>
                         </div>
-                        <span class="d-block" style="border: 2px solid #EFEFEF;border-radius: 30px;padding: 5px 20px;background-color: #EFEFEF;">
+                        <span class="d-block foot-card" style="border: 2px solid #EFEFEF;border-radius: 30px;padding: 5px 20px;background-color: #EFEFEF;">
                             <div class="row">
                                 <div class="col">
                                     <i class="fa fa-info-circle"></i> Cicilan Mulai
@@ -374,9 +373,9 @@ $(document).ready(function () {
     $.each(car_products, function (i, p) {
         const card = `
             <div class="card position-relative"  style="width: 30rem;border-radius: 25px;margin: 0 15px;">
-                <img src="${p.img}" class="card-img-top" alt="..." style="border-top-left-radius: 5.5%;border-top-right-radius: 5.5%;height: 397px; object-fit: cover;">
+                <img src="${p.img}" class="card-img-top" alt="..." style="border-top-left-radius: 5.5%;border-top-right-radius: 5.5%;object-fit: cover;">
                 <div class="card-body">
-                    <h5 class="card-title" style="font-size: 36px;color: #D40000;">${p.price}</h5>
+                    <h5 class="card-title section-price" style="font-size: 36px;color: #D40000;">${p.price}</h5>
                     <div class="card-text">
                         <span class="d-block" style="margin: 5px 0px;">${p.name}</span>
                         <span class="d-block" style="margin: 5px 0px;">${p.location}</span>
@@ -406,7 +405,7 @@ $(document).ready(function () {
                                 </tr>
                             </table>
                         </div>
-                        <span class="d-block" style="border: 2px solid #EFEFEF;border-radius: 30px;padding: 5px 20px;background-color: #EFEFEF;">
+                        <span class="d-block foot-card" style="border: 2px solid #EFEFEF;border-radius: 30px;padding: 5px 20px;background-color: #EFEFEF;">
                             <div class="row">
                                 <div class="col">
                                     <i class="fa fa-info-circle"></i> Cicilan Mulai
@@ -460,7 +459,7 @@ $(document).ready(function () {
                         <span class="text-center" style="width: 100%;">
                             <h5 class="card-title d-flex align-items-center justify-content-center" style="font-size: 30px;">
                                 ${t.rating} &nbsp;
-                                ${'<img src="../assets/icon/star.png" width="36px">'.repeat(5)}
+                                ${'<img src="../assets/icon/star.png" style="height:34px;">'.repeat(5)}
                             </h5>
                         </span>
                         <div class="card-text">
@@ -486,7 +485,7 @@ $(document).ready(function () {
         if (dealer.phone != '') {
             contact = `
                 <span class="fw-bold" style="color: #D40000;">
-                    <img src="../assets/icon/phone.png" alt="" width="24px"> ${dealer.phone}
+                    <img src="../assets/icon/phone.png" alt="" style="width:24px;height:24px;"> ${dealer.phone}
                 </span>
             `;
         }
@@ -495,7 +494,7 @@ $(document).ready(function () {
             contact = `
                 ${contact}
                 <span class="fw-bold" style="color: #D40000;">
-                    <img src="../assets/icon/whatsapp.png" alt="" width="24px"> ${dealer.whatsapp}
+                    <img src="../assets/icon/whatsapp.png" alt="" style="width:24px;height:24px;"> ${dealer.whatsapp}
                 </span>
             `;
         }
@@ -507,7 +506,7 @@ $(document).ready(function () {
                         style="border-top-left-radius: 5.5%;border-top-right-radius: 5.5%;
                         height: 397px;object-fit: cover;">
                     <div class="card-body">
-                        <h5 class="card-title" style="font-size: 30px;">
+                        <h5 class="card-title" style="font-size: 30px;margin: 5px 5px;">
                             ${dealer.name}
                         </h5>
                         <div class="card-text">
@@ -522,7 +521,7 @@ $(document).ready(function () {
                             <span class="d-block" style="margin: 25px 5px;color: #AFAFAF;cursor: pointer;">
                                 <div class="row">
                                     <div class="col-8">
-                                        <img src="../assets/icon/maps.png" alt="" width="24px">
+                                        <img src="../assets/icon/maps.png" alt="" style="width:30px;height:40px;">
                                         &nbsp;
                                         <a href="${dealer.maps}" target="_blank" style="text-decoration:none;color:#AFAFAF;">
                                             Lihat via Google Maps
