@@ -459,7 +459,7 @@ $(document).ready(async function () {
                         <span class="text-center" style="width: 100%;">
                             <h5 class="card-title d-flex align-items-center justify-content-center" style="font-size: 30px;">
                                 ${t.rating} &nbsp;
-                                ${'<img src="../assets/icon/star.png">'.repeat(5)}
+                                ${'<img src="../assets/icon/star.png" style="height:34px;">'.repeat(5)}
                             </h5>
                         </span>
                         <div class="card-text">
@@ -485,7 +485,7 @@ $(document).ready(async function () {
         if (dealer.phone != '') {
             contact = `
                 <span class="fw-bold" style="color: #D40000;">
-                    <img src="../assets/icon/phone.png" alt="" width="24px"> ${dealer.phone}
+                    <img src="../assets/icon/phone.png" alt="" style="width:24px;height:24px;"> ${dealer.phone}
                 </span>
             `;
         }
@@ -494,7 +494,7 @@ $(document).ready(async function () {
             contact = `
                 ${contact}
                 <span class="fw-bold" style="color: #D40000;">
-                    <img src="../assets/icon/whatsapp.png" alt="" width="24px"> ${dealer.whatsapp}
+                    <img src="../assets/icon/whatsapp.png" alt="" style="width:24px;height:24px;"> ${dealer.whatsapp}
                 </span>
             `;
         }
@@ -506,7 +506,7 @@ $(document).ready(async function () {
                         style="border-top-left-radius: 5.5%;border-top-right-radius: 5.5%;
                         height: 397px;object-fit: cover;">
                     <div class="card-body">
-                        <h5 class="card-title" style="font-size: 30px;">
+                        <h5 class="card-title" style="font-size: 30px;margin: 5px 5px;">
                             ${dealer.name}
                         </h5>
                         <div class="card-text">
@@ -521,7 +521,7 @@ $(document).ready(async function () {
                             <span class="d-block" style="margin: 25px 5px;color: #AFAFAF;cursor: pointer;">
                                 <div class="row">
                                     <div class="col-8">
-                                        <img src="../assets/icon/maps.png" alt="" width="24px">
+                                        <img src="../assets/icon/maps.png" alt="" style="width:30px;height:40px;">
                                         &nbsp;
                                         <a href="${dealer.maps}" target="_blank" style="text-decoration:none;color:#AFAFAF;">
                                             Lihat via Google Maps
