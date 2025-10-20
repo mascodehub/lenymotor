@@ -373,9 +373,9 @@ $(document).ready(async function () {
     $.each(car_products, function (i, p) {
         const card = `
             <div class="card position-relative"  style="width: 30rem;border-radius: 25px;margin: 0 15px;">
-                <img src="${p.img}" class="card-img-top" alt="..." style="border-top-left-radius: 5.5%;border-top-right-radius: 5.5%;height: 397px; object-fit: cover;">
+                <img src="${p.img}" class="card-img-top" alt="..." style="border-top-left-radius: 5.5%;border-top-right-radius: 5.5%;object-fit: cover;">
                 <div class="card-body">
-                    <h5 class="card-title" style="font-size: 36px;color: #D40000;">${p.price}</h5>
+                    <h5 class="card-title section-price" style="font-size: 36px;color: #D40000;">${p.price}</h5>
                     <div class="card-text">
                         <span class="d-block" style="margin: 5px 0px;">${p.name}</span>
                         <span class="d-block" style="margin: 5px 0px;">${p.location}</span>
@@ -405,7 +405,7 @@ $(document).ready(async function () {
                                 </tr>
                             </table>
                         </div>
-                        <span class="d-block" style="border: 2px solid #EFEFEF;border-radius: 30px;padding: 5px 20px;background-color: #EFEFEF;">
+                        <span class="d-block foot-card" style="border: 2px solid #EFEFEF;border-radius: 30px;padding: 5px 20px;background-color: #EFEFEF;">
                             <div class="row">
                                 <div class="col">
                                     <i class="fa fa-info-circle"></i> Cicilan Mulai

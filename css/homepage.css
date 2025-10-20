@@ -82,6 +82,22 @@
     height: 24px;
 }
 
+#section-3 #section-header{
+    padding: 50px 200px;
+}
+
+#section-3 h5{
+    font-size: 48px;
+}
+
+#section-3 .card img{
+    height: 397px;
+}
+
+#section-3 .card .card-detail img{
+    height: 24px;
+}
+
 #carousel-mobil .card,
 #carousel-motor .card {
     flex: 0 0 calc(33.33% - 20px);
@@ -157,6 +173,32 @@
     }
 
     #section-2 .card{
+        margin: 0 !important;
+    }
+
+    #section-3 #section-header{
+        padding: 20px;
+    }
+
+    #section-3 h5{
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    #section-3 .card img{
+        height: 246px;
+    }
+
+    #section-3 h5.section-price{
+        font-size: 24px !important;
+    }
+
+    #section-3 table,
+    #section-3 .foot-card{
+        font-size: 10px;
+    }
+
+    #section-3 .card{
         margin: 0 !important;
     }
 
