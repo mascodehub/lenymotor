@@ -459,7 +459,7 @@ $(document).ready(async function () {
                         <span class="text-center" style="width: 100%;">
                             <h5 class="card-title d-flex align-items-center justify-content-center" style="font-size: 30px;">
                                 ${t.rating} &nbsp;
-                                ${'<img src="../assets/icon/star.png" width="36px">'.repeat(5)}
+                                ${'<img src="../assets/icon/star.png">'.repeat(5)}
                             </h5>
                         </span>
                         <div class="card-text">
