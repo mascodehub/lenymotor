@@ -244,8 +244,8 @@ $(document).ready(function () {
     $.each(images, function (i, src) {
         $track.append(`
             <img src="${src}" alt="Carousel ${i + 1}" 
-                 class="object-fit-cover rounded-3"
-                 style="width:100%; height:504px; ">
+                class="rounded-3"
+            >
         `);
 
         $indicators.append(i == 0 ? `<i class="fa fa-circle text-white"></i>` : `<i class="far fa-circle text-white"></i>`);
@@ -285,10 +285,10 @@ $(document).ready(function () {
     });
 
     // Auto-slide setiap 4 detik
-    // setInterval(function () {
-    //     currentIndex = (currentIndex + 1) % images.length;
-    //     updateCarousel(currentIndex);
-    // }, 3000);
+    setInterval(function () {
+        currentIndex = (currentIndex + 1) % images.length;
+        updateCarousel(currentIndex);
+    }, 3000);
 
     const $carousel_motor = $("#carousel-motor");
 

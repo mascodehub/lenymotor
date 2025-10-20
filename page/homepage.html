@@ -13,7 +13,7 @@
 
 <body class="container-fluid m-0 p-0">
     <div class="fixed-top shadow-sm" id="navbar">
-        <div class="d-none d-md-flex">
+        <div class="d-none d-md-block">
             <div class="row" style="background-color: #D40000;">
                 <div class="col d-flex align-items-center justify-content-center text-center fw-bold text-white"
                     style="height: 30px;">
@@ -74,36 +74,61 @@
             </div>
         </div>
 
-        <div class="d-block d-md-none">
-            
+        <div class="mobile d-block d-md-none">
+            <div class="row" style="background-color: #D40000;">
+                <div class="col d-flex align-items-center justify-content-center text-center fw-bold text-white"
+                    style="height: 30px;overflow: hidden;">
+                    HATI-HATI PENIPUAN YANG MENGATASNAMAKAN LENY MOTOR! | KAMI TIDAK MENERIMA TRANSAKSI SELAIN DI KASIR.
+                </div>
+            </div>
+            <div class="row" style="height: 70px">
+                <div class="col d-flex align-items-center justify-content-center text-center">
+                    <a href="javascript:void(0)"><i class="fas fa-bars"></i></a>
+                </div>
+                <div class="col-7 d-flex align-items-center justify-content-center text-center">
+                    <img src="../assets/Leny Logo Horizontal 1.png" alt="">
+                </div>
+                <div class="col d-flex align-items-center justify-content-center text-center">
+                    <a href="javascript:void(0)"><i class="far fa-user"></i></a>
+                </div>
+            </div>
+            <hr class="m-0 p-0 mt-2">
+            <div class="row mt-1 mb-1 ms-2 me-2" style="height: 62px">
+                <div class="col d-flex align-items-center justify-content-center text-center">
+                    <div class="input-group">
+                        <span class="input-group-text" id="labelSearchMob" style="border-radius: 100px 0px 0px 100px ;"><i class="fa fa-search"></i></span>
+                        <input type="text" class="form-control" id="txtSearchMob" placeholder="Lagi cari kendaraan apa?"
+                            aria-label="Lagi cari kendaraan apa?" aria-describedby="labelSearchMob" style="background-color: #EFEFEF;border-radius: 0px 100px 100px 0px;">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
     <div id="main-content">
         <div id="content">
-            <div id="section-1" class="d-none d-md-flex align-items-center justify-content-center text-center position-relative">
-                <div id="carousel-banner" class="mt-5 mb-5 rounded-3 position-relative overflow-hidden"
-                    style="width: 100%; max-width: 1520px; height: 504px;">
+            <div id="section-1" class="d-flex align-items-center justify-content-center text-center position-relative">
+                <div id="carousel-banner" class="mt-0 mb-0 mt-md-5 mb-md-5 rounded-3 position-relative overflow-hidden"
+                    style="width: 100%; ">
 
                     <div class="overflow-hidden ">
                         <div class="carousel-track d-flex h-100 position-absolute top-0 start-0"
                             style="transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);">
-                            <!-- Gambar diisi jQuery -->
                         </div>
                     </div>
                 </div>
 
-                <div class="position-absolute top-50 start-0 translate-middle-y shadow carousel-prev"
-                    style="background-color: white;border-radius: 100%; padding: 9px 18px;font-size: 22pt; margin-left: 160px;cursor:pointer;z-index:10;">
+                <div class="position-absolute top-50 start-0 translate-middle-y shadow carousel-prev d-none d-md-flex"
+                    style="background-color: white;border-radius: 100%; padding: 12px 15px;font-size: 22pt; margin-left: 160px;cursor:pointer;z-index:10;">
                     <i class="fa fa-arrow-left text-dark"></i>
                 </div>
 
-                <div class="position-absolute top-50 end-0 translate-middle-y shadow carousel-next"
-                    style="background-color: white;border-radius: 100%; padding: 9px 18px;font-size: 22pt; margin-right: 160px;cursor:pointer;z-index:10;">
+                <div class="position-absolute top-50 end-0 translate-middle-y shadow carousel-next d-none d-md-flex"
+                    style="background-color: white;border-radius: 100%; padding: 12px 15px;font-size: 22pt; margin-right: 160px;cursor:pointer;z-index:10;">
                     <i class="fa fa-arrow-right text-dark"></i>
                 </div>
 
-                <div class="position-absolute top-100 start-50 translate-middle" style="margin-top: -90px;">
+                <div class="position-absolute top-100 start-50 translate-middle" id="carousel-point">
                     <div id="carousel-page" class="d-flex gap-2">
                     </div>
                 </div>
