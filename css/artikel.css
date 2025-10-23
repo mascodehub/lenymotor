@@ -4,7 +4,6 @@ body {
 
 /* banner style */
 .banner-grid {
-  display: grid;
   grid-template-columns: 2fr 1fr 1fr;
   grid-template-rows: repeat(2, 220px);
   margin-bottom: 30px;
@@ -53,14 +52,22 @@ body {
 
 @media (max-width: 768px) {
   .banner-grid {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 238px 238px;
+    grid-template-areas:
+      "first first"
+      "second third";
   }
-  .banner-item {
-    height: 200px;
+
+  #banner-0 {
+    grid-area: first;
   }
-  .banner-item:first-child {
-    grid-row: span 1;
+  #banner-1 {
+    grid-area: second;
+  }
+  #banner-2 {
+    grid-area: third;
   }
 }
 
@@ -94,6 +101,15 @@ body {
   font-weight: 600;
   color: #ff3b3b;
   border-bottom: 2px solid #ff3b3b;
+  width: 100%;
+  display: inline-block;
+}
+
+.sidebar-menu .menu-item {
+  font-weight: 600;
+  color: #d9d9d9;
+  border-bottom: 2px solid #d9d9d9;
+  width: 100%;
   display: inline-block;
 }
 
