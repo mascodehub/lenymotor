@@ -46,9 +46,9 @@
 
             <div id="section-2" style="margin: 0 9.5%;">
                 <div class="row" style="--bs-gutter-x:0">
-                    <div class="col border border-dark">
+                    <div class="col">
                         <div class="row">
-                            <div class="col">
+                            <div class="col" style="margin: 20px 0px;">
                                 <span>Beranda > <b>Motor Bekas</b></span>
                             </div>
                         </div>
@@ -56,14 +56,14 @@
                             <div class="col">
 
                                 <div style="background-color: white;width: 100%;border-radius: 30px;padding: 20px;">
-                                    <div class="row">
-                                        <div class="col">
-                                            Filter Pencarian
+                                    <div class="row mb-3">
+                                        <div class="col" >
+                                            <span style="font-size: 15pt;color: red;font-weight: bold;">Filter Pencarian</span>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col">
-                                            <div class="row">
+                                            <div class="row mb-3">
                                                 <div class="col">
                                                     Lokasi
                                                 </div>
@@ -86,7 +86,7 @@
 
                                             <hr>
 
-                                            <div class="row">
+                                            <div class="row mb-3">
                                                 <div class="col">
                                                     Merek
                                                 </div>
@@ -97,27 +97,27 @@
                                             <div class="row">
                                                 <div class="col">
                                                     <ul style="list-style-type: none;">
-                                                        <li style="margin-left: -32px;">
+                                                        <li class="mb-1" style="margin-left: -32px;">
                                                             <input type="checkbox" name="txtCheckbox" id="txtCheckbox">
                                                             Honda <i class="fa fa-angle-down text-dark"></i>
                                                         </li>
                                                         <li>
                                                             <ul style="list-style-type: none;">
-                                                                <li style="margin-left: -45px;">
+                                                                <li class="mb-1" style="margin-left: -45px;">
                                                                     <input type="checkbox" name="txtCheckbox"
                                                                         id="txtCheckbox">
                                                                     PCX
                                                                 </li>
                                                             </ul>
                                                             <ul style="list-style-type: none;">
-                                                                <li style="margin-left: -45px;">
+                                                                <li class="mb-1" style="margin-left: -45px;">
                                                                     <input type="checkbox" name="txtCheckbox"
                                                                         id="txtCheckbox">
                                                                     Vario
                                                                 </li>
                                                             </ul>
                                                             <ul style="list-style-type: none;">
-                                                                <li style="margin-left: -45px;">
+                                                                <li class="mb-1" style="margin-left: -45px;">
                                                                     <input type="checkbox" name="txtCheckbox"
                                                                         id="txtCheckbox">
                                                                     Scoopy
@@ -153,7 +153,10 @@
 
                                             <div class="row">
                                                 <div class="col">
-                                                    <input type="range" min="0" max="100" value="50" style="width: 100%;">
+                                                    <div class="mb-3">
+  <label for="customRange1" class="form-label">Harga Kendaraan</label>
+  <input type="range" class="form-range" min="0" max="100" id="customRange1">
+</div>
                                                 </div>
                                             </div>
 
