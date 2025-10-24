@@ -1,0 +1,48 @@
+#navbar a {
+    text-decoration: none;
+    color: black;
+}
+
+#navbar #menubar td:hover {
+    cursor: pointer;
+}
+
+#navbar #menubar td:hover a {
+    padding-top: 28px;
+    border-top: 2px solid red;
+}
+
+#navbarmob {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s ease-out;
+    pointer-events: none;
+    max-height: 0;
+    overflow: hidden;
+    z-index: 1060;
+}
+
+#navbarmob.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    max-height: 100%;
+}
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+    pointer-events: none;
+    z-index: 1050;
+}
+
+#overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
