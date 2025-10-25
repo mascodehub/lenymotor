@@ -6,3 +6,22 @@
 #main-content {
   padding-top: 250px;
 }
+
+/* breadcumb style */
+.breadcrumb-container {
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-size: 15px;
+}
+.breadcrumb a {
+  text-decoration: none;
+  color: #6c757d;
+}
+.breadcrumb a:hover {
+  text-decoration: underline;
+  color: #007bff;
+}
+.breadcrumb-item.active {
+  color: #000;
+  font-weight: 500;
+}

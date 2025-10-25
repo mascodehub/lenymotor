@@ -2,29 +2,51 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Artikel | Leny Motor</title>
+    <title>Article | Leny Motor</title>
     <link rel="stylesheet" href="../css/bootstrap.min.css" />
     <link rel="stylesheet" href="../css/fa-all.min.css" />
     <link rel="stylesheet" href="../css/global.css" />
-    <link rel="stylesheet" href="../css/artikel-detail.css" />
+    <link rel="stylesheet" href="../css/article-detail.css" />
   </head>
   <body>
     <div id="navbar"></div>
     <main class="container" id="main-content">
+      <!-- Breadcumb -->
+      <nav aria-label="breadcrumb" class="breadcrumb-container">
+        <ol class="breadcrumb mb-0">
+          <li class="breadcrumb-item">
+            <a href="../page/homepage.html">Beranda</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a href="../page/article.html">Leny Artikel</a>
+          </li>
+          <li
+            class="breadcrumb-item active"
+            aria-current="page"
+            id="breadcrumb-title"
+          >
+            Judul Article
+          </li>
+        </ol>
+      </nav>
+
       <div class="row">
         <!-- Article Detail-->
         <div class="col col-md-8 mb-4">
-          <h1>Cari Mobil Bekas Impian? Leny Motor punya Solusinya!</h1>
-          <p class="small text-secondary">17 Agustus 2025</p>
-          <p class="small">
+          <h1 id="article-title">
+            Cari Mobil Bekas Impian? Leny Motor punya Solusinya!
+          </h1>
+          <p id="article-date" class="small text-secondary">17 Agustus 2025</p>
+          <p id="article-author" class="small">
             Ditulis oleh <span class="fw-bold">Leny Motor</span>
           </p>
           <img
-            src="../assets/artikel-1.png"
+            id="article-img"
+            src="../assets/article-1.png"
             alt="Cari Mobil Bekas Impian? Leny Motor punya Solusinya!"
             width="100%"
           />
-          <div id="article-content" class="mt-4">
+          <div id="article-desc" class="mt-4">
             <p class="fw-bold mb-1">
               Leny Motor
               <span class="fw-normal"
@@ -84,7 +106,7 @@
               pleasure?"
             </p>
           </div>
-          <div class="d-flex gap-3 text-center">
+          <div id="article-tag" class="d-flex gap-3 text-center">
             <div class="btn border border-1 border-dark rounded-pill">
               <span class="small"> Kendaraan </span>
             </div>
@@ -99,12 +121,12 @@
 
         <!-- Article Recomendation -->
         <div class="col col-md-4">
-          <h5 class="mb-3 fw-semibold">Rekomendasi Artikel</h5>
+          <h5 class="mb-3 fw-semibold">Rekomendasi Article</h5>
           <div id="article-recomendation"></div>
         </div>
       </div>
       <div class="d-none d-md-block">
-        <h4 class="mb-3 fw-semibold">Artikel Populer</h4>
+        <h4 class="mb-3 fw-semibold">Article Populer</h4>
         <div id="article-populer" class="row"></div>
       </div>
     </main>
@@ -113,5 +135,5 @@
   <script src="../js/jquery-3.7.1.min.js"></script>
   <script src="../js/bootstrap.bundle.min.js"></script>
   <script src="../vendor/fontawesome-5.15.4/js/all.min.js"></script>
-  <script src="../js/artikel-detail.js"></script>
+  <script src="../js/article-detail.js"></script>
 </html>
