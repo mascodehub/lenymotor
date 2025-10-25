@@ -172,4 +172,6 @@ $(document).ready(async function () {
 
     sliderYearMin.on('input', updateYearValues);
     sliderYearMax.on('input', updateYearValues);
+
+    
 })

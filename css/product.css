@@ -103,3 +103,41 @@
     justify-content: space-between;
     margin-top: 10px;
 }
+
+/* #tbCategoryProduct tr td:hover span{
+    border-bottom: 2px solid #d40000;
+    cursor: pointer;
+    padding-bottom: 20px;
+} */
+
+#tbCategoryProduct tr td:hover{
+    border-bottom: 2px solid #d40000;
+    padding-bottom: 120px;
+    cursor: pointer;
+}
+
+#cardProduct h5 {
+    font-size: 48px;
+}
+
+#cardProduct .card img {
+    height: 397px;
+}
+
+#cardProduct .card .card-detail img {
+    height: 24px;
+}
+
+#cardProduct .card {
+    flex: 0 0 calc(33.33% - 20px);
+    min-width: 300px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    scroll-snap-align: start;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#cardProduct .card-body {
+    padding: 10px 15px;
+}
