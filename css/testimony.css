@@ -1,0 +1,83 @@
+body {
+  background-color: #f8f9fa;
+}
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, 394px);
+  gap: 0.5rem;
+  row-gap: 1rem;
+}
+
+/* Responsif: ubah jadi 1 kolom di mobile */
+@media (max-width: 768px) {
+  .testi-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    row-gap: 1rem;
+  }
+}
+
+/* Responsif: ubah jadi 1 kolom di mobile */
+@media (min-width: 768px) {
+  /* Area khusus untuk card pertama dan terakhir */
+  .testi-grid .card:nth-child(1) {
+    flex-direction: row;
+    grid-column: 1 / span 3;
+    grid-row: 1;
+  }
+
+  .testi-grid .card:nth-child(1) img {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .testi-grid .card:nth-child(1) .card-body {
+    flex: 1;
+  }
+
+  .testi-grid .card:nth-child(1) .card-text {
+    font-size: 1rem;
+  }
+
+  .testi-grid .card:nth-child(8) {
+    flex-direction: row;
+    grid-column: 4 / span 3;
+    grid-row: 2;
+  }
+
+  .testi-grid .card:nth-child(8) img {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .testi-grid .card:nth-child(8) .card-body {
+    flex: 1;
+  }
+
+  .testi-grid .card:nth-child(8) .card-text {
+    font-size: 1rem;
+  }
+}
+
+.card {
+  flex-direction: column;
+  border-radius: 1rem;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.card img {
+  height: 216px;
+  object-fit: cover;
+}
+
+.card > img {
+  flex: 1;
+}
+
+.card-text {
+  font-size: 0.8rem;
+}
