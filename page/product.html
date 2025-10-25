@@ -57,8 +57,9 @@
 
                                 <div style="background-color: white;width: 100%;border-radius: 30px;padding: 20px;">
                                     <div class="row mb-3">
-                                        <div class="col" >
-                                            <span style="font-size: 15pt;color: red;font-weight: bold;">Filter Pencarian</span>
+                                        <div class="col">
+                                            <span style="font-size: 15pt;color: red;font-weight: bold;">Filter
+                                                Pencarian</span>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -68,7 +69,7 @@
                                                     Lokasi
                                                 </div>
                                                 <div class="col" style="text-align: right;">
-                                                    <i class="fa fa-angle-down text-dark"></i>
+                                                    <i class="fa fa-angle-up text-dark"></i>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -91,7 +92,7 @@
                                                     Merek
                                                 </div>
                                                 <div class="col" style="text-align: right;">
-                                                    <i class="fa fa-angle-down text-dark"></i>
+                                                    <i class="fa fa-angle-up text-dark"></i>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -99,7 +100,7 @@
                                                     <ul style="list-style-type: none;">
                                                         <li class="mb-1" style="margin-left: -32px;">
                                                             <input type="checkbox" name="txtCheckbox" id="txtCheckbox">
-                                                            Honda <i class="fa fa-angle-down text-dark"></i>
+                                                            Honda <i class="fa fa-angle-up text-dark"></i>
                                                         </li>
                                                         <li>
                                                             <ul style="list-style-type: none;">
@@ -132,7 +133,7 @@
                                                     <ul style="list-style-type: none;">
                                                         <li style="margin-left: -32px;">
                                                             <input type="checkbox" name="txtCheckbox" id="txtCheckbox">
-                                                            Yamaha <i class="fa fa-angle-down text-dark"></i>
+                                                            Yamaha <i class="fa fa-angle-up text-dark"></i>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -142,38 +143,48 @@
 
                                             <hr>
 
-                                            <div class="row">
+                                            <div class="row mb-4">
                                                 <div class="col">
                                                     Rentang Harga
                                                 </div>
                                                 <div class="col" style="text-align: right;">
-                                                    <i class="fa fa-angle-down text-dark"></i>
+                                                    <i class="fa fa-angle-up text-dark"></i>
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="col">
                                                     <div class="mb-3">
-  <label for="customRange1" class="form-label">Harga Kendaraan</label>
-  <input type="range" class="form-range" min="0" max="100" id="customRange1">
-</div>
+                                                        <div class="range-slider">
+                                                            <div id="slider-price-track"></div>
+                                                            <input type="range" id="slider-price-min" min="6000000"
+                                                                max="40000000" value="6000000" step="100000">
+                                                            <input type="range" id="slider-price-max" min="6000000"
+                                                                max="40000000" value="40000000" step="100000">
+                                                        </div>
+                                                        <div class="range-values">
+                                                            <span id="range-price-min"></span>
+                                                            <span id="range-price-max"></span>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
 
                                             <hr>
-                                            
+
                                             <div class="row">
                                                 <div class="col">
                                                     Transmisi
                                                 </div>
                                                 <div class="col" style="text-align: right;">
-                                                    <i class="fa fa-angle-down text-dark"></i>
+                                                    <i class="fa fa-angle-up text-dark"></i>
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="col">
-                                                    <input type="checkbox" name="" id=""> Otomatis &nbsp; <input type="checkbox" name="" id=""> Manual
+                                                    <input type="checkbox" name="" id=""> Otomatis &nbsp; <input
+                                                        type="checkbox" name="" id=""> Manual
                                                 </div>
                                             </div>
 
@@ -184,44 +195,72 @@
                                                     Bahan Bakar
                                                 </div>
                                                 <div class="col" style="text-align: right;">
-                                                    <i class="fa fa-angle-down text-dark"></i>
+                                                    <i class="fa fa-angle-up text-dark"></i>
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="col">
-                                                    <input type="checkbox" name="" id=""> Bensin &nbsp; <input type="checkbox" name="" id=""> Listrik
+                                                    <input type="checkbox" name="" id=""> Bensin &nbsp; <input
+                                                        type="checkbox" name="" id=""> Listrik
                                                 </div>
                                             </div>
 
                                             <hr>
 
-                                            <div class="row">
+                                            <div class="row mb-4">
                                                 <div class="col">
                                                     Tahun Produksi
                                                 </div>
                                                 <div class="col" style="text-align: right;">
-                                                    <i class="fa fa-angle-down text-dark"></i>
+                                                    <i class="fa fa-angle-up text-dark"></i>
                                                 </div>
                                             </div>
 
                                             <div class="row">
                                                 <div class="col">
-                                                    <input type="range" min="0" max="100" value="50" style="width: 100%;">
+                                                    <div class="mb-3">
+                                                        <div class="range-slider">
+                                                            <div id="slider-year-track"></div>
+                                                            <input type="range" id="slider-year-min" min="1980"
+                                                                max="2030" value="1980" step="1">
+                                                            <input type="range" id="slider-year-max" min="1980"
+                                                                max="2030" value="2030" step="1">
+                                                        </div>
+                                                        <div class="range-values">
+                                                            <span id="range-year-min"></span>
+                                                            <span id="range-year-max"></span>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
 
-                                            <button class="btn" style="width: 100%;border: 2px solid red;border-radius: 30px;color: red;"><b>Reset</b></button>
-
+                                            <button class="btn"
+                                                style="width: 100%;border: 2px solid red;border-radius: 30px;color: red;">
+                                                <b>Reset</b>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
                     <div class="col-9 border border-dark">
-
+                        <div class="row">
+                            <div class="col">
+                                filter
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                category
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                product
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
