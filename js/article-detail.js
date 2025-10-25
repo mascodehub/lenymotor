@@ -5,12 +5,100 @@ $(document).ready(function () {
   const params = new URLSearchParams(window.location.search);
   const title = params.get("title");
 
-  // Jika ada parameter title, tampilkan di breadcrumb
+  // Menampilkan parameter title ke breadcumb
   if (title) {
     $("#breadcrumb-title").text(decodeURIComponent(title));
   }
 
-  // Contoh memuat data article
+  // Contoh data artikel detail
+  const articleData = {
+    title: "Cari Mobil Bekas Impian? Leny Motor punya Solusinya!",
+    date: "17 Agustus 2025",
+    author: "Leny Motor",
+    img: "../assets/article-1.png",
+    desc: `
+            <p class="fw-bold mb-1">
+              Leny Motor
+              <span class="fw-normal"
+                >- The standard Lorem Ipsum passage, used since the 1500s</span
+              >
+            </p>
+            <p class="mb-4">
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum."
+            </p>
+
+            <h5 class="fw-bold mt-4 mb-3">
+              Section 1.10.32 of "de Finibus Bonorum et Malorum", written by
+              Cicero in 45 BC
+            </h5>
+
+            <p class="mb-4">
+              "Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+              quae ab illo inventore veritatis et quasi architecto beatae vitae
+              dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
+              aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
+              eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam
+              est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
+              velit, sed quia non numquam eius modi tempora incidunt ut labore
+              et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima
+              veniam, quis nostrum exercitationem ullam corporis suscipit
+              laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem
+              vel eum iure reprehenderit qui in ea voluptate velit esse quam
+              nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo
+              voluptas nulla pariatur?"
+            </p>
+
+            <h6 class="fw-bold mt-4 mb-3">1914 translation by H. Rackham</h6>
+
+            <p>
+              "But I must explain to you how all this mistaken idea of
+              denouncing pleasure and praising pain was born and I will give you
+              a complete account of the system, and expound the actual teachings
+              of the great explorer of the truth, the master-builder of human
+              happiness. No one rejects, dislikes, or avoids pleasure itself,
+              because it is pleasure, but because those who do not know how to
+              pursue pleasure rationally encounter consequences that are
+              extremely painful. Nor again is there anyone who loves or pursues
+              or desires to obtain pain of itself, because it is pain, but
+              occasionally circumstances occur in which toil and pain can
+              procure him some great pleasure. To take a trivial example, which
+              of us ever undertakes laborious physical exercise, except to
+              obtain some advantage from it? But who has any right to find fault
+              with a man who chooses to enjoy a pleasure that has no annoying
+              consequences, or one who avoids a pain that produces no resultant
+              pleasure?"
+            </p>
+        `,
+    tags: ["Kendaraan", "Dealer Motor", "Berita Terbaru"],
+  };
+
+  // Setiap property dari object detail artikel diarahkan ke halaman html
+  $("#article-title").text(articleData.title);
+  $("#article-date").text(articleData.date);
+  $("#article-author").html(
+    `Ditulis oleh <span class="fw-bold">${articleData.author}</span>`
+  );
+  $("#article-img").attr("src", articleData.img).attr("alt", articleData.title);
+  $("#article-desc").html(articleData.desc);
+
+  // Render tag list
+  $("#article-tag").empty();
+  articleData.tags.forEach((tag) => {
+    $("#article-tag").append(`
+          <div class="btn border border-1 border-dark rounded-pill small px-3">
+            ${tag}
+          </div>
+        `);
+  });
+
+  // Contoh data artikel rekomendasi
   const articlesRecomendation = [
     {
       image: "../assets/article-1.png",
