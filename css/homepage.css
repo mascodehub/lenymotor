@@ -2,20 +2,6 @@
     padding-top: 210px;
 }
 
-#navbar a {
-    text-decoration: none;
-    color: black;
-}
-
-#navbar #menubar td:hover {
-    cursor: pointer;
-}
-
-#navbar #menubar td:hover a {
-    padding-top: 28px;
-    border-top: 2px solid red;
-}
-
 #footbar a {
     text-decoration: none;
     color: white;
@@ -35,6 +21,15 @@
     user-select: none;
 }
 
+.carousel-md-scroll {
+    display: flex;
+    scroll-behavior: smooth;
+    gap: 10px;
+    padding: 20px 0;
+    scroll-snap-type: x mandatory;
+    user-select: none;
+}
+
 .carousel-scroll::-webkit-scrollbar {
     height: 8px;
 }
@@ -44,7 +39,8 @@
     border-radius: 4px;
 }
 
-#carousel-banner{
+
+#carousel-banner {
     max-width: 80vw;
     height: 50vh;
 }
@@ -66,67 +62,31 @@
     border-radius: 10px;
 }
 
-#section-2 #section-header{
+#section-2 #section-header,
+#section-3 #section-header,
+#section-4 #section-header,
+#section-5 #section-header {
     padding: 50px 200px;
 }
 
-#section-2 h5{
+#section-2 h5,
+#section-3 h5,
+#section-4 h5,
+#section-5 h5 {
     font-size: 48px;
 }
 
-#section-2 .card img{
+#section-2 .card img,
+#section-3 .card img,
+#section-4 .card img,
+#section-5 .card img {
     height: 397px;
 }
 
-#section-2 .card .card-detail img{
-    height: 24px;
-}
-
-#section-3 #section-header{
-    padding: 50px 200px;
-}
-
-#section-3 h5{
-    font-size: 48px;
-}
-
-#section-3 .card img{
-    height: 397px;
-}
-
-#section-3 .card .card-detail img{
-    height: 24px;
-}
-
-#section-4 #section-header{
-    padding: 50px 200px;
-}
-
-#section-4 h5{
-    font-size: 48px;
-}
-
-#section-4 .card img{
-    height: 397px;
-}
-
-#section-4 .card .card-detail img{
-    height: 24px;
-}
-
-#section-5 #section-header{
-    padding: 50px 200px;
-}
-
-#section-5 h5{
-    font-size: 48px;
-}
-
-#section-5 .card img{
-    height: 397px;
-}
-
-#section-5 .card .card-detail img{
+#section-2 .card .card-detail img,
+#section-3 .card .card-detail img,
+#section-4 .card .card-detail img,
+#section-5 .card .card-detail img {
     height: 24px;
 }
 
@@ -163,17 +123,17 @@
 }
 
 @media only screen and (max-width: 600px) {
-    #section-1{
+    #section-1 {
         margin-bottom: 20px;
     }
 
-    #carousel-banner{
+    #carousel-banner {
         max-width: 90vw;
         height: 15vh;
     }
 
     .carousel-track img {
-        width: 100%;    
+        width: 100%;
         max-width: 90vw;
         height: calc(30vh - 15vh);
     }
@@ -182,114 +142,74 @@
         margin-top: -15px;
     }
 
-    #section-2 #section-header{
+    #section-2 #section-header,
+    #section-3 #section-header,
+    #section-4 #section-header,
+    #section-5 #section-header {
         padding: 20px;
     }
 
-    #section-2 h5{
+    #section-2 h5,
+    #section-3 h5,
+    #section-4 h5,
+    #section-5 h5 {
         font-size: 18px;
         font-weight: bold;
     }
 
-    #section-2 .card img{
+    #section-2 .card img,
+    #section-3 .card img,
+    #section-4 .card img,
+    #section-5 .card img {
         height: 246px;
     }
 
-    #section-2 h5.section-price{
+    #section-2 h5.section-price,
+    #section-3 h5.section-price,
+    #section-4 h5.section-price,
+    #section-5 h5.section-price {
         font-size: 24px !important;
+    }
+
+    #section-2 .card,
+    #section-3 .card,
+    #section-4 .card,
+    #section-5 .card {
+        margin: 0 !important;
     }
 
     #section-2 table,
-    #section-2 .foot-card{
-        font-size: 10px;
-    }
-
-    #section-2 .card{
-        margin: 0 !important;
-    }
-
-    #section-3 #section-header{
-        padding: 20px;
-    }
-
-    #section-3 h5{
-        font-size: 18px;
-        font-weight: bold;
-    }
-
-    #section-3 .card img{
-        height: 246px;
-    }
-
-    #section-3 h5.section-price{
-        font-size: 24px !important;
-    }
-
+    #section-2 .foot-card,
     #section-3 table,
-    #section-3 .foot-card{
-        font-size: 10px;
-    }
-
-    #section-3 .card{
-        margin: 0 !important;
-    }
-
-    #section-4 #section-header{
-        padding: 20px;
-    }
-
-    #section-4 h5{
-        font-size: 18px;
-        font-weight: bold;
-    }
-
-    #section-4 .card img{
-        height: 36px;
-    }
-
-    #section-4 h5.section-price{
-        font-size: 24px !important;
-    }
-
+    #section-3 .foot-card,
     #section-4 table,
-    #section-4 .foot-card{
-        font-size: 10px;
-    }
-
-    #section-4 .card{
-        margin: 10px !important;
-    }
-
-    #section-5 #section-header{
-        padding: 20px;
-    }
-
-    #section-5 h5{
-        font-size: 18px;
-        font-weight: bold;
-    }
-
-    #section-5 .card img{
-        height: 36px;
-    }
-
-    #section-5 h5.section-price{
-        font-size: 24px !important;
-    }
-
+    #section-4 .foot-card,
     #section-5 table,
-    #section-5 .foot-card{
+    #section-5 .foot-card {
         font-size: 10px;
     }
 
-    #section-5 .card{
-        margin: 10px !important;
-    }
-
-    #section-5 .card-title{
+    #section-5 .card-title {
         font-size: 20px !important;
     }
 
-    
+    .carousel-md-scroll {
+        display: flex;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        gap: 20px;
+        padding: 20px;
+        scroll-snap-type: x mandatory;
+        user-select: none;
+    }
 
-  }
+    .carousel-md-scroll::-webkit-scrollbar {
+        height: 8px;
+    }
+
+    .carousel-md-scroll::-webkit-scrollbar-thumb {
+        background: #ccc;
+        border-radius: 4px;
+    }
+
+}
