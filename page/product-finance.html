@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Produk Finance | Leny Motor</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/fa-all.min.css" />
+    <link rel="stylesheet" href="../css/global.css" />
+    <link rel="stylesheet" href="../css/product-finance.css" />
+  </head>
+  <body>
+    <div id="navbar"></div>
+    <main id="main-content">
+      <!-- Banner -->
+      <img
+        src="../assets/Leny-Motorproduk-finance 1.png"
+        alt="leny-finance"
+        width="100%"
+      />
+      <div class="logo-wrapper">
+        <div class="logo-track" id="finance-logo-track"></div>
+      </div>
+
+      <div class="container m-auto row">
+        <!-- Sidebar-->
+        <div class="d-none d-md-block col-md-3 mb-4">
+          <!-- Breadcumb -->
+          <nav aria-label="breadcrumb" class="breadcrumb-container">
+            <ol class="breadcrumb mb-0">
+              <li class="breadcrumb-item">
+                <a href="../page/homepage.html">Beranda</a>
+              </li>
+              <li
+                class="breadcrumb-item active"
+                aria-current="page"
+                id="breadcrumb-title"
+              >
+                Produk Finance
+              </li>
+            </ol>
+          </nav>
+
+          <div
+            class="sidebar p-3 shadow-sm bg-white"
+            style="border-radius: 1rem"
+          >
+            <div class="search-box mb-3 position-relative">
+              <input
+                type="text"
+                id="searchArticle"
+                class="form-control ps-5"
+                style="border-radius: 0.5rem"
+                placeholder="Cari Produk Finance"
+              />
+              <i
+                class="fa fa-search position-absolute top-50 start-0 translate-middle-y ms-3 text-muted"
+              ></i>
+            </div>
+
+            <div class="sidebar-menu">
+              <p class="menu-item active">Filter 1</p>
+              <p class="menu-item">Filter 2</p>
+              <p class="menu-item">Filter 3</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Produk List -->
+        <div class="col-md-9 pt-2">
+          <h5 class="mb-3 fw-semibold">
+            Menampilkan <span id="product-finance-length"></span> Produk
+          </h5>
+          <div class="finance-grid" id="finance-list"></div>
+          <div class="pagination-wrapper">
+            <button class="nav-btn" id="prevBtn">
+              <i class="fas fa-arrow-left"></i>
+            </button>
+            <div class="pagination-container" id="pagination"></div>
+            <button class="nav-btn" id="nextBtn">
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div id="footbar"></div>
+  </body>
+  <script src="../js/jquery-3.7.1.min.js"></script>
+  <script src="../js/bootstrap.bundle.min.js"></script>
+  <script src="../vendor/fontawesome-5.15.4/js/all.min.js"></script>
+  <script src="../js/product-finance.js"></script>
+</html>

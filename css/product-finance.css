@@ -1,0 +1,155 @@
+a {
+  text-decoration: none;
+  color: #111;
+  cursor: pointer;
+}
+
+body {
+  background-color: #f2f2f2;
+}
+
+/* banner style */
+
+/* logo list */
+.logo-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background: #fff;
+  padding: 3rem 0;
+  margin-bottom: 2rem;
+}
+
+.logo-track {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+  animation: scroll 30s linear infinite;
+}
+
+.logo-track img {
+  height: 30px;
+  width: auto;
+  object-fit: contain;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+  .logo-track {
+    gap: 30px;
+    animation: scroll-mobile 20s linear infinite;
+  }
+
+  @keyframes scroll-mobile {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+}
+
+/* sidebar style */
+.sidebar {
+  font-size: 0.95rem;
+}
+
+.search-box input {
+  border: 1px solid #ddd;
+  transition: 0.2s;
+}
+
+.search-box input:focus {
+  border-color: #ff3b3b;
+  box-shadow: 0 0 0 0.2rem rgba(255, 59, 59, 0.15);
+}
+
+.sidebar-menu .menu-item {
+  padding: 8px 0;
+  color: #aaa;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.sidebar-menu .menu-item:hover {
+  color: #ff3b3b;
+}
+
+.sidebar-menu .menu-item.active {
+  font-weight: 600;
+  color: #ff3b3b;
+  border-bottom: 2px solid #ff3b3b;
+  width: 100%;
+  display: inline-block;
+}
+
+.sidebar-menu .menu-item {
+  font-weight: 600;
+  color: #d9d9d9;
+  border-bottom: 2px solid #d9d9d9;
+  width: 100%;
+  display: inline-block;
+}
+
+/* article style */
+.finance-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: auto;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .finance-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .finance-title {
+    height: 3rem;
+  }
+}
+
+.finance-card {
+  background: white;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.finance-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.finance-card img {
+  height: 60px;
+  object-fit: contain;
+}
+
+.finance-title {
+  font-weight: 600;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+.finance-desc {
+  color: #6c757d;
+  font-size: 0.6rem;
+  min-height: 60px;
+}
+
+.finance-footer {
+  font-size: 0.6rem;
+  color: #999;
+}
