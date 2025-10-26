@@ -174,6 +174,7 @@ $(document).ready(async function () {
 
     const motor_products = [
         {
+            id: "1dce60c2-0191-4f2e-b5b0-b8d8b7d6d3a1",
             img: "../assets/Product-1.png",
             price: "Rp. 18,000,000",
             name: "Honda PCX 150",
@@ -185,6 +186,7 @@ $(document).ready(async function () {
             cicilan: "Rp 700rb / Bulan"
         },
         {
+            id: "b2f642a3-1b57-44e5-9cb8-bb4f3db46e0c",
             img: "../assets/Product-1.png",
             price: "Rp. 15,500,000",
             name: "Yamaha NMAX 155",
@@ -196,6 +198,7 @@ $(document).ready(async function () {
             cicilan: "Rp 650rb / Bulan"
         },
         {
+            id: "f5ae7a0f-91d1-4d63-93dc-50ce02b07d1e",
             img: "../assets/Product-1.png",
             price: "Rp. 13,000,000",
             name: "Honda Vario 150",
@@ -207,6 +210,7 @@ $(document).ready(async function () {
             cicilan: "Rp 550rb / Bulan"
         },
         {
+            id: "c2d8a15a-14b3-4d05-bd25-ecf5d8a1d38b",
             img: "../assets/Product-1.png",
             price: "Rp. 9,800,000",
             name: "Yamaha Mio M3",
@@ -218,6 +222,7 @@ $(document).ready(async function () {
             cicilan: "Rp 400rb / Bulan"
         },
         {
+            id: "2aaf9439-2c36-48d7-b84a-8ccfd29e4f4b",
             img: "../assets/Product-1.png",
             price: "Rp. 18,000,000",
             name: "Honda PCX 150",
@@ -229,6 +234,7 @@ $(document).ready(async function () {
             cicilan: "Rp 700rb / Bulan"
         },
         {
+            id: "c6c1ff4f-8498-4f5f-95cc-0999e6af0cb3",
             img: "../assets/Product-1.png",
             price: "Rp. 15,500,000",
             name: "Yamaha NMAX 155",
@@ -240,6 +246,7 @@ $(document).ready(async function () {
             cicilan: "Rp 650rb / Bulan"
         },
         {
+            id: "fcb2b2cb-3b3b-4b89-b853-37db5c89b35d",
             img: "../assets/Product-1.png",
             price: "Rp. 13,000,000",
             name: "Honda Vario 150",
@@ -251,6 +258,7 @@ $(document).ready(async function () {
             cicilan: "Rp 550rb / Bulan"
         },
         {
+            id: "0dd08aef-1a5a-4a6f-bd7f-bf38a74d3ef6",
             img: "../assets/Product-1.png",
             price: "Rp. 9,800,000",
             name: "Yamaha Mio M3",
@@ -262,6 +270,7 @@ $(document).ready(async function () {
             cicilan: "Rp 400rb / Bulan"
         },
         {
+            id: "40e1db12-83cb-4a7f-b7f8-26c2e65a4b42",
             img: "../assets/Product-1.png",
             price: "Rp. 9,800,000",
             name: "Yamaha Mio M3",
@@ -273,6 +282,7 @@ $(document).ready(async function () {
             cicilan: "Rp 400rb / Bulan"
         },
         {
+            id: "6c1d7a2c-0c13-4e55-94d3-318f94f799e2",
             img: "../assets/Product-1.png",
             price: "Rp. 18,000,000",
             name: "Honda PCX 150",
@@ -284,6 +294,7 @@ $(document).ready(async function () {
             cicilan: "Rp 700rb / Bulan"
         },
         {
+            id: "bba6b9f8-063a-44d7-8b10-70b6b79b9c4f",
             img: "../assets/Product-1.png",
             price: "Rp. 15,500,000",
             name: "Yamaha NMAX 155",
@@ -295,6 +306,7 @@ $(document).ready(async function () {
             cicilan: "Rp 650rb / Bulan"
         },
         {
+            id: "9d47e7a8-7ff3-47e9-b283-427fb23907ad",
             img: "../assets/Product-1.png",
             price: "Rp. 13,000,000",
             name: "Honda Vario 150",
@@ -306,6 +318,7 @@ $(document).ready(async function () {
             cicilan: "Rp 550rb / Bulan"
         },
         {
+            id: "0b4d24f8-67cf-4c9f-96c0-219f58d6a4d0",
             img: "../assets/Product-1.png",
             price: "Rp. 9,800,000",
             name: "Yamaha Mio M3",
@@ -317,6 +330,7 @@ $(document).ready(async function () {
             cicilan: "Rp 400rb / Bulan"
         },
         {
+            id: "f4a92c32-1691-4b5c-a18c-72ff7c230d6c",
             img: "../assets/Product-1.png",
             price: "Rp. 18,000,000",
             name: "Honda PCX 150",
@@ -328,6 +342,7 @@ $(document).ready(async function () {
             cicilan: "Rp 700rb / Bulan"
         },
         {
+            id: "3a174a04-fc3d-46da-b0e5-b9d7a08d4ed1",
             img: "../assets/Product-1.png",
             price: "Rp. 15,500,000",
             name: "Yamaha NMAX 155",
@@ -339,6 +354,7 @@ $(document).ready(async function () {
             cicilan: "Rp 650rb / Bulan"
         },
         {
+            id: "df43df7e-bb5a-4031-a6b5-7c40a30c6ee8",
             img: "../assets/Product-1.png",
             price: "Rp. 13,000,000",
             name: "Honda Vario 150",
@@ -350,6 +366,7 @@ $(document).ready(async function () {
             cicilan: "Rp 550rb / Bulan"
         },
         {
+            id: "1b9fd894-11b2-41db-8b77-9cb1d0d3ad73",
             img: "../assets/Product-1.png",
             price: "Rp. 9,800,000",
             name: "Yamaha Mio M3",
@@ -361,8 +378,9 @@ $(document).ready(async function () {
             cicilan: "Rp 400rb / Bulan"
         },
         {
+            id: "4a6a37ff-18b7-4b7d-8610-27cc98ee825e",
             img: "../assets/Product-1.png",
-            price: "Rp. 9,800,000",
+            price: "Rp. 9,400,000",
             name: "Yamaha Mio M3",
             location: "LENY NGASEM",
             year: "2017",
@@ -372,6 +390,7 @@ $(document).ready(async function () {
             cicilan: "Rp 400rb / Bulan"
         }
     ];
+
 
     $('#spanFilterProduct').text(`Menampilkan ${motor_products.length} Motor`);
 
@@ -387,73 +406,79 @@ $(document).ready(async function () {
         currentData.forEach((p) => {
             const card = `
                 <div class="col-4">
-                    <div class="card position-relative" style="border-radius: 25px;margin:0 0 30px 0">
-                        <img src="${p.img}" class="card-img-top" alt="..."
-                            style="border-top-left-radius: 5.5%;border-top-right-radius: 5.5%; object-fit: cover;">
-                        <div class="card-body">
-                            <h5 class="card-title section-price"
-                                style="font-size: 24px;color: #D40000;">
-                                Rp. ${p.price}</h5>
-                            <div class="card-text">
-                                <span class="d-block" style="margin: 5px 0px;">${p.name}</span>
-                                <span class="d-block" style="margin: 5px 0px;">${p.location}</span>
-                                <div class="card-detail mb-3"
-                                    style="border: 2px solid #EFEFEF;border-radius: 10px;padding: 20px 0px;">
-                                    <table style="width: 100%;font-size: 10pt;">
-                                        <tr class="text-center">
-                                            <td>
-                                                <span
-                                                    class="d-flex align-items-center justify-content-center text-center">
-                                                    <img src="../assets/icon/date.png"
-                                                        style="width: 20px;height: 20px;">&nbsp;${p.year}
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <span
-                                                    class="d-flex align-items-center justify-content-center text-center">
-                                                    <img src="../assets/icon/road.png"
-                                                        style="width: 20px;height: 20px;">&nbsp;${p.km}
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <span
-                                                    class="d-flex align-items-center justify-content-center text-center">
-                                                    <img src="../assets/icon/transmission.png"
-                                                        style="width: 20px;height: 20px;">&nbsp;${p.transmission}
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <span
-                                                    class="d-flex align-items-center justify-content-center text-center">
-                                                    <i class="fa fa-circle"
-                                                        style="color: #D40000;"></i>&nbsp;${p.color}
-                                                </span>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <span class="d-block foot-card"
-                                    style="border: 2px solid #EFEFEF;border-radius: 30px;padding: 5px 20px;background-color: #EFEFEF;">
-                                    <div class="row">
-                                        <div class="col">
-                                            <i class="fa fa-info-circle"></i> Cicilan Mulai
-                                        </div>
-                                        <div class="col" style="text-align: right;">
-                                            ${p.cicilan}
-                                        </div>
+                    <a href="product-detail.html?category=motor&product=${p.id}" style="text-decoration: none;color: black;cursor:default">
+                        <div class="card position-relative" style="border-radius: 25px;margin:0 0 30px 0">
+                            <img src="${p.img}" class="card-img-top" alt="..." style="border-top-left-radius: 5.5%;border-top-right-radius: 5.5%; object-fit: cover;">
+                            <div class="card-body">
+                                <h5 class="card-title section-price" style="font-size: 24px;color: #D40000;">
+                                    Rp. ${p.price}</h5>
+                                <div class="card-text">
+                                    <span class="d-block" style="margin: 5px 0px;">${p.name}</span>
+                                    <span class="d-block" style="margin: 5px 0px;">${p.location}</span>
+                                    <div class="card-detail mb-3" style="border: 2px solid #EFEFEF;border-radius: 10px;padding: 20px 0px;">
+                                        <table style="width: 100%;font-size: 10pt;">
+                                            <tr class="text-center">
+                                                <td>
+                                                    <span
+                                                        class="d-flex align-items-center justify-content-center text-center">
+                                                        <img src="../assets/icon/date.png" style="width: 20px;height: 20px;">&nbsp;${p.year}
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <span
+                                                        class="d-flex align-items-center justify-content-center text-center">
+                                                        <img src="../assets/icon/road.png" style="width: 20px;height: 20px;">&nbsp;${p.km}
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <span
+                                                        class="d-flex align-items-center justify-content-center text-center">
+                                                        <img src="../assets/icon/transmission.png" style="width: 20px;height: 20px;">&nbsp;${p.transmission}
+                                                    </span>
+                                                </td>
+                                                <td>
+                                                    <span
+                                                        class="d-flex align-items-center justify-content-center text-center">
+                                                        <i class="fa fa-circle" style="color: #D40000;"></i>&nbsp;${p.color}
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </table>
                                     </div>
-                                </span>
+                                    <span class="d-block foot-card" style="border: 2px solid #EFEFEF;border-radius: 30px;padding: 5px 20px;background-color: #EFEFEF;">
+                                        <div class="row">
+                                            <div class="col">
+                                                <i class="fa fa-info-circle"></i> Cicilan Mulai
+                                            </div>
+                                            <div class="col" style="text-align: right;">
+                                                ${p.cicilan}
+                                            </div>
+                                        </div>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="position-absolute top-0 start-100 translate-middle shadow" style="background-color: white;border-radius: 100%; padding: 5px 10px;font-size: 18pt;margin-left: -40px;margin-top: 40px;cursor: pointer;z-index:2">
+                                <i class="far fa-star text-dark"></i>
                             </div>
                         </div>
-                        <div class="position-absolute top-0 start-100 translate-middle shadow"
-                            style="background-color: white;border-radius: 100%; padding: 5px 10px;font-size: 18pt;margin-left: -40px;margin-top: 40px;">
-                            <i class="far fa-star text-dark" style="cursor: pointer;"></i>
-                        </div>
-                    </div>
+                    </a>
                 </div>
             `;
 
             $('#cardProduct').append(card);
+        });
+
+        $(document).on('click', '.fa-star', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const icon = $(this);
+
+            if (icon.hasClass('far')) {
+                icon.removeClass('far text-dark').addClass('fas text-danger');
+            } else {
+                icon.removeClass('fas text-danger').addClass('far text-dark');
+            }
         });
     }
 
