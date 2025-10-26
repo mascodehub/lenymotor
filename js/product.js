@@ -65,7 +65,6 @@ $(document).ready(async function () {
         updateCarousel(currentIndex);
     }, 3000);
 
-
     const sliderPriceMin = $('#slider-price-min');
     const sliderPriceMax = $('#slider-price-max');
     const rangePriceMin = $('#range-price-min');
@@ -82,7 +81,7 @@ $(document).ready(async function () {
         const maxVal = parseInt(sliderPriceMax.val(), 10);
         const minAllowed = parseInt(sliderPriceMin.attr('min'), 10);
         const maxAllowed = parseInt(sliderPriceMin.attr('max'), 10);
-        const range = maxAllowed - minAllowed || 1; 
+        const range = maxAllowed - minAllowed || 1;
 
         let percent1 = ((minVal - minAllowed) / range) * 100;
         let percent2 = ((maxVal - minAllowed) / range) * 100;
@@ -132,7 +131,7 @@ $(document).ready(async function () {
         const maxVal = parseInt(sliderYearMax.val(), 10);
         const minAllowed = parseInt(sliderYearMin.attr('min'), 10);
         const maxAllowed = parseInt(sliderYearMin.attr('max'), 10);
-        const range = maxAllowed - minAllowed || 1; 
+        const range = maxAllowed - minAllowed || 1;
 
         let percent1 = ((minVal - minAllowed) / range) * 100;
         let percent2 = ((maxVal - minAllowed) / range) * 100;
@@ -141,7 +140,7 @@ $(document).ready(async function () {
         percent2 = Math.max(0, Math.min(100, percent2));
 
         console.log(trackYear);
-        
+
 
         trackYear.css('background',
             `linear-gradient(to right, #ccc ${percent1}%, #d40000 ${percent1}%, #d40000 ${percent2}%, #ccc ${percent2}%)`
@@ -173,5 +172,344 @@ $(document).ready(async function () {
     sliderYearMin.on('input', updateYearValues);
     sliderYearMax.on('input', updateYearValues);
 
-    
+    const motor_products = [
+        {
+            img: "../assets/Product-1.png",
+            price: "Rp. 18,000,000",
+            name: "Honda PCX 150",
+            location: "LENY NGASEM",
+            year: "2020",
+            km: "12.500 KM",
+            transmission: "Matic",
+            color: "Hitam",
+            cicilan: "Rp 700rb / Bulan"
+        },
+        {
+            img: "../assets/Product-1.png",
+            price: "Rp. 15,500,000",
+            name: "Yamaha NMAX 155",
+            location: "LENY NGASEM",
+            year: "2019",
+            km: "10.000 KM",
+            transmission: "Matic",
+            color: "Putih",
+            cicilan: "Rp 650rb / Bulan"
+        },
+        {
+            img: "../assets/Product-1.png",
+            price: "Rp. 13,000,000",
+            name: "Honda Vario 150",
+            location: "LENY NGASEM",
+            year: "2018",
+            km: "15.000 KM",
+            transmission: "Matic",
+            color: "Merah",
+            cicilan: "Rp 550rb / Bulan"
+        },
+        {
+            img: "../assets/Product-1.png",
+            price: "Rp. 9,800,000",
+            name: "Yamaha Mio M3",
+            location: "LENY NGASEM",
+            year: "2017",
+            km: "20.000 KM",
+            transmission: "Matic",
+            color: "Biru",
+            cicilan: "Rp 400rb / Bulan"
+        },
+        {
+            img: "../assets/Product-1.png",
+            price: "Rp. 18,000,000",
+            name: "Honda PCX 150",
+            location: "LENY NGASEM",
+            year: "2020",
+            km: "12.500 KM",
+            transmission: "Matic",
+            color: "Hitam",
+            cicilan: "Rp 700rb / Bulan"
+        },
+        {
+            img: "../assets/Product-1.png",
+            price: "Rp. 15,500,000",
+            name: "Yamaha NMAX 155",
+            location: "LENY NGASEM",
+            year: "2019",
+            km: "10.000 KM",
+            transmission: "Matic",
+            color: "Putih",
+            cicilan: "Rp 650rb / Bulan"
+        },
+        {
+            img: "../assets/Product-1.png",
+            price: "Rp. 13,000,000",
+            name: "Honda Vario 150",
+            location: "LENY NGASEM",
+            year: "2018",
+            km: "15.000 KM",
+            transmission: "Matic",
+            color: "Merah",
+            cicilan: "Rp 550rb / Bulan"
+        },
+        {
+            img: "../assets/Product-1.png",
+            price: "Rp. 9,800,000",
+            name: "Yamaha Mio M3",
+            location: "LENY NGASEM",
+            year: "2017",
+            km: "20.000 KM",
+            transmission: "Matic",
+            color: "Biru",
+            cicilan: "Rp 400rb / Bulan"
+        },
+        {
+            img: "../assets/Product-1.png",
+            price: "Rp. 9,800,000",
+            name: "Yamaha Mio M3",
+            location: "LENY NGASEM",
+            year: "2017",
+            km: "20.000 KM",
+            transmission: "Matic",
+            color: "Biru",
+            cicilan: "Rp 400rb / Bulan"
+        },
+        {
+            img: "../assets/Product-1.png",
+            price: "Rp. 18,000,000",
+            name: "Honda PCX 150",
+            location: "LENY NGASEM",
+            year: "2020",
+            km: "12.500 KM",
+            transmission: "Matic",
+            color: "Hitam",
+            cicilan: "Rp 700rb / Bulan"
+        },
+        {
+            img: "../assets/Product-1.png",
+            price: "Rp. 15,500,000",
+            name: "Yamaha NMAX 155",
+            location: "LENY NGASEM",
+            year: "2019",
+            km: "10.000 KM",
+            transmission: "Matic",
+            color: "Putih",
+            cicilan: "Rp 650rb / Bulan"
+        },
+        {
+            img: "../assets/Product-1.png",
+            price: "Rp. 13,000,000",
+            name: "Honda Vario 150",
+            location: "LENY NGASEM",
+            year: "2018",
+            km: "15.000 KM",
+            transmission: "Matic",
+            color: "Merah",
+            cicilan: "Rp 550rb / Bulan"
+        },
+        {
+            img: "../assets/Product-1.png",
+            price: "Rp. 9,800,000",
+            name: "Yamaha Mio M3",
+            location: "LENY NGASEM",
+            year: "2017",
+            km: "20.000 KM",
+            transmission: "Matic",
+            color: "Biru",
+            cicilan: "Rp 400rb / Bulan"
+        },
+        {
+            img: "../assets/Product-1.png",
+            price: "Rp. 18,000,000",
+            name: "Honda PCX 150",
+            location: "LENY NGASEM",
+            year: "2020",
+            km: "12.500 KM",
+            transmission: "Matic",
+            color: "Hitam",
+            cicilan: "Rp 700rb / Bulan"
+        },
+        {
+            img: "../assets/Product-1.png",
+            price: "Rp. 15,500,000",
+            name: "Yamaha NMAX 155",
+            location: "LENY NGASEM",
+            year: "2019",
+            km: "10.000 KM",
+            transmission: "Matic",
+            color: "Putih",
+            cicilan: "Rp 650rb / Bulan"
+        },
+        {
+            img: "../assets/Product-1.png",
+            price: "Rp. 13,000,000",
+            name: "Honda Vario 150",
+            location: "LENY NGASEM",
+            year: "2018",
+            km: "15.000 KM",
+            transmission: "Matic",
+            color: "Merah",
+            cicilan: "Rp 550rb / Bulan"
+        },
+        {
+            img: "../assets/Product-1.png",
+            price: "Rp. 9,800,000",
+            name: "Yamaha Mio M3",
+            location: "LENY NGASEM",
+            year: "2017",
+            km: "20.000 KM",
+            transmission: "Matic",
+            color: "Biru",
+            cicilan: "Rp 400rb / Bulan"
+        },
+        {
+            img: "../assets/Product-1.png",
+            price: "Rp. 9,800,000",
+            name: "Yamaha Mio M3",
+            location: "LENY NGASEM",
+            year: "2017",
+            km: "20.000 KM",
+            transmission: "Matic",
+            color: "Biru",
+            cicilan: "Rp 400rb / Bulan"
+        }
+    ];
+
+    $('#spanFilterProduct').text(`Menampilkan ${motor_products.length} Motor`);
+
+    let totalPages = motor_products.length / 9;
+    let currentPage = 1;
+
+    function renderData() {
+        const startIndex = (currentPage - 1) * 9;
+        const endIndex = startIndex + 9;
+        const currentData = motor_products.slice(startIndex, endIndex);
+
+        $("#cardProduct").html("");
+        currentData.forEach((p) => {
+            const card = `
+                <div class="col-4">
+                    <div class="card position-relative" style="border-radius: 25px;margin:0 0 30px 0">
+                        <img src="${p.img}" class="card-img-top" alt="..."
+                            style="border-top-left-radius: 5.5%;border-top-right-radius: 5.5%; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title section-price"
+                                style="font-size: 24px;color: #D40000;">
+                                Rp. ${p.price}</h5>
+                            <div class="card-text">
+                                <span class="d-block" style="margin: 5px 0px;">${p.name}</span>
+                                <span class="d-block" style="margin: 5px 0px;">${p.location}</span>
+                                <div class="card-detail mb-3"
+                                    style="border: 2px solid #EFEFEF;border-radius: 10px;padding: 20px 0px;">
+                                    <table style="width: 100%;font-size: 10pt;">
+                                        <tr class="text-center">
+                                            <td>
+                                                <span
+                                                    class="d-flex align-items-center justify-content-center text-center">
+                                                    <img src="../assets/icon/date.png"
+                                                        style="width: 20px;height: 20px;">&nbsp;${p.year}
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span
+                                                    class="d-flex align-items-center justify-content-center text-center">
+                                                    <img src="../assets/icon/road.png"
+                                                        style="width: 20px;height: 20px;">&nbsp;${p.km}
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span
+                                                    class="d-flex align-items-center justify-content-center text-center">
+                                                    <img src="../assets/icon/transmission.png"
+                                                        style="width: 20px;height: 20px;">&nbsp;${p.transmission}
+                                                </span>
+                                            </td>
+                                            <td>
+                                                <span
+                                                    class="d-flex align-items-center justify-content-center text-center">
+                                                    <i class="fa fa-circle"
+                                                        style="color: #D40000;"></i>&nbsp;${p.color}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <span class="d-block foot-card"
+                                    style="border: 2px solid #EFEFEF;border-radius: 30px;padding: 5px 20px;background-color: #EFEFEF;">
+                                    <div class="row">
+                                        <div class="col">
+                                            <i class="fa fa-info-circle"></i> Cicilan Mulai
+                                        </div>
+                                        <div class="col" style="text-align: right;">
+                                            ${p.cicilan}
+                                        </div>
+                                    </div>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="position-absolute top-0 start-100 translate-middle shadow"
+                            style="background-color: white;border-radius: 100%; padding: 5px 10px;font-size: 18pt;margin-left: -40px;margin-top: 40px;">
+                            <i class="far fa-star text-dark" style="cursor: pointer;"></i>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            $('#cardProduct').append(card);
+        });
+    }
+
+    function renderPagination() {
+        const pagination = $(".pagination");
+        pagination.empty();
+
+        let pages = [];
+
+        if (totalPages <= 9) {
+            for (let i = 1; i <= totalPages; i++) pages.push(i);
+        } else {
+            if (currentPage <= 4) {
+                pages = [1, 2, 3, 4, 5, "...", totalPages];
+            } else if (currentPage >= totalPages - 3) {
+                pages = [1, "...", totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages];
+            } else {
+                pages = [1, "...", currentPage - 1, currentPage, currentPage + 1, "...", totalPages];
+            }
+        }
+
+        pages.forEach(p => {
+            if (p === "...") {
+                pagination.append(`<li class="dots">...</li>`);
+            } else {
+                pagination.append(`<li class="${p === currentPage ? 'active' : ''}">${p}</li>`);
+            }
+        });
+
+        $(".prev").prop("disabled", currentPage === 1);
+        $(".next").prop("disabled", currentPage === totalPages);
+
+        renderData();
+    }
+
+    renderPagination();
+
+    $(document).on("click", ".pagination li", function () {
+        const text = $(this).text();
+        if (text === "..." || parseInt(text) === currentPage) return;
+        currentPage = parseInt(text);
+        renderPagination();
+
+    });
+
+    $(".prev").click(function () {
+        if (currentPage > 1) {
+            currentPage--;
+            renderPagination();
+        }
+    });
+
+    $(".next").click(function () {
+        if (currentPage < totalPages) {
+            currentPage++;
+            renderPagination();
+        }
+    });
 })
