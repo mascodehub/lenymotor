@@ -1,24 +1,28 @@
+let CAROUSEL_IMAGES, PRODUCT_IMAGES, PRODUCT_FILTER;
+
+function initData(){
+    return $.getJSON('../data/product.json', function(data) {
+        CAROUSEL_IMAGES = data.carousel_images; 
+        PRODUCT_IMAGES = data.product_images;
+        PRODUCT_FILTER = data.product_filter;
+    });
+}
+
 $(document).ready(async function () {
+    await initData();
+
     $("#navbar").load("../components/navbar.html");
     $("#footbar").load("../components/footbar.html");
-
-    const images = [
-        "../assets/carousel-1.png",
-        "../assets/carousel-1.png",
-        "../assets/carousel-1.png",
-        "../assets/carousel-1.png",
-        "../assets/carousel-1.png"
-    ];
 
     const carouselTrack = $("#carousel-banner .carousel-track");
     const indicators = $("#carousel-page");
 
     let currentIndex = 0;
-    const total = images.length;
+    const total = CAROUSEL_IMAGES.length;
 
     function renderIndicators(index) {
         indicators.empty();
-        $.each(images, function (i, src) {
+        $.each(CAROUSEL_IMAGES, function (i, src) {
             indicators.append(i == index ? `<i class="fa fa-circle text-white banner-indicator" data-index="${i}"></i>` : `<i class="far fa-circle text-white banner-indicator" data-index="${i}"></i>`);
         });
     }
@@ -31,7 +35,7 @@ $(document).ready(async function () {
     }
 
     // Tambahkan semua gambar
-    $.each(images, function (i, src) {
+    $.each(CAROUSEL_IMAGES, function (i, src) {
         carouselTrack.append(`
             <img src="${src}" alt="Carousel ${i + 1}"  style="border-radius: 30px" >
         `);
@@ -61,9 +65,52 @@ $(document).ready(async function () {
 
     // Auto-slide setiap 4 detik
     setInterval(function () {
-        currentIndex = (currentIndex + 1) % images.length;
+        currentIndex = (currentIndex + 1) % CAROUSEL_IMAGES.length;
         updateCarousel(currentIndex);
     }, 3000);
+
+    $('#filter-location').click(function(){
+        $('#form-filter-location').toggle()
+        $('#icon-filter-location').toggleClass('fa-angle-up fa-angle-down');
+    })
+
+    $('#filter-merk').click(function(){
+        $('#form-filter-merk').toggle()
+        $('#icon-filter-merk').toggleClass('fa-angle-up fa-angle-down');
+    })
+
+    $('#filter-price').click(function(){
+        $('#form-filter-price').toggle()
+        $('#icon-filter-price').toggleClass('fa-angle-up fa-angle-down');
+    })
+
+    $('#filter-transmission').click(function(){
+        $('#form-filter-transmission').toggle()
+        $('#icon-filter-transmission').toggleClass('fa-angle-up fa-angle-down');
+    })
+
+    $('#filter-fuel').click(function(){
+        $('#form-filter-fuel').toggle()
+        $('#icon-filter-fuel').toggleClass('fa-angle-up fa-angle-down');
+    })
+
+    $('#filter-year').click(function(){
+        $('#form-filter-year').toggle()
+        $('#icon-filter-year').toggleClass('fa-angle-up fa-angle-down');
+    })
+
+    function renderFilter(){
+        $('#product-filter').html('');
+        $.each(PRODUCT_FILTER, function(idx, val){
+            $('#product-filter').append(`
+                <span style="border: 1px solid black;padding: 5px 20px;margin:0 10px;border-radius: 20px;">
+                    ${val} <i class="fa fa-times ms-2"></i>
+                </span>    
+            `);
+        })
+    }
+
+    renderFilter();
 
     const sliderPriceMin = $('#slider-price-min');
     const sliderPriceMax = $('#slider-price-max');
@@ -139,9 +186,6 @@ $(document).ready(async function () {
         percent1 = Math.max(0, Math.min(100, percent1));
         percent2 = Math.max(0, Math.min(100, percent2));
 
-        console.log(trackYear);
-
-
         trackYear.css('background',
             `linear-gradient(to right, #ccc ${percent1}%, #d40000 ${percent1}%, #d40000 ${percent2}%, #ccc ${percent2}%)`
         );
@@ -172,235 +216,15 @@ $(document).ready(async function () {
     sliderYearMin.on('input', updateYearValues);
     sliderYearMax.on('input', updateYearValues);
 
-    const motor_products = [
-        {
-            id: "1dce60c2-0191-4f2e-b5b0-b8d8b7d6d3a1",
-            img: "../assets/Product-1.png",
-            price: "Rp. 18,000,000",
-            name: "Honda PCX 150",
-            location: "LENY NGASEM",
-            year: "2020",
-            km: "12.500 KM",
-            transmission: "Matic",
-            color: "Hitam",
-            cicilan: "Rp 700rb / Bulan"
-        },
-        {
-            id: "b2f642a3-1b57-44e5-9cb8-bb4f3db46e0c",
-            img: "../assets/Product-1.png",
-            price: "Rp. 15,500,000",
-            name: "Yamaha NMAX 155",
-            location: "LENY NGASEM",
-            year: "2019",
-            km: "10.000 KM",
-            transmission: "Matic",
-            color: "Putih",
-            cicilan: "Rp 650rb / Bulan"
-        },
-        {
-            id: "f5ae7a0f-91d1-4d63-93dc-50ce02b07d1e",
-            img: "../assets/Product-1.png",
-            price: "Rp. 13,000,000",
-            name: "Honda Vario 150",
-            location: "LENY NGASEM",
-            year: "2018",
-            km: "15.000 KM",
-            transmission: "Matic",
-            color: "Merah",
-            cicilan: "Rp 550rb / Bulan"
-        },
-        {
-            id: "c2d8a15a-14b3-4d05-bd25-ecf5d8a1d38b",
-            img: "../assets/Product-1.png",
-            price: "Rp. 9,800,000",
-            name: "Yamaha Mio M3",
-            location: "LENY NGASEM",
-            year: "2017",
-            km: "20.000 KM",
-            transmission: "Matic",
-            color: "Biru",
-            cicilan: "Rp 400rb / Bulan"
-        },
-        {
-            id: "2aaf9439-2c36-48d7-b84a-8ccfd29e4f4b",
-            img: "../assets/Product-1.png",
-            price: "Rp. 18,000,000",
-            name: "Honda PCX 150",
-            location: "LENY NGASEM",
-            year: "2020",
-            km: "12.500 KM",
-            transmission: "Matic",
-            color: "Hitam",
-            cicilan: "Rp 700rb / Bulan"
-        },
-        {
-            id: "c6c1ff4f-8498-4f5f-95cc-0999e6af0cb3",
-            img: "../assets/Product-1.png",
-            price: "Rp. 15,500,000",
-            name: "Yamaha NMAX 155",
-            location: "LENY NGASEM",
-            year: "2019",
-            km: "10.000 KM",
-            transmission: "Matic",
-            color: "Putih",
-            cicilan: "Rp 650rb / Bulan"
-        },
-        {
-            id: "fcb2b2cb-3b3b-4b89-b853-37db5c89b35d",
-            img: "../assets/Product-1.png",
-            price: "Rp. 13,000,000",
-            name: "Honda Vario 150",
-            location: "LENY NGASEM",
-            year: "2018",
-            km: "15.000 KM",
-            transmission: "Matic",
-            color: "Merah",
-            cicilan: "Rp 550rb / Bulan"
-        },
-        {
-            id: "0dd08aef-1a5a-4a6f-bd7f-bf38a74d3ef6",
-            img: "../assets/Product-1.png",
-            price: "Rp. 9,800,000",
-            name: "Yamaha Mio M3",
-            location: "LENY NGASEM",
-            year: "2017",
-            km: "20.000 KM",
-            transmission: "Matic",
-            color: "Biru",
-            cicilan: "Rp 400rb / Bulan"
-        },
-        {
-            id: "40e1db12-83cb-4a7f-b7f8-26c2e65a4b42",
-            img: "../assets/Product-1.png",
-            price: "Rp. 9,800,000",
-            name: "Yamaha Mio M3",
-            location: "LENY NGASEM",
-            year: "2017",
-            km: "20.000 KM",
-            transmission: "Matic",
-            color: "Biru",
-            cicilan: "Rp 400rb / Bulan"
-        },
-        {
-            id: "6c1d7a2c-0c13-4e55-94d3-318f94f799e2",
-            img: "../assets/Product-1.png",
-            price: "Rp. 18,000,000",
-            name: "Honda PCX 150",
-            location: "LENY NGASEM",
-            year: "2020",
-            km: "12.500 KM",
-            transmission: "Matic",
-            color: "Hitam",
-            cicilan: "Rp 700rb / Bulan"
-        },
-        {
-            id: "bba6b9f8-063a-44d7-8b10-70b6b79b9c4f",
-            img: "../assets/Product-1.png",
-            price: "Rp. 15,500,000",
-            name: "Yamaha NMAX 155",
-            location: "LENY NGASEM",
-            year: "2019",
-            km: "10.000 KM",
-            transmission: "Matic",
-            color: "Putih",
-            cicilan: "Rp 650rb / Bulan"
-        },
-        {
-            id: "9d47e7a8-7ff3-47e9-b283-427fb23907ad",
-            img: "../assets/Product-1.png",
-            price: "Rp. 13,000,000",
-            name: "Honda Vario 150",
-            location: "LENY NGASEM",
-            year: "2018",
-            km: "15.000 KM",
-            transmission: "Matic",
-            color: "Merah",
-            cicilan: "Rp 550rb / Bulan"
-        },
-        {
-            id: "0b4d24f8-67cf-4c9f-96c0-219f58d6a4d0",
-            img: "../assets/Product-1.png",
-            price: "Rp. 9,800,000",
-            name: "Yamaha Mio M3",
-            location: "LENY NGASEM",
-            year: "2017",
-            km: "20.000 KM",
-            transmission: "Matic",
-            color: "Biru",
-            cicilan: "Rp 400rb / Bulan"
-        },
-        {
-            id: "f4a92c32-1691-4b5c-a18c-72ff7c230d6c",
-            img: "../assets/Product-1.png",
-            price: "Rp. 18,000,000",
-            name: "Honda PCX 150",
-            location: "LENY NGASEM",
-            year: "2020",
-            km: "12.500 KM",
-            transmission: "Matic",
-            color: "Hitam",
-            cicilan: "Rp 700rb / Bulan"
-        },
-        {
-            id: "3a174a04-fc3d-46da-b0e5-b9d7a08d4ed1",
-            img: "../assets/Product-1.png",
-            price: "Rp. 15,500,000",
-            name: "Yamaha NMAX 155",
-            location: "LENY NGASEM",
-            year: "2019",
-            km: "10.000 KM",
-            transmission: "Matic",
-            color: "Putih",
-            cicilan: "Rp 650rb / Bulan"
-        },
-        {
-            id: "df43df7e-bb5a-4031-a6b5-7c40a30c6ee8",
-            img: "../assets/Product-1.png",
-            price: "Rp. 13,000,000",
-            name: "Honda Vario 150",
-            location: "LENY NGASEM",
-            year: "2018",
-            km: "15.000 KM",
-            transmission: "Matic",
-            color: "Merah",
-            cicilan: "Rp 550rb / Bulan"
-        },
-        {
-            id: "1b9fd894-11b2-41db-8b77-9cb1d0d3ad73",
-            img: "../assets/Product-1.png",
-            price: "Rp. 9,800,000",
-            name: "Yamaha Mio M3",
-            location: "LENY NGASEM",
-            year: "2017",
-            km: "20.000 KM",
-            transmission: "Matic",
-            color: "Biru",
-            cicilan: "Rp 400rb / Bulan"
-        },
-        {
-            id: "4a6a37ff-18b7-4b7d-8610-27cc98ee825e",
-            img: "../assets/Product-1.png",
-            price: "Rp. 9,400,000",
-            name: "Yamaha Mio M3",
-            location: "LENY NGASEM",
-            year: "2017",
-            km: "20.000 KM",
-            transmission: "Matic",
-            color: "Biru",
-            cicilan: "Rp 400rb / Bulan"
-        }
-    ];
+    $('#spanFilterProduct').text(`Menampilkan ${PRODUCT_IMAGES.length} Motor`);
 
-
-    $('#spanFilterProduct').text(`Menampilkan ${motor_products.length} Motor`);
-
-    let totalPages = motor_products.length / 9;
+    let totalPages = PRODUCT_IMAGES.length / 9;
     let currentPage = 1;
 
     function renderData() {
         const startIndex = (currentPage - 1) * 9;
         const endIndex = startIndex + 9;
-        const currentData = motor_products.slice(startIndex, endIndex);
+        const currentData = PRODUCT_IMAGES.slice(startIndex, endIndex);
 
         $("#cardProduct").html("");
         currentData.forEach((p) => {
