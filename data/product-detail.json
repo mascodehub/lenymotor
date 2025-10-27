@@ -1,0 +1,59 @@
+{
+  "motor_products": [
+    {
+      "id": "1dce60c2-0191-4f2e-b5b0-b8d8b7d6d3a1",
+      "img": "../assets/Product-1.png",
+      "price": "Rp. 18,000,000",
+      "name": "Honda PCX 150",
+      "location": "LENY NGASEM",
+      "year": "2020",
+      "km": "12.500 KM",
+      "transmission": "Matic",
+      "color": "Hitam",
+      "cicilan": "Rp 700rb / Bulan"
+    },
+    {
+      "id": "b2f642a3-1b57-44e5-9cb8-bb4f3db46e0c",
+      "img": "../assets/Product-1.png",
+      "price": "Rp. 15,500,000",
+      "name": "Yamaha NMAX 155",
+      "location": "LENY NGASEM",
+      "year": "2019",
+      "km": "10.000 KM",
+      "transmission": "Matic",
+      "color": "Putih",
+      "cicilan": "Rp 650rb / Bulan"
+    },
+    {
+      "id": "f5ae7a0f-91d1-4d63-93dc-50ce02b07d1e",
+      "img": "../assets/Product-1.png",
+      "price": "Rp. 13,000,000",
+      "name": "Honda Vario 150",
+      "location": "LENY NGASEM",
+      "year": "2018",
+      "km": "15.000 KM",
+      "transmission": "Matic",
+      "color": "Merah",
+      "cicilan": "Rp 550rb / Bulan"
+    },
+    {
+      "id": "c2d8a15a-14b3-4d05-bd25-ecf5d8a1d38b",
+      "img": "../assets/Product-1.png",
+      "price": "Rp. 9,800,000",
+      "name": "Yamaha Mio M3",
+      "location": "LENY NGASEM",
+      "year": "2017",
+      "km": "20.000 KM",
+      "transmission": "Matic",
+      "color": "Biru",
+      "cicilan": "Rp 400rb / Bulan"
+    }
+  ],
+  "product_images" :[
+    "../assets/Product-1.png",
+    "../assets/Product-2.png",
+    "../assets/Product-1.png",
+    "../assets/Product-2.png",
+    "../assets/Product-1.png"
+  ]
+}
