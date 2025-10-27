@@ -64,38 +64,41 @@
                                     </div>
                                     <div class="row">
                                         <div class="col">
-                                            <div class="row mb-3">
+                                            <div class="row mb-3" id="filter-location">
                                                 <div class="col">
                                                     Lokasi
                                                 </div>
                                                 <div class="col" style="text-align: right;">
-                                                    <i class="fa fa-angle-up text-dark"></i>
+                                                    <i id="icon-filter-location" class="fa fa-angle-up text-dark"></i>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col">
-                                                    <div class="input-group">
 
-                                                        <input type="text" class="form-control" id="txtSearch"
-                                                            placeholder="Pilih Lokasi" aria-label="Pilih Lokasi"
-                                                            aria-describedby="labelSearch">
-                                                        <span class="input-group-text" id="labelSearch"><i
-                                                                class="fa fa-map"></i></span>
+                                            <div id="form-filter-location">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control" id="txtSearch"
+                                                                placeholder="Pilih Lokasi" aria-label="Pilih Lokasi"
+                                                                aria-describedby="labelSearch">
+                                                            <span class="input-group-text" id="labelSearch"><i
+                                                                    class="fa fa-map"></i></span>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
 
                                             <hr>
 
-                                            <div class="row mb-3">
+                                            <div class="row mb-3" id="filter-merk">
                                                 <div class="col">
                                                     Merek
                                                 </div>
                                                 <div class="col" style="text-align: right;">
-                                                    <i class="fa fa-angle-up text-dark"></i>
+                                                    <i id="icon-filter-merk" class="fa fa-angle-up text-dark"></i>
                                                 </div>
                                             </div>
-                                            <div class="row">
+                                            <div id="form-filter-merk">
+                                                <div class="row">
                                                 <div class="col">
                                                     <ul style="list-style-type: none;">
                                                         <li class="mb-1" style="margin-left: -32px;">
@@ -127,44 +130,47 @@
                                                         </li>
                                                     </ul>
                                                 </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="col">
-                                                    <ul style="list-style-type: none;">
-                                                        <li style="margin-left: -32px;">
-                                                            <input type="checkbox" name="txtCheckbox" id="txtCheckbox">
-                                                            Yamaha <i class="fa fa-angle-up text-dark"></i>
-                                                        </li>
-                                                    </ul>
                                                 </div>
-                                            </div>
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <ul style="list-style-type: none;">
+                                                            <li style="margin-left: -32px;">
+                                                                <input type="checkbox" name="txtCheckbox" id="txtCheckbox">
+                                                                Yamaha <i class="fa fa-angle-up text-dark"></i>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
 
-                                            <span style="color: red;">Lihat Semua</span>
+                                                <span style="color: red;">Lihat Semua</span>
+                                            </div>
 
                                             <hr>
 
-                                            <div class="row mb-4">
+                                            <div class="row mb-4" id="filter-price">
                                                 <div class="col">
                                                     Rentang Harga
                                                 </div>
                                                 <div class="col" style="text-align: right;">
-                                                    <i class="fa fa-angle-up text-dark"></i>
+                                                    <i id="icon-filter-price" class="fa fa-angle-up text-dark"></i>
                                                 </div>
                                             </div>
 
-                                            <div class="row">
-                                                <div class="col">
-                                                    <div class="mb-3">
-                                                        <div class="range-slider">
-                                                            <div id="slider-price-track"></div>
-                                                            <input type="range" id="slider-price-min" min="6000000"
-                                                                max="40000000" value="6000000" step="100000">
-                                                            <input type="range" id="slider-price-max" min="6000000"
-                                                                max="40000000" value="40000000" step="100000">
-                                                        </div>
-                                                        <div class="range-values">
-                                                            <span id="range-price-min"></span>
-                                                            <span id="range-price-max"></span>
+                                            <div id="form-filter-price">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="mb-3">
+                                                            <div class="range-slider">
+                                                                <div id="slider-price-track"></div>
+                                                                <input type="range" id="slider-price-min" min="6000000"
+                                                                    max="40000000" value="6000000" step="100000">
+                                                                <input type="range" id="slider-price-max" min="6000000"
+                                                                    max="40000000" value="40000000" step="100000">
+                                                            </div>
+                                                            <div class="range-values">
+                                                                <span id="range-price-min"></span>
+                                                                <span id="range-price-max"></span>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -172,64 +178,70 @@
 
                                             <hr>
 
-                                            <div class="row">
+                                            <div class="row" id="filter-transmission">
                                                 <div class="col">
                                                     Transmisi
                                                 </div>
                                                 <div class="col" style="text-align: right;">
-                                                    <i class="fa fa-angle-up text-dark"></i>
+                                                    <i id="icon-filter-transmission" class="fa fa-angle-up text-dark"></i>
                                                 </div>
                                             </div>
 
-                                            <div class="row">
-                                                <div class="col">
-                                                    <input type="checkbox" name="" id=""> Otomatis &nbsp; <input
-                                                        type="checkbox" name="" id=""> Manual
+                                            <div id="form-filter-transmission">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <input type="checkbox" name="" id=""> Otomatis &nbsp; <input
+                                                            type="checkbox" name="" id=""> Manual
+                                                    </div>
                                                 </div>
                                             </div>
 
                                             <hr>
 
-                                            <div class="row">
+                                            <div class="row" id="filter-fuel">
                                                 <div class="col">
                                                     Bahan Bakar
                                                 </div>
                                                 <div class="col" style="text-align: right;">
-                                                    <i class="fa fa-angle-up text-dark"></i>
+                                                    <i id="icon-filter-fuel" class="fa fa-angle-up text-dark"></i>
                                                 </div>
                                             </div>
 
-                                            <div class="row">
-                                                <div class="col">
-                                                    <input type="checkbox" name="" id=""> Bensin &nbsp; <input
-                                                        type="checkbox" name="" id=""> Listrik
+                                            <div id="form-filter-fuel">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <input type="checkbox" name="" id=""> Bensin &nbsp; <input
+                                                            type="checkbox" name="" id=""> Listrik
+                                                    </div>
                                                 </div>
                                             </div>
 
                                             <hr>
 
-                                            <div class="row mb-4">
+                                            <div class="row mb-4" id="filter-year">
                                                 <div class="col">
                                                     Tahun Produksi
                                                 </div>
                                                 <div class="col" style="text-align: right;">
-                                                    <i class="fa fa-angle-up text-dark"></i>
+                                                    <i id="icon-filter-year" class="fa fa-angle-up text-dark"></i>
                                                 </div>
                                             </div>
 
-                                            <div class="row">
-                                                <div class="col">
-                                                    <div class="mb-3">
-                                                        <div class="range-slider">
-                                                            <div id="slider-year-track"></div>
-                                                            <input type="range" id="slider-year-min" min="1980"
-                                                                max="2030" value="1980" step="1">
-                                                            <input type="range" id="slider-year-max" min="1980"
-                                                                max="2030" value="2030" step="1">
-                                                        </div>
-                                                        <div class="range-values">
-                                                            <span id="range-year-min"></span>
-                                                            <span id="range-year-max"></span>
+                                            <div id="form-filter-year">
+                                                <div class="row">
+                                                    <div class="col">
+                                                        <div class="mb-3">
+                                                            <div class="range-slider">
+                                                                <div id="slider-year-track"></div>
+                                                                <input type="range" id="slider-year-min" min="1980"
+                                                                    max="2030" value="1980" step="1">
+                                                                <input type="range" id="slider-year-max" min="1980"
+                                                                    max="2030" value="2030" step="1">
+                                                            </div>
+                                                            <div class="range-values">
+                                                                <span id="range-year-min"></span>
+                                                                <span id="range-year-max"></span>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -248,14 +260,11 @@
 
                     <div class="col-9" style="padding-left: 20px;">
                         <div class="row">
-                            <div class="col" style="margin: 20px 0px;">
-                                <b id="spanFilterProduct">Menampilkan 300 Motor</b>
-                                <span style="border: 1px solid black;padding: 5px 20px;border-radius: 20px;">Honda <i
-                                        class="fa fa-times ms-2"></i></span>
-                                <span style="border: 1px solid black;padding: 5px 20px;border-radius: 20px;">Otomatis <i
-                                        class="fa fa-times ms-2"></i></span>
-                                <span style="border: 1px solid black;padding: 5px 20px;border-radius: 20px;">Bensin <i
-                                        class="fa fa-times ms-2"></i></span>
+                            <div class="col d-flex" style="margin: 20px 0px;">
+                                <b id="spanFilterProductTotal">Menampilkan 300 Motor</b>
+                                <div id="product-filter">
+
+                                </div>
                             </div>
                         </div>
                         <div class="row pb-4">

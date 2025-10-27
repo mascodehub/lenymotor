@@ -223,5 +223,8 @@
       "color": "Biru",
       "cicilan": "Rp 400rb / Bulan"
     }
+  ],
+  "product_filter": [
+    "Honda", "Otomatis", "Bensin"
   ]
 }

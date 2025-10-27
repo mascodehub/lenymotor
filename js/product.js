@@ -1,9 +1,10 @@
-let CAROUSEL_IMAGES, PRODUCT_IMAGES;
+let CAROUSEL_IMAGES, PRODUCT_IMAGES, PRODUCT_FILTER;
 
 function initData(){
     return $.getJSON('../data/product.json', function(data) {
         CAROUSEL_IMAGES = data.carousel_images; 
         PRODUCT_IMAGES = data.product_images;
+        PRODUCT_FILTER = data.product_filter;
     });
 }
 
@@ -67,6 +68,49 @@ $(document).ready(async function () {
         currentIndex = (currentIndex + 1) % CAROUSEL_IMAGES.length;
         updateCarousel(currentIndex);
     }, 3000);
+
+    $('#filter-location').click(function(){
+        $('#form-filter-location').toggle()
+        $('#icon-filter-location').toggleClass('fa-angle-up fa-angle-down');
+    })
+
+    $('#filter-merk').click(function(){
+        $('#form-filter-merk').toggle()
+        $('#icon-filter-merk').toggleClass('fa-angle-up fa-angle-down');
+    })
+
+    $('#filter-price').click(function(){
+        $('#form-filter-price').toggle()
+        $('#icon-filter-price').toggleClass('fa-angle-up fa-angle-down');
+    })
+
+    $('#filter-transmission').click(function(){
+        $('#form-filter-transmission').toggle()
+        $('#icon-filter-transmission').toggleClass('fa-angle-up fa-angle-down');
+    })
+
+    $('#filter-fuel').click(function(){
+        $('#form-filter-fuel').toggle()
+        $('#icon-filter-fuel').toggleClass('fa-angle-up fa-angle-down');
+    })
+
+    $('#filter-year').click(function(){
+        $('#form-filter-year').toggle()
+        $('#icon-filter-year').toggleClass('fa-angle-up fa-angle-down');
+    })
+
+    function renderFilter(){
+        $('#product-filter').html('');
+        $.each(PRODUCT_FILTER, function(idx, val){
+            $('#product-filter').append(`
+                <span style="border: 1px solid black;padding: 5px 20px;margin:0 10px;border-radius: 20px;">
+                    ${val} <i class="fa fa-times ms-2"></i>
+                </span>    
+            `);
+        })
+    }
+
+    renderFilter();
 
     const sliderPriceMin = $('#slider-price-min');
     const sliderPriceMax = $('#slider-price-max');
