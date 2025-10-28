@@ -17,22 +17,25 @@
 
     <div id="main-content">
         <div id="content">
-            <div id="section-1" style="margin: 0 9.5%;">
-                <div class="row" style="--bs-gutter-x:0">
+            <div id="section-1">
+                <div class="row" style="--bs-gutter-x:0.01rem">
                     <div class="col">
-                        <div class="row">
+                        <div class="row d-none d-md-block">
                             <div class="col" style="margin: 20px 0px;">
                                 <span>Beranda > Motor Bekas > <b>Honda PCX 150 / LENY NGASEM</b></span>
                             </div>
                         </div>
-                        <div class="row">
+
+                        <div class="row main" >
                             <div class="col">
-                                <div class="row">
+                                <div class="row mb-3">
                                     <div class="col">
                                         <div class="main-img position-relative">
-                                            <div id="show-product"
-                                                class="mt-0 mb-0 position-relative overflow-hidden"
-                                                style="width: 100%;height: 60vh;border-radius: 30px; ">
+                                            <div id="show-product" class="mt-0 mb-0 position-relative overflow-hidden">
+                                            </div>
+
+                                            <div class="position-absolute top-50 start-50 translate-middle carousel-indicator d-flex gap-2 d-md-none"
+                                                style="margin-top: 9vh;">
                                             </div>
 
                                             <div class="position-absolute top-50 start-0 translate-middle-y shadow carousel-prev d-none d-md-flex"
@@ -49,13 +52,13 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
+                                <div class="row d-none d-md-block">
                                     <div class="col">
-                                        <div class="card-scroll" id="product-list-img">
+                                        <div class="card-scroll" id="product-list-img" style="width: 46.2vw">
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row mb-3">
+                                <div class="row mb-3 d-none d-md-block">
                                     <div class="col">
                                         <div style="border: 1px solid #b4b3b3;border-radius: 20px;padding: 20px;">
                                             <h4>
@@ -79,7 +82,8 @@
                                                 cash 26.5jt<br>
                                                 Info jelas silahkan WA<br>
                                                 <br>
-                                                KTP daerah & rmh ngontrak, BI Cheking jelek bisa dibantu kredit ( dp menyesuaikan)<br>
+                                                KTP daerah & rmh ngontrak, BI Cheking jelek bisa dibantu kredit ( dp
+                                                menyesuaikan)<br>
                                                 Persyaratan mudah tdk ribet.<br>
                                                 Menerima tukar tambah dgn semua merk dan kondisi motor<br>
                                                 <br>
@@ -91,11 +95,15 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-5">
-                                <div class="card position-relative" style="border-radius: 25px;margin:0 0 30px 0">
+
+                            <div class="col-12 col-md-5">
+                                <div class="card position-relative" id="product-detail"
+                                    style="border-radius: 25px;margin:0 0 30px 0">
                                     <div class="card-body">
                                         <h5 class="card-title section-price" style="font-size: 24px;color: #D40000;">
-                                            Rp. 18,000,000</h5>
+                                            Rp. 18,000,000
+                                        </h5>
+
                                         <div class="card-text">
                                             <span class="d-block" style="margin: 5px 0px;">Honda PCX 150</span>
                                             <span class="d-block" style="margin: 5px 0px;">LENY NGASEM</span>
@@ -207,20 +215,23 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
+
+                        <div class="row" id="other-product-list">
                             <div class="col">
-                                <h2 style="margin: 30px 0;"><b>Kendaraan Serupa</b></h2> 
-                                <div class="row" id="other-product">
-                                    
-                                </div>
+                                <h2 style="margin: 30px 0;"><b>Kendaraan Serupa</b></h2>
+                                <div class="card-scroll" id="other-product"></div>
                                 <span class="text-center d-block mb-5" style="width: 100%;">
-                                    <button class="btn btn-danger text-center" style="font-weight: bold;padding: 10px 30px;border-radius: 100px;">LIHAT SEMUA KENDARAAN</button>
+                                    <button class="btn btn-danger text-center"
+                                        style="font-weight: bold;padding: 10px 30px;border-radius: 100px;">LIHAT SEMUA
+                                        KENDARAAN</button>
                                 </span>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div id="overlay"></div>
         </div>
 
         <div id="footbar"></div>

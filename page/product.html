@@ -46,7 +46,7 @@
 
             <div id="section-2" style="margin: 0 9.5%;">
                 <div class="row" style="--bs-gutter-x:0">
-                    <div class="col">
+                    <div class="col d-none d-md-block">
                         <div class="row">
                             <div class="col" style="margin: 20px 0px;">
                                 <span>Beranda > <b>Motor Bekas</b></span>
@@ -58,8 +58,9 @@
                                 <div style="background-color: white;width: 100%;border-radius: 30px;padding: 20px;">
                                     <div class="row mb-3">
                                         <div class="col">
-                                            <span style="font-size: 15pt;color: red;font-weight: bold;">Filter
-                                                Pencarian</span>
+                                            <span style="font-size: 15pt;color: red;font-weight: bold;">
+                                                Filter Pencarian
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -258,7 +259,7 @@
                         </div>
                     </div>
 
-                    <div class="col-9" style="padding-left: 20px;">
+                    <div class="col col-md-9" style="padding-left: 20px;margin-right: 20px;">
                         <div class="row">
                             <div class="col d-flex" style="margin: 20px 0px;">
                                 <b id="spanFilterProductTotal">Menampilkan 300 Motor</b>
@@ -267,7 +268,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row pb-4">
+                        <div class="row pb-4 d-none d-md-block">
                             <div class="col">
                                 <table style="width: 100%;text-align: center;" id="tbCategoryProduct">
                                     <tr style="border-bottom: 2px solid #b1abab;">
@@ -318,7 +319,7 @@
                         </div>
                         <div class="row">
                             <div class="col text-center">
-                                <div class="pagination-container">
+                                <div class="pagination-container" id="section-pagination">
                                     <button class="page-btn prev"><i class="fa fa-chevron-left"></i></button>
                                     <ul class="pagination">
                                     </ul>
@@ -331,8 +332,299 @@
             </div>
         </div>
 
+        <nav class="fixed-bottom d-block d-md-none" style="bottom: 30px">
+            <div class="border border-white shadow-sm" style="background-color: white;margin: 0 100px;border-radius: 100px;padding: 15px;">
+                <div class="row text-center">
+                    <div class="col" style="border-right: 2px solid #cac8c8;" id="btn-filter-mob">
+                        <i class="fa fa-filter text-dark"></i> Filter  
+                    </div>
+                    <div class="col" id="btn-sort-mob">
+                        <i class="fa fa-sort text-dark"></i> Urutan  
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        
+        <nav class="fixed-bottom d-block d-md-none ms-4" style="bottom: 20px;left: 78%;right: 1.5vh;">
+            <div class="text-center shadow-sm" style="background-color: #D40000;padding: 15px;border-radius: 100%;width: 50px;height: 50px;font-size: 12pt;">
+                <i class="fa fa-arrow-up text-white"></i>
+            </div>
+        </nav>
+        
+        <div id="overlay-product"></div>
+
+        <nav class="fixed-bottom" id="form-filter-mob">
+            <div class="text-center w-100" style="background-color: white;border-radius: 10px 10px 0 0;">
+                <span style="padding: 0 50px;font-size: 2pt;background-color: #dfdede;"></span>
+            </div>
+            
+            <div class="border border-white" id="form-filter-content-mob" style="background-color: white;padding: 15px;">
+                <div class="row">
+                    <div class="col" id="btn-filter-mob">
+                        <div class="row mb-3">
+                            <div class="col">
+                                <span style="font-size: 15pt;color: red;font-weight: bold;">
+                                    Filter Pencarian
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="row mb-3" id="filter-location-mob">
+                                    <div class="col">
+                                        Lokasi
+                                    </div>
+                                    <div class="col" style="text-align: right;">
+                                        <i id="icon-filter-location" class="fa fa-angle-up text-dark"></i>
+                                    </div>
+                                </div>
+
+                                <div id="form-filter-location-mob">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" id="txtSearch"
+                                                    placeholder="Pilih Lokasi" aria-label="Pilih Lokasi"
+                                                    aria-describedby="labelSearch">
+                                                <span class="input-group-text" id="labelSearch"><i
+                                                        class="fa fa-map"></i></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr>
+
+                                <div class="row mb-3" id="filter-merk-mob">
+                                    <div class="col">
+                                        Merek
+                                    </div>
+                                    <div class="col" style="text-align: right;">
+                                        <i id="icon-filter-merk" class="fa fa-angle-up text-dark"></i>
+                                    </div>
+                                </div>
+                                <div id="form-filter-merk-mob">
+                                    <div class="row">
+                                    <div class="col">
+                                        <ul style="list-style-type: none;">
+                                            <li class="mb-1" style="margin-left: -32px;">
+                                                <input type="checkbox" name="txtCheckbox" id="txtCheckbox">
+                                                Honda <i class="fa fa-angle-up text-dark"></i>
+                                            </li>
+                                            <li>
+                                                <ul style="list-style-type: none;">
+                                                    <li class="mb-1" style="margin-left: -45px;">
+                                                        <input type="checkbox" name="txtCheckbox"
+                                                            id="txtCheckbox">
+                                                        PCX
+                                                    </li>
+                                                </ul>
+                                                <ul style="list-style-type: none;">
+                                                    <li class="mb-1" style="margin-left: -45px;">
+                                                        <input type="checkbox" name="txtCheckbox"
+                                                            id="txtCheckbox">
+                                                        Vario
+                                                    </li>
+                                                </ul>
+                                                <ul style="list-style-type: none;">
+                                                    <li class="mb-1" style="margin-left: -45px;">
+                                                        <input type="checkbox" name="txtCheckbox"
+                                                            id="txtCheckbox">
+                                                        Scoopy
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <ul style="list-style-type: none;">
+                                                <li style="margin-left: -32px;">
+                                                    <input type="checkbox" name="txtCheckbox" id="txtCheckbox">
+                                                    Yamaha <i class="fa fa-angle-up text-dark"></i>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <span style="color: red;">Lihat Semua</span>
+                                </div>
+
+                                <hr>
+
+                                <div class="row mb-4" id="filter-price-mob">
+                                    <div class="col">
+                                        Rentang Harga
+                                    </div>
+                                    <div class="col" style="text-align: right;">
+                                        <i id="icon-filter-price" class="fa fa-angle-up text-dark"></i>
+                                    </div>
+                                </div>
+
+                                <div id="form-filter-price-mob">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <div class="range-slider">
+                                                    <div id="slider-price-track"></div>
+                                                    <input type="range" id="slider-price-min" min="6000000"
+                                                        max="40000000" value="6000000" step="100000">
+                                                    <input type="range" id="slider-price-max" min="6000000"
+                                                        max="40000000" value="40000000" step="100000">
+                                                </div>
+                                                <div class="range-values">
+                                                    <span id="range-price-min"></span>
+                                                    <span id="range-price-max"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr>
+
+                                <div class="row" id="filter-transmission-mob">
+                                    <div class="col">
+                                        Transmisi
+                                    </div>
+                                    <div class="col" style="text-align: right;">
+                                        <i id="icon-filter-transmission" class="fa fa-angle-up text-dark"></i>
+                                    </div>
+                                </div>
+
+                                <div id="form-filter-transmission-mob">
+                                    <div class="row">
+                                        <div class="col">
+                                            <input type="checkbox" name="" id=""> Otomatis &nbsp; <input
+                                                type="checkbox" name="" id=""> Manual
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr>
+
+                                <div class="row" id="filter-fuel-mob">
+                                    <div class="col">
+                                        Bahan Bakar
+                                    </div>
+                                    <div class="col" style="text-align: right;">
+                                        <i id="icon-filter-fuel" class="fa fa-angle-up text-dark"></i>
+                                    </div>
+                                </div>
+
+                                <div id="form-filter-fuel-mob">
+                                    <div class="row">
+                                        <div class="col">
+                                            <input type="checkbox" name="" id=""> Bensin &nbsp; <input
+                                                type="checkbox" name="" id=""> Listrik
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr>
+
+                                <div class="row mb-4" id="filter-year-mob">
+                                    <div class="col">
+                                        Tahun Produksi
+                                    </div>
+                                    <div class="col" style="text-align: right;">
+                                        <i id="icon-filter-year" class="fa fa-angle-up text-dark"></i>
+                                    </div>
+                                </div>
+
+                                <div id="form-filter-year-mob">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="mb-3">
+                                                <div class="range-slider">
+                                                    <div id="slider-year-track"></div>
+                                                    <input type="range" id="slider-year-min" min="1980"
+                                                        max="2030" value="1980" step="1">
+                                                    <input type="range" id="slider-year-max" min="1980"
+                                                        max="2030" value="2030" step="1">
+                                                </div>
+                                                <div class="range-values">
+                                                    <span id="range-year-min"></span>
+                                                    <span id="range-year-max"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <button class="btn"
+                                    style="width: 100%;border: 2px solid red;border-radius: 30px;background-color: red;color: white;">
+                                    <b>Terapkan</b>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <nav class="fixed-bottom " id="form-sort-mob">
+            <div class="text-center w-100" style="background-color: white;border-radius: 10px 10px 0 0;">
+                <span style="padding: 0 50px;font-size: 2pt;background-color: #dfdede;"></span>
+            </div>
+
+            <div class="border border-white" style="background-color: white;padding: 15px;">
+                <div class="row">
+                    <div class="col-12 d-flex align-items-center form-check" style="padding: 10px 50px;justify-content: space-between;">
+                        <label class="form-check-label" for="flexCheckRecommendation">
+                            Rekomendasi
+                        </label>
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckRecommendation">
+                    </div>
+                    <div class="col-12 d-flex align-items-center form-check" style="padding: 10px 50px;justify-content: space-between;">
+                        <label class="form-check-label" for="flexCheckPromo">
+                            Promo
+                        </label>
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckPromo">
+                    </div>
+                    <div class="col-12 d-flex align-items-center form-check" style="padding: 10px 50px;justify-content: space-between;">
+                        <label class="form-check-label" for="flexCheckNewer">
+                            Terbaru
+                        </label>
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckNewer">
+                    </div>
+                    <div class="col-12 d-flex align-items-center form-check" style="padding: 10px 50px;justify-content: space-between;">
+                        <label class="form-check-label" for="flexCheckLowest">
+                            Harga Terendah
+                        </label>
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckLowest">
+                    </div>
+                    <div class="col-12 d-flex align-items-center form-check" style="padding: 10px 50px;justify-content: space-between;">
+                        <label class="form-check-label" for="flexCheckHighest">
+                            Harga Tertinggi
+                        </label>
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckHighest">
+                    </div>
+                    <div class="col-12 d-flex align-items-center form-check" style="padding: 10px 50px;justify-content: space-between;">
+                        <label class="form-check-label" for="flexCheckNewPrice">
+                            Harga Terbaru
+                        </label>
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckNewPrice">
+                    </div>
+                    <div class="col-12 d-flex align-items-center form-check" style="padding: 10px 50px;justify-content: space-between;">
+                        <label class="form-check-label" for="flexCheckKM">
+                            Kilometer Terendah 
+                        </label>
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckKM">
+                    </div>
+                </div>
+                <button class="btn mt-3"
+                    style="width: 100%;border: 2px solid red;border-radius: 30px;background-color: red;color: white;">
+                    <b>Terapkan</b>
+                </button>
+            </div>
+        </nav>
+
         <div id="footbar"></div>
     </div>
+
 
 </body>
 <script src="../js/jquery-3.7.1.min.js"></script>

@@ -112,165 +112,173 @@ $(document).ready(async function () {
 
     renderFilter();
 
-    const sliderPriceMin = $('#slider-price-min');
-    const sliderPriceMax = $('#slider-price-max');
-    const rangePriceMin = $('#range-price-min');
-    const rangePriceMax = $('#range-price-max');
-    const trackPrice = $('#slider-price-track');
-    const minPriceGap = parseInt(sliderPriceMin.attr('step'));
-
     function formatRupiah(num) {
         return 'Rp ' + num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     }
 
-    function fillTrackPrice() {
-        const minVal = parseInt(sliderPriceMin.val(), 10);
-        const maxVal = parseInt(sliderPriceMax.val(), 10);
-        const minAllowed = parseInt(sliderPriceMin.attr('min'), 10);
-        const maxAllowed = parseInt(sliderPriceMin.attr('max'), 10);
-        const range = maxAllowed - minAllowed || 1;
+    function renderSliderPrice(form_id){
+        const sliderPriceMin = $(`${form_id} #slider-price-min`);
+        const sliderPriceMax = $(`${form_id} #slider-price-max`);
+        const rangePriceMin = $(`${form_id} #range-price-min`);
+        const rangePriceMax = $(`${form_id} #range-price-max`);
+        const trackPrice = $(`${form_id} #slider-price-track`);
+        const minPriceGap = parseInt(sliderPriceMin.attr('step'));
 
-        let percent1 = ((minVal - minAllowed) / range) * 100;
-        let percent2 = ((maxVal - minAllowed) / range) * 100;
+        function fillTrackPrice() {
+            const minVal = parseInt(sliderPriceMin.val(), 10);
+            const maxVal = parseInt(sliderPriceMax.val(), 10);
+            const minAllowed = parseInt(sliderPriceMin.attr('min'), 10);
+            const maxAllowed = parseInt(sliderPriceMin.attr('max'), 10);
+            const range = maxAllowed - minAllowed || 1;
 
-        percent1 = Math.max(0, Math.min(100, percent1));
-        percent2 = Math.max(0, Math.min(100, percent2));
+            let percent1 = ((minVal - minAllowed) / range) * 100;
+            let percent2 = ((maxVal - minAllowed) / range) * 100;
 
-        trackPrice.css('background',
-            `linear-gradient(to right, #ccc ${percent1}%, #d40000 ${percent1}%, #d40000 ${percent2}%, #ccc ${percent2}%)`
-        );
-    }
+            percent1 = Math.max(0, Math.min(100, percent1));
+            percent2 = Math.max(0, Math.min(100, percent2));
 
-    function updatePriceValues() {
-        let minVal = parseInt(sliderPriceMin.val());
-        let maxVal = parseInt(sliderPriceMax.val());
-
-        if (maxVal - minVal <= minPriceGap) {
-            if (this.id === 'slider-price-min') {
-                sliderPriceMin.val(maxVal - minPriceGap);
-                minVal = maxVal - minPriceGap;
-            } else {
-                sliderPriceMax.val(minVal + minPriceGap);
-                maxVal = minVal + minPriceGap;
-            }
+            trackPrice.css('background',
+                `linear-gradient(to right, #ccc ${percent1}%, #d40000 ${percent1}%, #d40000 ${percent2}%, #ccc ${percent2}%)`
+            );
         }
 
-        rangePriceMin.text(formatRupiah(minVal));
-        rangePriceMax.text(formatRupiah(maxVal));
-        fillTrackPrice();
-    }
+        function updatePriceValues() {
+            let minVal = parseInt(sliderPriceMin.val());
+            let maxVal = parseInt(sliderPriceMax.val());
 
-    updatePriceValues.call(sliderPriceMin[0]);
-    updatePriceValues.call(sliderPriceMax[0]);
-
-    sliderPriceMin.on('input', updatePriceValues);
-    sliderPriceMax.on('input', updatePriceValues);
-
-    const sliderYearMin = $('#slider-year-min');
-    const sliderYearMax = $('#slider-year-max');
-    const rangeYearMin = $('#range-year-min');
-    const rangeYearMax = $('#range-year-max');
-    const trackYear = $('#slider-year-track');
-    const minYearGap = parseInt(sliderYearMin.attr('step'));
-
-    function fillTrackYear() {
-        const minVal = parseInt(sliderYearMin.val(), 10);
-        const maxVal = parseInt(sliderYearMax.val(), 10);
-        const minAllowed = parseInt(sliderYearMin.attr('min'), 10);
-        const maxAllowed = parseInt(sliderYearMin.attr('max'), 10);
-        const range = maxAllowed - minAllowed || 1;
-
-        let percent1 = ((minVal - minAllowed) / range) * 100;
-        let percent2 = ((maxVal - minAllowed) / range) * 100;
-
-        percent1 = Math.max(0, Math.min(100, percent1));
-        percent2 = Math.max(0, Math.min(100, percent2));
-
-        trackYear.css('background',
-            `linear-gradient(to right, #ccc ${percent1}%, #d40000 ${percent1}%, #d40000 ${percent2}%, #ccc ${percent2}%)`
-        );
-    }
-
-    function updateYearValues() {
-        let minVal = parseInt(sliderYearMin.val());
-        let maxVal = parseInt(sliderYearMax.val());
-
-        if (maxVal - minVal <= minYearGap) {
-            if (this.id === 'slider-year-min') {
-                sliderYearMin.val(maxVal - minYearGap);
-                minVal = maxVal - minYearGap;
-            } else {
-                sliderYearMax.val(minVal + minYearGap);
-                maxVal = minVal + minYearGap;
+            if (maxVal - minVal <= minPriceGap) {
+                if (this.id === 'slider-price-min') {
+                    sliderPriceMin.val(maxVal - minPriceGap);
+                    minVal = maxVal - minPriceGap;
+                } else {
+                    sliderPriceMax.val(minVal + minPriceGap);
+                    maxVal = minVal + minPriceGap;
+                }
             }
+
+            rangePriceMin.text(formatRupiah(minVal));
+            rangePriceMax.text(formatRupiah(maxVal));
+            fillTrackPrice();
         }
 
-        rangeYearMin.text((minVal));
-        rangeYearMax.text((maxVal));
-        fillTrackYear();
+        updatePriceValues.call(sliderPriceMin[0]);
+        updatePriceValues.call(sliderPriceMax[0]);
+
+        sliderPriceMin.on('input', updatePriceValues);
+        sliderPriceMax.on('input', updatePriceValues);
     }
 
-    updateYearValues.call(sliderYearMin[0]);
-    updateYearValues.call(sliderYearMax[0]);
+    renderSliderPrice('#form-filter-price');
+    renderSliderPrice('#form-filter-price-mob');
 
-    sliderYearMin.on('input', updateYearValues);
-    sliderYearMax.on('input', updateYearValues);
+    function renderSliderYear(form_id){
+        const sliderYearMin = $(`${form_id} #slider-year-min`);
+        const sliderYearMax = $(`${form_id} #slider-year-max`);
+        const rangeYearMin = $(`${form_id} #range-year-min`);
+        const rangeYearMax = $(`${form_id} #range-year-max`);
+        const trackYear = $(`${form_id} #slider-year-track`);
+        const minYearGap = parseInt(sliderYearMin.attr('step'));
+
+        function fillTrackYear() {
+            const minVal = parseInt(sliderYearMin.val(), 10);
+            const maxVal = parseInt(sliderYearMax.val(), 10);
+            const minAllowed = parseInt(sliderYearMin.attr('min'), 10);
+            const maxAllowed = parseInt(sliderYearMin.attr('max'), 10);
+            const range = maxAllowed - minAllowed || 1;
+
+            let percent1 = ((minVal - minAllowed) / range) * 100;
+            let percent2 = ((maxVal - minAllowed) / range) * 100;
+
+            percent1 = Math.max(0, Math.min(100, percent1));
+            percent2 = Math.max(0, Math.min(100, percent2));
+
+            trackYear.css('background',
+                `linear-gradient(to right, #ccc ${percent1}%, #d40000 ${percent1}%, #d40000 ${percent2}%, #ccc ${percent2}%)`
+            );
+        }
+
+        function updateYearValues() {
+            let minVal = parseInt(sliderYearMin.val());
+            let maxVal = parseInt(sliderYearMax.val());
+
+            if (maxVal - minVal <= minYearGap) {
+                if (this.id === 'slider-year-min') {
+                    sliderYearMin.val(maxVal - minYearGap);
+                    minVal = maxVal - minYearGap;
+                } else {
+                    sliderYearMax.val(minVal + minYearGap);
+                    maxVal = minVal + minYearGap;
+                }
+            }
+
+            rangeYearMin.text((minVal));
+            rangeYearMax.text((maxVal));
+            fillTrackYear();
+        }
+
+        updateYearValues.call(sliderYearMin[0]);
+        updateYearValues.call(sliderYearMax[0]);
+
+        sliderYearMin.on('input', updateYearValues);
+        sliderYearMax.on('input', updateYearValues);
+    }
+    
+    renderSliderYear('#form-filter-year');
+    renderSliderYear('#form-filter-year-mob');
 
     $('#spanFilterProduct').text(`Menampilkan ${PRODUCT_IMAGES.length} Motor`);
 
-    let totalPages = PRODUCT_IMAGES.length / 9;
+    let totalPages = PRODUCT_IMAGES.length / 6;
     let currentPage = 1;
 
     function renderData() {
-        const startIndex = (currentPage - 1) * 9;
-        const endIndex = startIndex + 9;
+        const startIndex = (currentPage - 1) * 6;
+        const endIndex = startIndex + 6;
         const currentData = PRODUCT_IMAGES.slice(startIndex, endIndex);
 
         $("#cardProduct").html("");
         currentData.forEach((p) => {
             const card = `
-                <div class="col-4">
+                <div class="col-6 col-md-4 product-card">
                     <a href="product-detail.html?category=motor&product=${p.id}" style="text-decoration: none;color: black;cursor:default">
                         <div class="card position-relative" style="border-radius: 25px;margin:0 0 30px 0">
                             <img src="${p.img}" class="card-img-top" alt="..." style="border-top-left-radius: 5.5%;border-top-right-radius: 5.5%; object-fit: cover;">
                             <div class="card-body">
-                                <h5 class="card-title section-price" style="font-size: 24px;color: #D40000;">
-                                    Rp. ${p.price}</h5>
+                                <h5 class="card-title section-price" style="color: #D40000;">
+                                    ${p.price}</h5>
                                 <div class="card-text">
                                     <span class="d-block" style="margin: 5px 0px;">${p.name}</span>
                                     <span class="d-block" style="margin: 5px 0px;">${p.location}</span>
                                     <div class="card-detail mb-3" style="border: 2px solid #EFEFEF;border-radius: 10px;padding: 20px 0px;">
-                                        <table style="width: 100%;font-size: 10pt;">
-                                            <tr class="text-center">
-                                                <td>
+                                            <div class="row g-2 w-100 d-flex justify-content-center">
+                                                <div class="col-6 col-md-auto">
                                                     <span
-                                                        class="d-flex align-items-center justify-content-center text-center">
+                                                        class="d-flex align-items-center ms-1 ">
                                                         <img src="../assets/icon/date.png" style="width: 20px;height: 20px;">&nbsp;${p.year}
                                                     </span>
-                                                </td>
-                                                <td>
+                                                </div>
+                                                <div class="col-6 col-md-auto">
                                                     <span
-                                                        class="d-flex align-items-center justify-content-center text-center">
+                                                        class="d-flex align-items-center ms-1 ">
                                                         <img src="../assets/icon/road.png" style="width: 20px;height: 20px;">&nbsp;${p.km}
                                                     </span>
-                                                </td>
-                                                <td>
+                                                </div>
+                                                <div class="col-6 col-md-auto">
                                                     <span
-                                                        class="d-flex align-items-center justify-content-center text-center">
+                                                        class="d-flex align-items-center ms-1 ">
                                                         <img src="../assets/icon/transmission.png" style="width: 20px;height: 20px;">&nbsp;${p.transmission}
                                                     </span>
-                                                </td>
-                                                <td>
+                                                </div>
+                                                <div class="col-6 col-md-auto">
                                                     <span
-                                                        class="d-flex align-items-center justify-content-center text-center">
+                                                        class="d-flex align-items-center ms-1 ">
                                                         <i class="fa fa-circle" style="color: #D40000;"></i>&nbsp;${p.color}
                                                     </span>
-                                                </td>
-                                            </tr>
-                                        </table>
+                                                </div>
+                                            </div>
                                     </div>
                                     <span class="d-block foot-card" style="border: 2px solid #EFEFEF;border-radius: 30px;padding: 5px 20px;background-color: #EFEFEF;">
-                                        <div class="row">
+                                        <div class="row g-0">
                                             <div class="col">
                                                 <i class="fa fa-info-circle"></i> Cicilan Mulai
                                             </div>
@@ -312,7 +320,7 @@ $(document).ready(async function () {
 
         let pages = [];
 
-        if (totalPages <= 9) {
+        if (totalPages <= 6) {
             for (let i = 1; i <= totalPages; i++) pages.push(i);
         } else {
             if (currentPage <= 4) {
@@ -359,6 +367,32 @@ $(document).ready(async function () {
         if (currentPage < totalPages) {
             currentPage++;
             renderPagination();
+        }
+    });
+
+    $("#btn-filter-mob").click(function(e){
+        e.stopPropagation();
+        $('body').toggleClass('no-scroll'); // ketika form muncul
+        $('#form-filter-mob, #overlay-product').toggleClass('show');
+    })
+
+    // $("#btn-filter-mob").click()
+
+    $("#btn-sort-mob").click(function(e){
+        e.stopPropagation();
+        $('body').toggleClass('no-scroll'); // ketika form muncul
+        $('#form-sort-mob, #overlay-product').toggleClass('show');
+    })
+
+    $(document).on('click', function (e) {
+
+        if ($(e.target).is('input[type="checkbox"], label')) return;
+        const nav = $('#form-filter-mob, #form-sort-mob');
+        const overlay = $('#overlay-product');
+        if (nav.hasClass('show') && !nav.is(e.target) && nav.has(e.target).length === 0) {
+            nav.removeClass('show');
+            overlay.removeClass('show');
+            $('body').removeClass('no-scroll'); // ketika form ditutup
         }
     });
 })

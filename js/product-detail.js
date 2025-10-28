@@ -37,6 +37,15 @@ $(document).ready(async function () {
         card_scroll.scrollLeft(scrollLeft - walk);
     });
 
+    function renderIndicators(index) {
+        $('.carousel-indicator').empty();
+        $.each(PRODUCT_IMAGES, function (i, src) {
+            $('.carousel-indicator').append(i == index ? `<i class="fa fa-circle text-white banner-indicator" style="font-size: 8pt" data-index="${i}"></i>` : `<i class="far fa-circle text-white banner-indicator" style="font-size: 8pt" data-index="${i}"></i>`);
+        });
+    }
+
+    renderIndicators(0);
+
     let text = `
         ** Harap dibaca sampai selesai ** 
 
@@ -83,8 +92,6 @@ $(document).ready(async function () {
                 </div>            
             `);
         })
-
-        
     }
 
     renderProductImg();
@@ -113,7 +120,7 @@ $(document).ready(async function () {
     $.each(MOTOR_PRODUCTS, function(idx, val){
         
         $('#other-product').append(`
-            <div class="col-3">
+            <div class="col-8 col-md-3 product-card">
                 <a href="product-detail.html?category=motor&product=${val.id}" style="text-decoration: none;color: black;cursor:default">
                     <div class="card position-relative" style="border-radius: 25px;margin:0 0 30px 0">
                         <img src="${val.img}" class="card-img-top" alt="..." style="border-top-left-radius: 5.5%;border-top-right-radius: 5.5%; object-fit: cover;">
@@ -124,34 +131,32 @@ $(document).ready(async function () {
                                 <span class="d-block" style="margin: 5px 0px;">${val.name}</span>
                                 <span class="d-block" style="margin: 5px 0px;">${val.location}</span>
                                 <div class="card-detail mb-3" style="border: 2px solid #EFEFEF;border-radius: 10px;padding: 20px 0px;">
-                                    <table style="width: 100%;font-size: 10pt;">
-                                        <tr class="text-center">
-                                            <td>
-                                                <span
-                                                    class="d-flex align-items-center justify-content-center text-center">
-                                                    <img src="../assets/icon/date.png" style="width: 20px;height: 20px;">&nbsp;${val.year}
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <span
-                                                    class="d-flex align-items-center justify-content-center text-center">
-                                                    <img src="../assets/icon/road.png" style="width: 20px;height: 20px;">&nbsp;${val.km}
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <span
-                                                    class="d-flex align-items-center justify-content-center text-center">
-                                                    <img src="../assets/icon/transmission.png" style="width: 20px;height: 20px;">&nbsp;${val.transmission}
-                                                </span>
-                                            </td>
-                                            <td>
-                                                <span
-                                                    class="d-flex align-items-center justify-content-center text-center">
-                                                    <i class="fa fa-circle" style="color: #D40000;"></i>&nbsp;${val.color}
-                                                </span>
-                                            </td>
-                                        </tr>
-                                    </table>
+                                    <div class="row g-md-2 g-0 w-100 d-flex align-items-center justify-content-center">
+                                        <div class="col-auto">
+                                            <span
+                                                class="d-flex align-items-center ms-1 ">
+                                                <img src="../assets/icon/date.png" style="width: 20px;height: 20px;">&nbsp;${val.year}
+                                            </span>
+                                        </div>
+                                        <div class="col-auto">
+                                            <span
+                                                class="d-flex align-items-center ms-1 ">
+                                                <img src="../assets/icon/road.png" style="width: 20px;height: 20px;">&nbsp;${val.km}
+                                            </span>
+                                        </div>
+                                        <div class="col-auto">
+                                            <span
+                                                class="d-flex align-items-center ms-1 ">
+                                                <img src="../assets/icon/transmission.png" style="width: 20px;height: 20px;">&nbsp;${val.transmission}
+                                            </span>
+                                        </div>
+                                        <div class="col-auto">
+                                            <span
+                                                class="d-flex align-items-center ms-1 ">
+                                                <i class="fa fa-circle" style="color: #D40000;"></i>&nbsp;${val.color}
+                                            </span>
+                                        </div>
+                                    </div>
                                 </div>
                                 <span class="d-block foot-card" style="border: 2px solid #EFEFEF;border-radius: 30px;padding: 5px 20px;background-color: #EFEFEF;">
                                     <div class="row">
@@ -172,5 +177,11 @@ $(document).ready(async function () {
                 </a>
             </div>
         `);
+    })
+
+    $("#show-product img").click(function(e){
+        e.stopPropagation();
+        $('body').toggleClass('no-scroll'); // ketika form muncul
+        $('#overlay').toggleClass('show');
     })
 })
