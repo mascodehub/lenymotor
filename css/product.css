@@ -1,3 +1,8 @@
+body.no-scroll {
+    overflow: hidden;
+    height: 100vh;
+}
+
 #main-content {
     padding-top: 210px;
 }
@@ -231,6 +236,58 @@
     cursor: default;
     width: 20px;
     color: #666;
+}
+
+#form-sort-mob,
+#form-filter-mob {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s ease-out;
+    pointer-events: none;
+    max-height: 0;
+    overflow: hidden;
+    z-index: 1060;
+}
+
+#form-sort-mob.show,
+#form-filter-mob.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    max-height: 100%;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+#form-filter-content-mob{
+    height: 50vh !important;
+    overflow-y: auto;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+#form-filter-mob > div:first-child,
+#form-filter-content-mob > div:first-child {
+    border-top: none !important;
+    box-shadow: none !important;
+}
+
+#overlay-product {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+    pointer-events: none;
+    z-index: 1050;
+}
+
+#overlay-product.show {
+    opacity: 1;
+    pointer-events: auto;
 }
 
 @media only screen and (max-width: 600px) {
