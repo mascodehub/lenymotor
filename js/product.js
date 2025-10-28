@@ -218,59 +218,57 @@ $(document).ready(async function () {
 
     $('#spanFilterProduct').text(`Menampilkan ${PRODUCT_IMAGES.length} Motor`);
 
-    let totalPages = PRODUCT_IMAGES.length / 9;
+    let totalPages = PRODUCT_IMAGES.length / 6;
     let currentPage = 1;
 
     function renderData() {
-        const startIndex = (currentPage - 1) * 9;
-        const endIndex = startIndex + 9;
+        const startIndex = (currentPage - 1) * 6;
+        const endIndex = startIndex + 6;
         const currentData = PRODUCT_IMAGES.slice(startIndex, endIndex);
 
         $("#cardProduct").html("");
         currentData.forEach((p) => {
             const card = `
-                <div class="col-4">
+                <div class="col-6 col-md-4 product-card">
                     <a href="product-detail.html?category=motor&product=${p.id}" style="text-decoration: none;color: black;cursor:default">
                         <div class="card position-relative" style="border-radius: 25px;margin:0 0 30px 0">
                             <img src="${p.img}" class="card-img-top" alt="..." style="border-top-left-radius: 5.5%;border-top-right-radius: 5.5%; object-fit: cover;">
                             <div class="card-body">
-                                <h5 class="card-title section-price" style="font-size: 24px;color: #D40000;">
-                                    Rp. ${p.price}</h5>
+                                <h5 class="card-title section-price" style="color: #D40000;">
+                                    ${p.price}</h5>
                                 <div class="card-text">
                                     <span class="d-block" style="margin: 5px 0px;">${p.name}</span>
                                     <span class="d-block" style="margin: 5px 0px;">${p.location}</span>
                                     <div class="card-detail mb-3" style="border: 2px solid #EFEFEF;border-radius: 10px;padding: 20px 0px;">
-                                        <table style="width: 100%;font-size: 10pt;">
-                                            <tr class="text-center">
-                                                <td>
+                                            <div class="row g-2 w-100 d-flex justify-content-center">
+                                                <div class="col-6 col-md-auto">
                                                     <span
-                                                        class="d-flex align-items-center justify-content-center text-center">
+                                                        class="d-flex align-items-center ms-1 ">
                                                         <img src="../assets/icon/date.png" style="width: 20px;height: 20px;">&nbsp;${p.year}
                                                     </span>
-                                                </td>
-                                                <td>
+                                                </div>
+                                                <div class="col-6 col-md-auto">
                                                     <span
-                                                        class="d-flex align-items-center justify-content-center text-center">
+                                                        class="d-flex align-items-center ms-1 ">
                                                         <img src="../assets/icon/road.png" style="width: 20px;height: 20px;">&nbsp;${p.km}
                                                     </span>
-                                                </td>
-                                                <td>
+                                                </div>
+                                                <div class="col-6 col-md-auto">
                                                     <span
-                                                        class="d-flex align-items-center justify-content-center text-center">
+                                                        class="d-flex align-items-center ms-1 ">
                                                         <img src="../assets/icon/transmission.png" style="width: 20px;height: 20px;">&nbsp;${p.transmission}
                                                     </span>
-                                                </td>
-                                                <td>
+                                                </div>
+                                                <div class="col-6 col-md-auto">
                                                     <span
-                                                        class="d-flex align-items-center justify-content-center text-center">
+                                                        class="d-flex align-items-center ms-1 ">
                                                         <i class="fa fa-circle" style="color: #D40000;"></i>&nbsp;${p.color}
                                                     </span>
-                                                </td>
-                                            </tr>
-                                        </table>
+                                                </div>
+                                            </div>
                                     </div>
                                     <span class="d-block foot-card" style="border: 2px solid #EFEFEF;border-radius: 30px;padding: 5px 20px;background-color: #EFEFEF;">
-                                        <div class="row">
+                                        <div class="row g-0">
                                             <div class="col">
                                                 <i class="fa fa-info-circle"></i> Cicilan Mulai
                                             </div>
@@ -312,7 +310,7 @@ $(document).ready(async function () {
 
         let pages = [];
 
-        if (totalPages <= 9) {
+        if (totalPages <= 6) {
             for (let i = 1; i <= totalPages; i++) pages.push(i);
         } else {
             if (currentPage <= 4) {
