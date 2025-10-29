@@ -18,7 +18,7 @@
     <div id="main-content">
         <div id="content">
             <div id="section-1">
-                <div class="row" style="--bs-gutter-x:0.01rem">
+                <div class="row">
                     <div class="col">
                         <div class="row d-none d-md-block">
                             <div class="col" style="margin: 20px 0px;">
@@ -26,7 +26,7 @@
                             </div>
                         </div>
 
-                        <div class="row main" >
+                        <div class="row" >
                             <div class="col">
                                 <div class="row mb-3">
                                     <div class="col">
@@ -231,7 +231,40 @@
                 </div>
             </div>
 
-            <div id="overlay"></div>
+            <div id="overlay-product-detail"></div>
+
+            <nav class="fixed-bottom shadow-sm" id="product-img-mob" style="height: 75vh;background-color: none; margin: 30px;">
+                <div class="row mb-3">
+                    <div class="col">
+                        <div class="main-img position-relative">
+                            <div id="show-product" class="mt-0 mb-0 position-relative overflow-hidden">
+                            </div>
+
+                            <div class="position-absolute top-50 start-50 translate-middle carousel-indicator d-flex gap-2 d-md-none"
+                                style="margin-top: 9vh;">
+                            </div>
+
+                            <div class="position-absolute top-50 start-0 translate-middle-y shadow carousel-prev d-none d-md-flex"
+                                id="btn-prev-product"
+                                style="background-color: white;border-radius: 100%;padding: 12px 15px;font-size: 22pt;margin-left: 10px;cursor: pointer;z-index: 10;">
+                                <i class="fa fa-arrow-left text-dark"></i>
+                            </div>
+
+                            <div class="position-absolute top-50 end-0 translate-middle-y shadow carousel-next d-none d-md-flex"
+                                id="btn-next-product"
+                                style="background-color: white;border-radius: 100%;padding: 12px 15px;font-size: 22pt;margin-right: 10px;cursor: pointer;z-index: 10;">
+                                <i class="fa fa-arrow-right text-dark"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="card-scroll" id="product-list-img" style="width: 100%">
+                        </div>
+                    </div>
+                </div>
+            </nav>
         </div>
 
         <div id="footbar"></div>
