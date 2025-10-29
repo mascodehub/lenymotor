@@ -163,4 +163,21 @@ $(document).ready(async function () {
             renderPagination();
         }
     });
+
+    $("#btn-sort-mob").click(function (e) {
+        e.stopPropagation();
+        $('body').toggleClass('no-scroll'); // ketika form muncul
+        $('#btn-sort-promo, #overlay-promo').toggleClass('show');
+    })
+
+    $(document).on('click', function (e) {
+        if ($(e.target).is('input[type="checkbox"], label')) return;
+        const nav = $('#btn-sort-promo');
+        const overlay = $('#overlay-promo');
+        if (nav.hasClass('show') && !nav.is(e.target) && nav.has(e.target).length === 0) {
+            nav.removeClass('show');
+            overlay.removeClass('show');
+            $('body').removeClass('no-scroll'); // ketika form ditutup
+        }
+    });
 })

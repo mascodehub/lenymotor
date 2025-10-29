@@ -11,6 +11,43 @@ body.no-scroll {
     background-color: #EFEFEF;
 }
 
+#btn-sort-promo {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s ease-out;
+    pointer-events: none;
+    max-height: 0;
+    overflow: hidden;
+    z-index: 1060;
+}
+
+#btn-sort-promo.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    max-height: 100%;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+#overlay-promo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+    pointer-events: none;
+    z-index: 1050;
+}
+
+#overlay-promo.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
 .carousel-scroll {
     display: flex;
     overflow-x: auto;
