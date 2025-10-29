@@ -31,4 +31,18 @@ category = category != null ? category : '';
 $(`.${page}${category}Page`).css('border-top', '2px solid red');
 $(`.${page}${category}Page`).css('padding-top', '28px');
 
+$('.dropdown > a').on('click', function (e) {
+    e.preventDefault();
+    const $menu = $(this).next('.dropdown-content');
+    // tutup dropdown lain jika ada
+    $('.dropdown-content').not($menu).removeClass('show');
+    // toggle dropdown yang diklik
+    $menu.toggleClass('show');
+});
 
+// klik di luar dropdown → tutup semua
+$(document).on('click', function (e) {
+    if (!$(e.target).closest('.dropdown').length) {
+        $('.dropdown-content').removeClass('show');
+    }
+});
