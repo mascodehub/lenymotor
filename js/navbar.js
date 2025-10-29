@@ -24,8 +24,11 @@ const filename = path.substring(path.lastIndexOf('/') + 1);
 const page = filename.split('.')[0];
 
 const urlParams = new URLSearchParams(window.location.search);
-const category = urlParams.get('category');
+let category = urlParams.get('category');
+
+category = category != null ? category : '';
 
 $(`.${page}${category}Page`).css('border-top', '2px solid red');
 $(`.${page}${category}Page`).css('padding-top', '28px');
+
 
