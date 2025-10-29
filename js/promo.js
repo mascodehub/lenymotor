@@ -164,6 +164,10 @@ $(document).ready(async function () {
         }
     });
 
+    $('#mobile-reset-sort').click(function () {
+        $('#mobile-list-sort input[type="checkbox"]').prop('checked', false);
+    })
+
     $("#btn-sort-mob").click(function (e) {
         e.stopPropagation();
         $('body').toggleClass('no-scroll'); // ketika form muncul
