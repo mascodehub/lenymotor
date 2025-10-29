@@ -250,4 +250,13 @@ $(document).ready(async function () {
             $('body').removeClass('no-scroll'); // ketika form muncul
         }
     });
+
+    $('#btn-close-product-img-mob').click(function(){
+        const productImg = $('#product-img-mob');
+        const overlay = $('#overlay-product-detail');
+
+        productImg.removeClass('show');
+        overlay.removeClass('show');
+        $('body').removeClass('no-scroll'); // ketika form muncul
+    })
 })
