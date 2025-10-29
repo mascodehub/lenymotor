@@ -74,27 +74,52 @@ $(document).ready(async function () {
 
     $('#product-description pre').append(text)
 
-    // show-product
     let idxProduct = 0;
 
-    function renderProductImg(){
-        $('#show-product').html(`
-            <img src="${PRODUCT_IMAGES[idxProduct]}" class="card-img-top" alt="..." style="object-fit: contain;">    
-        `);
-
-        $('#product-list-img').html('');
-        $.each(PRODUCT_IMAGES, function(idx, val){
-            let active = idxProduct == idx ? 'border: 3px solid red;' : '';
-            $('#product-list-img').append(`
-                <div class="product-img">
-                    <img src="${val}" class="card-img-top" alt="..."
-                        style="width: 100%; height: 80%;${active}">
-                </div>            
+    function renderProductImg(mode = 'main'){
+        if(mode == 'mobile'){
+            $('#product-img-mob #show-product').html(`
+                <img src="${PRODUCT_IMAGES[idxProduct]}" class="card-img-top" alt="..." style="object-fit: contain;">    
             `);
-        })
+    
+            $('#product-img-mob #product-list-img').html('');
+            $.each(PRODUCT_IMAGES, function(idx, val){
+                let active = idxProduct == idx ? 'border: 3px solid red;' : '';
+                $('#product-img-mob #product-list-img').append(`
+                    <div class="product-img" data-id="${idx}">
+                        <img src="${val}" class="card-img-top" alt="..."
+                            style="width: 100%; height: 80%;${active}">
+                    </div>            
+                `);
+            })
+        }else{
+            $('#show-product').html(`
+                <img src="${PRODUCT_IMAGES[idxProduct]}" class="card-img-top" alt="..." style="object-fit: contain;">    
+            `);
+    
+            $('#product-list-img').html('');
+            $.each(PRODUCT_IMAGES, function(idx, val){
+                let active = idxProduct == idx ? 'border: 3px solid red;' : '';
+                $('#product-list-img').append(`
+                    <div class="product-img" data-id="${idx}">
+                        <img src="${val}" class="card-img-top" alt="..."
+                            style="width: 100%; height: 80%;${active}">
+                    </div>            
+                `);
+            })
+        }
     }
 
     renderProductImg();
+    renderProductImg('mobile');
+
+    $(document).on('click', '.product-img', function(e){
+        e.stopPropagation();
+        $('body').addClass('no-scroll');
+        idxProduct = $(this).data('id');
+        renderIndicators(idxProduct);
+        renderProductImg('mobile');
+    })
 
     $('#btn-prev-product').click(function() {
         if(idxProduct <= 0)
@@ -179,9 +204,21 @@ $(document).ready(async function () {
         `);
     })
 
-    $("#show-product img").click(function(e){
+    $(".main-img #show-product img").click(function(e){
         e.stopPropagation();
-        $('body').toggleClass('no-scroll'); // ketika form muncul
-        $('#overlay').toggleClass('show');
+        $('#product-img-mob').toggleClass('show');
+        $('#overlay-product-detail').toggleClass('show');
+        $('body').addClass('no-scroll'); // ketika form muncul
     })
+
+    $(document).on('click', function (e) {
+        const productImg = $('#product-img-mob');
+        const overlay = $('#overlay-product-detail');
+        
+        if (productImg.hasClass('show') && !productImg.is(e.target) && productImg.has(e.target).length === 0) {
+            productImg.removeClass('show');
+            overlay.removeClass('show');
+            $('body').removeClass('no-scroll'); // ketika form muncul
+        }
+    });
 })

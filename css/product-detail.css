@@ -74,6 +74,27 @@ body.no-scroll {
         margin: 0 0 15px 0 !important;
     }
 
+    #product-img-mob {
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: all 0.3s ease-out;
+        pointer-events: none;
+        max-height: 0;
+        overflow: hidden;
+        z-index: 1060;
+    }
+    
+    #product-img-mob.show {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+        max-height: 100%;
+    }
+
+    .carousel-indicator{
+        margin-top: 15vh !important;
+    }
+
     #other-product-list {
         margin: 0 0 15px 0 !important;
     }
@@ -128,7 +149,7 @@ body.no-scroll {
         padding: 5px !important;
     }
 
-    #overlay {
+    #overlay-product-detail {
         position: fixed;
         top: 0;
         left: 0;
@@ -141,7 +162,7 @@ body.no-scroll {
         z-index: 1050;
     }
 
-    #overlay.show {
+    #overlay-product-detail.show {
         opacity: 1;
         pointer-events: auto;
     }
