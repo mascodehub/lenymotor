@@ -113,7 +113,7 @@ $(document).ready(async function () {
     renderProductImg();
     renderProductImg('mobile');
 
-    $(document).on('click', '.product-img', function(e){
+    $(document).on('click', '#product-img-mob #product-list-img .product-img', function(e){
         e.stopPropagation();
         $('body').addClass('no-scroll');
         idxProduct = $(this).data('id');
