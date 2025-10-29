@@ -14,19 +14,20 @@
 .carousel-scroll {
     display: flex;
     overflow-x: auto;
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
     gap: 20px;
     padding: 20px;
-    scroll-snap-type: x mandatory;
+    scroll-snap-type: none;
     user-select: none;
 }
 
 .carousel-md-scroll {
     display: flex;
-    scroll-behavior: smooth;
+    overflow-x: auto;
+    scroll-behavior: auto;
     gap: 10px;
-    padding: 20px 0;
-    scroll-snap-type: x mandatory;
+    padding: 20px;
+    scroll-snap-type: none;
     user-select: none;
 }
 
@@ -196,10 +197,10 @@
     .carousel-md-scroll {
         display: flex;
         overflow-x: auto;
-        scroll-behavior: smooth;
+        scroll-behavior: auto;
         gap: 20px;
         padding: 20px;
-        scroll-snap-type: x mandatory;
+        scroll-snap-type: none;
         user-select: none;
     }
 

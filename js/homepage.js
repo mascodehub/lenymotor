@@ -243,7 +243,7 @@ $(document).ready(async function () {
     let currentIndex = 0;
     const total = images.length;
 
-    function renderIndicators(index){
+    function renderIndicators(index) {
         $indicators.empty();
         $.each(images, function (i, src) {
             $indicators.append(i == index ? `<i class="fa fa-circle text-white banner-indicator" data-index="${i}"></i>` : `<i class="far fa-circle text-white banner-indicator" data-index="${i}"></i>`);
@@ -292,7 +292,7 @@ $(document).ready(async function () {
         updateCarousel(currentIndex);
     }, 3000);
 
-    const $carousel_motor = $("#carousel-motor");
+    let carousel_motor = $('#carousel-motor');
 
     $.each(motor_products, function (i, p) {
         const card = `
@@ -346,29 +346,52 @@ $(document).ready(async function () {
                 </div>
             </div>
         `;
-        $carousel_motor.append(card);
+        carousel_motor.append(card);
     });
 
     let isDown = false;
-    let startX, scrollLeft;
+    let startX = 0;
+    let startScrollLeft = 0;
+    let currentScroll = 0;
+    let targetScroll = 0;
+    let isAnimating = false;
+    const ease = 0.25;
 
-    $carousel_motor.on("mousedown", function (e) {
+    carousel_motor.on("mousedown", function (e) {
         isDown = true;
         startX = e.pageX;
-        scrollLeft = $carousel_motor.scrollLeft();
-        e.preventDefault(); // cegah block teks
+        startScrollLeft = $(this).scrollLeft();
+        currentScroll = startScrollLeft;
+        targetScroll = startScrollLeft;
+        e.preventDefault();
+
+        if (!isAnimating) {
+            isAnimating = true;
+        }
     });
 
     $(window).on("mouseup", function () {
         isDown = false;
     });
 
-    $carousel_motor.on("mousemove", function (e) {
+    carousel_motor.on("mousemove", function (e) {
         if (!isDown) return;
         e.preventDefault();
-        const x = e.pageX;
-        const walk = (x - startX); // seberapa jauh mouse digeser
-        $carousel_motor.scrollLeft(scrollLeft - walk);
+        const dx = e.pageX - startX;
+        targetScroll = startScrollLeft - dx * 1.5; // faktor kecepatan
+
+        // batasi agar tidak keluar batas
+        const maxScroll = $(this)[0].scrollWidth - $(this).outerWidth();
+        if (targetScroll < 0) targetScroll = 0;
+        if (targetScroll > maxScroll) targetScroll = maxScroll;
+
+        // langsung update sedikit agar terasa responsif di awal
+        currentScroll = currentScroll + (targetScroll - currentScroll) * 0.7;
+        $(this).scrollLeft(currentScroll);
+
+        if (!isAnimating) {
+            isAnimating = true;
+        }
     });
 
     const $carousel_mobil = $("#carousel-mobil");
