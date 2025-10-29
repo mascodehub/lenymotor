@@ -69,23 +69,23 @@ $(document).ready(async function () {
         updateCarousel(currentIndex);
     }, 3000);
 
-    let totalPages = PRODUCT_IMAGES.length / 9;
+    let totalPages = PRODUCT_IMAGES.length / 12;
     let currentPage = 1;
 
     function renderData() {
-        const startIndex = (currentPage - 1) * 9;
-        const endIndex = startIndex + 9;
+        const startIndex = (currentPage - 1) * 12;
+        const endIndex = startIndex + 12;
         const currentData = PRODUCT_IMAGES.slice(startIndex, endIndex);
 
         $("#card-promo").html("");
         currentData.forEach((p) => {
             let card = `
-                <div class="col-4">
+                <div class="col-6 col-md-4">
                     <a href="#" style="text-decoration: none;color: black;cursor:default">
                         <div class="card position-relative"
                             style="border-radius: 25px;margin:0 0 30px 0">
                             <div class="card-body">
-                                <div class="d-flex align-items-center justify-content-center"
+                                <div class="d-flex align-items-center justify-content-center visual-promo"
                                     style="border-radius: 10px;min-height: 20vh;background-color: red;color: white;">
                                     Visual Promo
                                 </div>

@@ -148,6 +148,18 @@ body.no-scroll {
 
 
 @media only screen and (max-width: 600px) {
+    #section-2 {
+        margin: -0 !important;
+    }
+
+    #card-promo > [class^="col"] {
+        padding: 5px !important;
+    }
+
+    .visual-promo{
+        min-height: 13vh !important;
+    }
+
     #carousel-banner {
         max-width: 94vw;
         height: 20vh;
