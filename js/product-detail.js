@@ -1,7 +1,7 @@
 let MOTOR_PRODUCTS, PRODUCT_IMAGES;
 
-function initData(){
-    return $.getJSON('../data/product-detail.json', function(data) {
+function initData() {
+    return $.getJSON('../data/product-detail.json', function (data) {
         MOTOR_PRODUCTS = data.motor_products;
         PRODUCT_IMAGES = data.product_images;
     });
@@ -15,13 +15,24 @@ $(document).ready(async function () {
 
     let card_scroll = $('.card-scroll');
     let isDown = false;
-    let startX, scrollLeft;
+    let startX = 0;
+    let startScrollLeft = 0;
+    let currentScroll = 0;
+    let targetScroll = 0;
+    let isAnimating = false;
+    const ease = 0.25;
 
     card_scroll.on("mousedown", function (e) {
         isDown = true;
         startX = e.pageX;
-        scrollLeft = card_scroll.scrollLeft();
-        e.preventDefault(); // cegah block teks
+        startScrollLeft = $(this).scrollLeft();
+        currentScroll = startScrollLeft;
+        targetScroll = startScrollLeft;
+        e.preventDefault();
+
+        if (!isAnimating) {
+            isAnimating = true;
+        }
     });
 
     $(window).on("mouseup", function () {
@@ -31,10 +42,21 @@ $(document).ready(async function () {
     card_scroll.on("mousemove", function (e) {
         if (!isDown) return;
         e.preventDefault();
-        const x = e.pageX - card_scroll.offset().left;
-        
-        const walk = (x - startX) * 1.1; // seberapa jauh mouse digeser
-        card_scroll.scrollLeft(scrollLeft - walk);
+        const dx = e.pageX - startX;
+        targetScroll = startScrollLeft - dx * 1.5; // faktor kecepatan
+
+        // batasi agar tidak keluar batas
+        const maxScroll = $(this)[0].scrollWidth - $(this).outerWidth();
+        if (targetScroll < 0) targetScroll = 0;
+        if (targetScroll > maxScroll) targetScroll = maxScroll;
+
+        // langsung update sedikit agar terasa responsif di awal
+        currentScroll = currentScroll + (targetScroll - currentScroll) * 0.7;
+        $(this).scrollLeft(currentScroll);
+
+        if (!isAnimating) {
+            isAnimating = true;
+        }
     });
 
     function renderIndicators(index) {
@@ -76,14 +98,14 @@ $(document).ready(async function () {
 
     let idxProduct = 0;
 
-    function renderProductImg(mode = 'main'){
-        if(mode == 'mobile'){
+    function renderProductImg(mode = 'main') {
+        if (mode == 'mobile') {
             $('#product-img-mob #show-product').html(`
                 <img src="${PRODUCT_IMAGES[idxProduct]}" class="card-img-top" alt="..." style="object-fit: contain;">    
             `);
-    
+
             $('#product-img-mob #product-list-img').html('');
-            $.each(PRODUCT_IMAGES, function(idx, val){
+            $.each(PRODUCT_IMAGES, function (idx, val) {
                 let active = idxProduct == idx ? 'border: 3px solid red;' : '';
                 $('#product-img-mob #product-list-img').append(`
                     <div class="product-img" data-id="${idx}">
@@ -92,16 +114,16 @@ $(document).ready(async function () {
                     </div>            
                 `);
             })
-        }else{
+        } else {
             $('#show-product').html(`
                 <img src="${PRODUCT_IMAGES[idxProduct]}" class="card-img-top" alt="..." style="object-fit: contain;">    
             `);
-    
+
             $('#product-list-img').html('');
-            $.each(PRODUCT_IMAGES, function(idx, val){
+            $.each(PRODUCT_IMAGES, function (idx, val) {
                 let active = idxProduct == idx ? 'border: 3px solid red;' : '';
                 $('#product-list-img').append(`
-                    <div class="product-img" data-id="${idx}">
+                    <div class="product-img" data-id="${idx}" style="cursor: pointer">
                         <img src="${val}" class="card-img-top" alt="..."
                             style="width: 100%; height: 80%;${active}">
                     </div>            
@@ -113,7 +135,7 @@ $(document).ready(async function () {
     renderProductImg();
     renderProductImg('mobile');
 
-    $(document).on('click', '#product-img-mob #product-list-img .product-img', function(e){
+    $(document).on('click', '#product-img-mob #product-list-img .product-img', function (e) {
         e.stopPropagation();
         $('body').addClass('no-scroll');
         idxProduct = $(this).data('id');
@@ -121,8 +143,15 @@ $(document).ready(async function () {
         renderProductImg('mobile');
     })
 
-    $('#btn-prev-product').click(function() {
-        if(idxProduct <= 0)
+    $(document).on('click', '.main-img#product-list-img .product-img', function (e) {
+        e.stopPropagation();
+        idxProduct = $(this).data('id');
+        renderIndicators(idxProduct);
+        renderProductImg();
+    })
+
+    $('#btn-prev-product').click(function () {
+        if (idxProduct <= 0)
             card_scroll.animate({ scrollLeft: `+=${200 * (PRODUCT_IMAGES.length - 1)}` }, 300);
         else
             card_scroll.animate({ scrollLeft: "-=200" }, 300);
@@ -130,9 +159,9 @@ $(document).ready(async function () {
         idxProduct = idxProduct <= 0 ? PRODUCT_IMAGES.length - 1 : (idxProduct - 1);
         renderProductImg();
     });
-    
-    $('#btn-next-product').click(function() {
-        if(idxProduct >= PRODUCT_IMAGES.length - 1)
+
+    $('#btn-next-product').click(function () {
+        if (idxProduct >= PRODUCT_IMAGES.length - 1)
             card_scroll.animate({ scrollLeft: `-=${200 * (PRODUCT_IMAGES.length - 1)}` }, 300);
         else
             card_scroll.animate({ scrollLeft: "+=200" }, 300);
@@ -142,8 +171,8 @@ $(document).ready(async function () {
     });
 
     $('#other-product').html('');
-    $.each(MOTOR_PRODUCTS, function(idx, val){
-        
+    $.each(MOTOR_PRODUCTS, function (idx, val) {
+
         $('#other-product').append(`
             <div class="col-8 col-md-3 product-card">
                 <a href="product-detail.html?category=motor&product=${val.id}" style="text-decoration: none;color: black;cursor:default">
@@ -204,7 +233,7 @@ $(document).ready(async function () {
         `);
     })
 
-    $(".main-img #show-product img").click(function(e){
+    $(".main-img #show-product img").click(function (e) {
         e.stopPropagation();
         $('#product-img-mob').toggleClass('show');
         $('#overlay-product-detail').toggleClass('show');
@@ -214,7 +243,7 @@ $(document).ready(async function () {
     $(document).on('click', function (e) {
         const productImg = $('#product-img-mob');
         const overlay = $('#overlay-product-detail');
-        
+
         if (productImg.hasClass('show') && !productImg.is(e.target) && productImg.has(e.target).length === 0) {
             productImg.removeClass('show');
             overlay.removeClass('show');
