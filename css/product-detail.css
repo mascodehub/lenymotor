@@ -66,16 +66,16 @@ body.no-scroll {
         border-radius: 0;
     }
 
-    #section-1 .row.main {
-        --bs-gutter-x: 0.01rem;
+    #section-1 > [class^="row"] {
+        margin: 0 !important;
     }
 
     #product-detail {
-        margin: 0 15px 15px 15px !important;
+        margin: 0 0 15px 0 !important;
     }
 
     #other-product-list {
-        margin: 20px;
+        margin: 0 0 15px 0 !important;
     }
 
     #other-product {
