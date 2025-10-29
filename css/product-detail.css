@@ -19,9 +19,9 @@ body.no-scroll {
 .card-scroll {
     display: flex;
     overflow-x: auto;
-    scroll-behavior: smooth;
+    scroll-behavior: auto;
     gap: 20px;
-    scroll-snap-type: x mandatory;
+    scroll-snap-type: none;
     user-select: none;
 }
 
@@ -30,7 +30,7 @@ body.no-scroll {
 }
 
 .card-scroll::-webkit-scrollbar-thumb {
-    background: none;
+    background: #ccc;
     border-radius: 4px;
 }
 
@@ -66,7 +66,7 @@ body.no-scroll {
         border-radius: 0;
     }
 
-    #section-1 > [class^="row"] {
+    #section-1>[class^="row"] {
         margin: 0 !important;
     }
 
@@ -83,7 +83,7 @@ body.no-scroll {
         overflow: hidden;
         z-index: 1060;
     }
-    
+
     #product-img-mob.show {
         opacity: 1;
         transform: translateY(0);
@@ -91,8 +91,19 @@ body.no-scroll {
         max-height: 100%;
     }
 
-    .carousel-indicator{
-        margin-top: 15vh !important;
+    .product-img img {
+        flex: 0 0 calc(33.33% - 20px);
+        min-width: 130px;
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        scroll-snap-align: start;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        object-fit: cover !important;
+    }
+
+    .carousel-indicator {
+        margin-top: 13vh !important;
     }
 
     #other-product-list {
