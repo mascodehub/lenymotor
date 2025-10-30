@@ -34,9 +34,13 @@ body.no-scroll {
     border-radius: 4px;
 }
 
+.product-img {
+    padding-bottom: 10px;
+}
+
 .product-img img {
     flex: 0 0 calc(33.33% - 20px);
-    min-width: 300px;
+    min-width: 180px;
     background: white;
     border-radius: 10px;
     overflow: hidden;
