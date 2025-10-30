@@ -99,59 +99,82 @@ $(document).ready(function () {
     $("#testi-container").append(card);
   });
 
-  // Pagination
-  const totalPages = 20; // misalnya total halaman
-  let currentPage =
-    parseInt(new URLSearchParams(window.location.search).get("page")) || 1;
+  // -------------------
+  // KONFIGURASI PAGINATION
+  // -------------------
+  const perPage = 5;
+  let currentPage = 1;
+  const totalPages = Math.ceil(testimonials.length / perPage);
 
   function renderPagination() {
-    const pagination = $("#pagination");
+    const pagination = $(".pagination");
     pagination.empty();
 
-    let pagesToShow = [];
-    if (totalPages <= 5) {
-      pagesToShow = Array.from({ length: totalPages }, (_, i) => i + 1);
+    let pages = [];
+
+    if (totalPages <= 6) {
+      for (let i = 1; i <= totalPages; i++) pages.push(i);
     } else {
-      pagesToShow = [1, 2, 3, 4, "...", totalPages];
+      if (currentPage <= 4) {
+        pages = [1, 2, 3, 4, 5, "...", totalPages];
+      } else if (currentPage >= totalPages - 3) {
+        pages = [
+          1,
+          "...",
+          totalPages - 4,
+          totalPages - 3,
+          totalPages - 2,
+          totalPages - 1,
+          totalPages,
+        ];
+      } else {
+        pages = [
+          1,
+          "...",
+          currentPage - 1,
+          currentPage,
+          currentPage + 1,
+          "...",
+          totalPages,
+        ];
+      }
     }
 
-    pagesToShow.forEach((page) => {
-      if (page === "...") {
-        pagination.append(`<span>...</span>`);
+    pages.forEach((p) => {
+      if (p === "...") {
+        pagination.append(`<li class="dots">...</li>`);
       } else {
-        const btn = $(`<button class="page-btn">${page}</button>`);
-        if (page === currentPage) btn.addClass("active");
-        btn.click(() => {
-          currentPage = page;
-          updateURL();
-          renderPagination();
-        });
-        pagination.append(btn);
+        pagination.append(
+          `<li class="${p === currentPage ? "active" : ""}">${p}</li>`
+        );
       }
     });
+
+    $(".prev").prop("disabled", currentPage === 1);
+    $(".next").prop("disabled", currentPage === totalPages);
+
+    renderData();
   }
 
-  function updateURL() {
-    const url = new URL(window.location);
-    url.searchParams.set("page", currentPage);
-    window.history.pushState({}, "", url);
-  }
+  $(document).on("click", ".pagination li", function () {
+    const text = $(this).text();
+    if (text === "..." || parseInt(text) === currentPage) return;
+    currentPage = parseInt(text);
+    renderPagination();
+  });
 
-  $("#prevBtn").click(() => {
+  $(".prev").click(function () {
     if (currentPage > 1) {
       currentPage--;
-      updateURL();
       renderPagination();
     }
   });
 
-  $("#nextBtn").click(() => {
+  $(".next").click(function () {
     if (currentPage < totalPages) {
       currentPage++;
-      updateURL();
       renderPagination();
     }
   });
-
   renderPagination();
 });

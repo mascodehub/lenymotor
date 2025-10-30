@@ -96,15 +96,6 @@ $(document).ready(function () {
     },
   ];
 
-  // -------------------
-  // KONFIGURASI PAGINATION
-  // -------------------
-  const perPage = 5;
-  let currentPage = 1;
-  const totalPages = Math.ceil(articles.length / perPage);
-
-  document.getElementById("article-length").innerText = perPage;
-
   function renderBannerArticle(data) {
     let html = `<div class="d-none d-md-grid banner-grid">`;
     data.slice(0, 5).forEach((val, index) => {
@@ -158,34 +149,86 @@ $(document).ready(function () {
 
   renderArticles(articles);
 
-  // Pagination
-  function renderPagination(current, total) {
-    let html = `<nav><ul class="pagination">`;
+  // -------------------
+  // KONFIGURASI PAGINATION
+  // -------------------
+  const perPage = 5;
+  let currentPage = 1;
+  const totalPages = Math.ceil(articles.length / perPage);
 
-    // Tombol Prev
-    html += `
-      <li class="page-item ${current === 1 ? "disabled" : ""}">
-        <a class="page-link" href="#" data-page="${current - 1}">Sebelumnya</a>
-      </li>`;
+  document.getElementById("article-length").innerText = perPage;
 
-    // Nomor halaman
-    for (let i = 1; i <= total; i++) {
-      html += `
-        <li class="page-item ${i === current ? "active" : ""}">
-          <a class="page-link" href="#" data-page="${i}">${i}</a>
-        </li>`;
+  function renderPagination() {
+    const pagination = $(".pagination");
+    pagination.empty();
+
+    let pages = [];
+
+    if (totalPages <= 6) {
+      for (let i = 1; i <= totalPages; i++) pages.push(i);
+    } else {
+      if (currentPage <= 4) {
+        pages = [1, 2, 3, 4, 5, "...", totalPages];
+      } else if (currentPage >= totalPages - 3) {
+        pages = [
+          1,
+          "...",
+          totalPages - 4,
+          totalPages - 3,
+          totalPages - 2,
+          totalPages - 1,
+          totalPages,
+        ];
+      } else {
+        pages = [
+          1,
+          "...",
+          currentPage - 1,
+          currentPage,
+          currentPage + 1,
+          "...",
+          totalPages,
+        ];
+      }
     }
 
-    // Tombol Next
-    html += `
-      <li class="page-item ${current === total ? "disabled" : ""}">
-        <a class="page-link" href="#" data-page="${current + 1}">Berikutnya</a>
-      </li>`;
+    pages.forEach((p) => {
+      if (p === "...") {
+        pagination.append(`<li class="dots">...</li>`);
+      } else {
+        pagination.append(
+          `<li class="${p === currentPage ? "active" : ""}">${p}</li>`
+        );
+      }
+    });
 
-    html += `</ul></nav>`;
-    return html;
+    $(".prev").prop("disabled", currentPage === 1);
+    $(".next").prop("disabled", currentPage === totalPages);
+
+    renderData();
   }
 
+  $(document).on("click", ".pagination li", function () {
+    const text = $(this).text();
+    if (text === "..." || parseInt(text) === currentPage) return;
+    currentPage = parseInt(text);
+    renderPagination();
+  });
+
+  $(".prev").click(function () {
+    if (currentPage > 1) {
+      currentPage--;
+      renderPagination();
+    }
+  });
+
+  $(".next").click(function () {
+    if (currentPage < totalPages) {
+      currentPage++;
+      renderPagination();
+    }
+  });
+  renderPagination();
   // -------------------
   // FUNGSI RENDER UTAMA
   // -------------------
@@ -195,7 +238,6 @@ $(document).ready(function () {
     const dataPage = articles.slice(start, end);
 
     $("#article-list").html(renderArticles(dataPage));
-    $("#pagination").html(renderPagination(page, totalPages));
   }
 
   $("#banner-article").html(renderBannerArticle(articles));
@@ -216,21 +258,5 @@ $(document).ready(function () {
         a.desc.toLowerCase().includes(keyword)
     );
     renderArticles(filtered);
-  });
-
-  // -------------------
-  // EVENT PAGINATION
-  // -------------------
-  $(document).on("click", ".page-link", function (e) {
-    e.preventDefault();
-    const targetPage = Number($(this).data("page"));
-    if (targetPage >= 1 && targetPage <= totalPages) {
-      currentPage = targetPage;
-      renderPage(currentPage);
-      $("html, body").animate(
-        { scrollTop: $("#article-list").offset().top - 100 },
-        300
-      );
-    }
   });
 });
