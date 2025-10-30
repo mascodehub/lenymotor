@@ -189,11 +189,11 @@ body.no-scroll {
         margin: -0 !important;
     }
 
-    #card-promo > [class^="col"] {
+    #card-promo>[class^="col"] {
         padding: 5px !important;
     }
 
-    .visual-promo{
+    .visual-promo {
         min-height: 13vh !important;
     }
 
@@ -244,7 +244,7 @@ body.no-scroll {
         z-index: 1;
         position: relative;
     }
-    
+
     .pagination li.active {
         background: #d40000;
         color: white;
@@ -257,7 +257,7 @@ body.no-scroll {
         z-index: 2;
     }
 
-    .page-btn{
+    .page-btn {
         height: 28px !important;
         width: 28px !important;
     }
@@ -270,8 +270,12 @@ body.no-scroll {
         padding: 29px 56px;
     }
 
-    #section-pagination{
-        width: 90vw;
+    #section-pagination {
+        min-width: 90vw;
         margin: 0;
+    }
+
+    .pagination {
+        min-width: 50vw !important;
     }
 }
