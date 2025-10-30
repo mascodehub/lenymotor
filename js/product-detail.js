@@ -110,7 +110,7 @@ $(document).ready(async function () {
                 $('#product-img-mob #product-list-img').append(`
                     <div class="product-img" data-id="${idx}">
                         <img src="${val}" class="card-img-top" alt="..."
-                            style="width: 100%; height: 80%;${active}">
+                            style="width: 100%; height: 100%;${active}">
                     </div>            
                 `);
             })
@@ -125,7 +125,7 @@ $(document).ready(async function () {
                 $('#product-list-img').append(`
                     <div class="product-img" data-id="${idx}" style="cursor: pointer">
                         <img src="${val}" class="card-img-top" alt="..."
-                            style="width: 100%; height: 80%;${active}">
+                            style="width: 100%; height: 100%;${active}">
                     </div>            
                 `);
             })
