@@ -144,3 +144,12 @@ body {
   font-size: 0.95rem;
   line-height: 1.4;
 }
+
+@media (max-width: 768px) {
+  .article-img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+    object-fit: cover;
+  }
+}

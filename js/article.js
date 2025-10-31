@@ -132,7 +132,7 @@ $(document).ready(function () {
     $("#article-list").empty();
     list.forEach((a) => {
       $("#article-list").append(`
-       <div id="article" class="article-card d-flex align-items-center mb-3 rounded-lg shadow-sm" style="border-radius: 0.5rem;padding: 1rem;">
+       <div id="article" class="article-card d-block d-md-flex align-items-center mb-3 rounded-lg shadow-sm" style="border-radius: 0.5rem;padding: 1rem;">
         <img src="${a.image}" alt="Article" class="article-img rounded-3 me-3" style="border-radius: 0.5rem;">
         <div class="article-info">
           <div class="d-flex align-items-center mb-1">
@@ -148,6 +148,8 @@ $(document).ready(function () {
   }
 
   renderArticles(articles);
+  $("#banner-article").html(renderBannerArticle(articles));
+  $("#banner-article-mobile").html(renderBannerArticleMobile(articles));
 
   // -------------------
   // KONFIGURASI PAGINATION
@@ -240,8 +242,6 @@ $(document).ready(function () {
     $("#article-list").html(renderArticles(dataPage));
   }
 
-  $("#banner-article").html(renderBannerArticle(articles));
-  $("#banner-article-mobile").html(renderBannerArticleMobile(articles));
   renderPage(currentPage);
 
   // Sidebar interactivity
