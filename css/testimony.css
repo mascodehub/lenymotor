@@ -38,7 +38,7 @@ body {
   }
 
   .testi-grid .card:nth-child(1) .card-text {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .testi-grid .card:nth-child(8) {
@@ -58,7 +58,7 @@ body {
   }
 
   .testi-grid .card:nth-child(8) .card-text {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 }
 
@@ -79,5 +79,5 @@ body {
 }
 
 .card-text {
-  font-size: 0.8rem;
+  font-size: 0.6rem;
 }
