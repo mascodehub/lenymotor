@@ -128,19 +128,23 @@
 }
 
 @media only screen and (max-width: 600px) {
+    #main-content {
+        padding-top: 200px !important;
+    }
+
     #section-1 {
         margin-bottom: 20px;
     }
 
     #carousel-banner {
         max-width: 90vw;
-        height: 15vh;
+        height: 18vh;
     }
 
     .carousel-track img {
         width: 100%;
         max-width: 90vw;
-        height: calc(30vh - 15vh);
+        height: calc(33vh - 15vh);
     }
 
     #carousel-point {
