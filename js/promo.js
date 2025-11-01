@@ -86,7 +86,7 @@ $(document).ready(async function () {
                             style="border-radius: 25px;margin:0 0 30px 0">
                             <div class="card-body">
                                 <div class="d-flex align-items-center justify-content-center visual-promo"
-                                    style="border-radius: 10px;min-height: 20vh;background-color: red;color: white;">
+                                    style="border-radius: 10px;min-height: 13vh;background-color: #d40000;color: white;">
                                     Visual Promo
                                 </div>
                                 <span class="d-block mb-3 mt-3" style="font-size: 12pt;font-weight: bold;">
