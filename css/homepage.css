@@ -91,6 +91,10 @@
     height: 24px;
 }
 
+.card .card-detail span {
+    font-size: 12pt !important;
+}
+
 #carousel-mobil .card,
 #carousel-motor .card {
     flex: 0 0 calc(33.33% - 20px);
@@ -141,6 +145,10 @@
 
     #carousel-point {
         margin-top: -15px;
+    }
+
+    .card .card-detail span {
+        font-size: 8pt !important;
     }
 
     #section-2 #section-header,

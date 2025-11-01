@@ -299,7 +299,7 @@ $(document).ready(async function () {
             <div class="card position-relative"  style="width: 30rem;border-radius: 25px;margin: 0 15px;">
                 <img src="${p.img}" class="card-img-top" alt="..." style="border-top-left-radius: 5.5%;border-top-right-radius: 5.5%; object-fit: cover;">
                 <div class="card-body">
-                    <h5 class="card-title section-price" style="font-size: 36px;color: #D40000;">${p.price}</h5>
+                    <h5 class="card-title section-price" style="font-size: 24pt;color: #D40000;">${p.price}</h5>
                     <div class="card-text">
                         <span class="d-block" style="margin: 5px 0px;">${p.name}</span>
                         <span class="d-block" style="margin: 5px 0px;">${p.location}</span>
@@ -307,23 +307,23 @@ $(document).ready(async function () {
                             <table style="width: 100%;">
                                 <tr class="text-center">
                                     <td>
-                                        <span class="d-flex align-items-center justify-content-center text-center">
-                                            <img src="../assets/icon/date.png" width="20" height="20">&nbsp;${p.year}
+                                        <span class="d-flex align-items-center justify-content-center text-center" >
+                                            <img src="../assets/icon/date.png" width="20" height="20">&nbsp;&nbsp;&nbsp;${p.year}
                                         </span>
                                     </td>
                                     <td>
                                         <span class="d-flex align-items-center justify-content-center text-center">
-                                            <img src="../assets/icon/road.png" width="20" height="20">&nbsp;${p.km}
+                                            <img src="../assets/icon/road.png" width="20" height="20">&nbsp;&nbsp;&nbsp;${p.km}
                                         </span>
                                     </td>
                                     <td>
                                         <span class="d-flex align-items-center justify-content-center text-center">
-                                            <img src="../assets/icon/transmission.png" width="20" height="20">&nbsp;${p.transmission}
+                                            <img src="../assets/icon/transmission.png" width="20" height="20">&nbsp;&nbsp;&nbsp;${p.transmission}
                                         </span>
                                     </td>
                                     <td>
                                         <span class="d-flex align-items-center justify-content-center text-center">
-                                            <i class="fa fa-circle" style="color: #D40000;"></i>&nbsp;${p.color}
+                                            <i class="fa fa-circle" style="color: #D40000;"></i>&nbsp;&nbsp;&nbsp;${p.color}
                                         </span>
                                     </td>
                                 </tr>
