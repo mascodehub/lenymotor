@@ -196,14 +196,14 @@ $(document).ready(function () {
     $("#article-recomendation").empty();
     list.slice(0, 5).forEach((a) => {
       $("#article-recomendation").append(`
-       <div id="article" class="article-card d-flex align-items-center mb-3 rounded-lg shadow-sm" style="border-radius: 0.5rem;padding: 1rem;">
+       <div id="article" class="article-card d-flex mb-3 rounded-lg shadow-sm" style="border-radius: 0.5rem;padding: 1rem;">
         <img src="${a.image}" alt="Article" class="article-img rounded-3 me-3" style="border-radius: 0.5rem;">
         <div class="article-info">
           <div class="d-flex align-items-center mb-1">
-            <span class="badge bg-danger me-2 rounded-pill" style="padding: 0.7rem 1rem;">BARU</span>
+            <span class="badge bg-danger me-2 rounded-pill" style="padding: 0.5rem 0.8rem;">BARU</span>
             <small class="text-muted">${a.date}</small>
           </div>
-          <h5 class="fw-bold mb-1"><a href="article-detail.html?title=${a.title}">${a.title}</a></h5>
+          <h6 class="fw-bold mb-1" style="font-size:0.9rem"><a href="article-detail.html?title=${a.title}">${a.title}</a></h6>
         </div>
       </div>
       `);
