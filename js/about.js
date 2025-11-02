@@ -128,17 +128,17 @@ $(document).ready(async function () {
     }
 
     const card = `
-                <div class="card position-relative" 
+                <div class="card position-relative bg-white" 
                     style="width: 18rem;border-radius: 20px;margin-right: 15px;">
                     <img src="${dealer.image}" class="card-img-top" alt="${dealer.name}"
                         style="border-top-left-radius: 5.5%;border-top-right-radius: 5.5%;
                         height: 397px;object-fit: cover;">
                     <div class="card-body">
-                        <h5 class="card-title" style="font-size: 30px;margin: 5px 5px;">
+                        <h5 class="card-title" style="font-size: 1.6rem;margin: 5px 5px;">
                             ${dealer.name}
                         </h5>
                         <div class="card-text">
-                            <span class="d-block" style="margin: 5px 5px;color: #AFAFAF;height: 60px">
+                            <span class="d-block" style="margin: 5px 5px;color: #AFAFAF;">
                                 ${dealer.address}
                             </span>
                             <span class="d-flex text-center" 
@@ -147,18 +147,18 @@ $(document).ready(async function () {
                             </span>
                             <hr>
                             <span class="d-block" style="margin: 25px 5px;color: #AFAFAF;cursor: pointer;">
-                                <div class="row">
-                                    <div class="col-8">
-                                        <img src="../assets/icon/maps.png" alt="" style="width:30px;height:40px;">
+                                <div class="row align-items-center">
+                                    <div class="col">
+                                        <img src="../assets/icon/maps.png" alt="" style="width:1.5rem;height:auto;">
                                         &nbsp;
-                                        <a href="${dealer.maps}" target="_blank" style="text-decoration:none;color:#AFAFAF;">
+                                        <a href="${dealer.maps}" target="_blank" class="fw-bold" style="font-size:0.9rem;text-decoration:none;color:#000000;">
                                             Lihat via Google Maps
                                         </a>
                                     </div>
-                                    <div class="col" style="text-align: right;">
+                                    <div class="col-3" style="text-align: right;">
                                         <span class="shadow" 
                                             style="background-color: white;border-radius: 100%;
-                                            font-size: 12pt;padding: 10px 13px;color: black;">
+                                            font-size: 0.8rem;padding: 10px 13px;color: black;">
                                             <i class="fa fa-arrow-right"></i>
                                         </span>
                                     </div>
@@ -168,6 +168,6 @@ $(document).ready(async function () {
                     </div>
                 </div>
             `;
-    $("#card-s5").append(card);
+    $("#card-cabang").append(card);
   });
 });
