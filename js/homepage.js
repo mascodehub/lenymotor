@@ -532,7 +532,7 @@ $(document).ready(async function () {
                         style="border-top-left-radius: 5.5%;border-top-right-radius: 5.5%;
                         height: 397px;object-fit: cover;">
                     <div class="card-body">
-                        <h5 class="card-title" style="font-size: 30px;margin: 5px 5px;">
+                        <h5 class="card-title" style="font-size: 1.6rem;margin: 5px 5px;">
                             ${dealer.name}
                         </h5>
                         <div class="card-text">
@@ -549,7 +549,7 @@ $(document).ready(async function () {
                                     <div class="col-8">
                                         <img src="../assets/icon/maps.png" alt="" style="width:30px;height:40px;">
                                         &nbsp;
-                                        <a href="${dealer.maps}" target="_blank" style="text-decoration:none;color:#AFAFAF;">
+                                        <a href="${dealer.maps}" target="_blank" style="font-size:0.9rem;text-decoration:none;color:#AFAFAF;">
                                             Lihat via Google Maps
                                         </a>
                                     </div>
