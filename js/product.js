@@ -1,8 +1,8 @@
 let CAROUSEL_IMAGES, PRODUCT_IMAGES, PRODUCT_FILTER;
 
-function initData(){
-    return $.getJSON('../data/product.json', function(data) {
-        CAROUSEL_IMAGES = data.carousel_images; 
+function initData() {
+    return $.getJSON('../data/product.json', function (data) {
+        CAROUSEL_IMAGES = data.carousel_images;
         PRODUCT_IMAGES = data.product_images;
         PRODUCT_FILTER = data.product_filter;
     });
@@ -69,39 +69,39 @@ $(document).ready(async function () {
         updateCarousel(currentIndex);
     }, 3000);
 
-    $('#filter-location').click(function(){
+    $('#filter-location').click(function () {
         $('#form-filter-location').toggle()
         $('#icon-filter-location').toggleClass('fa-angle-up fa-angle-down');
     })
 
-    $('#filter-merk').click(function(){
+    $('#filter-merk').click(function () {
         $('#form-filter-merk').toggle()
         $('#icon-filter-merk').toggleClass('fa-angle-up fa-angle-down');
     })
 
-    $('#filter-price').click(function(){
+    $('#filter-price').click(function () {
         $('#form-filter-price').toggle()
         $('#icon-filter-price').toggleClass('fa-angle-up fa-angle-down');
     })
 
-    $('#filter-transmission').click(function(){
+    $('#filter-transmission').click(function () {
         $('#form-filter-transmission').toggle()
         $('#icon-filter-transmission').toggleClass('fa-angle-up fa-angle-down');
     })
 
-    $('#filter-fuel').click(function(){
+    $('#filter-fuel').click(function () {
         $('#form-filter-fuel').toggle()
         $('#icon-filter-fuel').toggleClass('fa-angle-up fa-angle-down');
     })
 
-    $('#filter-year').click(function(){
+    $('#filter-year').click(function () {
         $('#form-filter-year').toggle()
         $('#icon-filter-year').toggleClass('fa-angle-up fa-angle-down');
     })
 
-    function renderFilter(){
+    function renderFilter() {
         $('#product-filter').html('');
-        $.each(PRODUCT_FILTER, function(idx, val){
+        $.each(PRODUCT_FILTER, function (idx, val) {
             $('#product-filter').append(`
                 <span style="border: 1px solid black;padding: 5px 20px;margin:0 10px;border-radius: 20px;">
                     ${val} <i class="fa fa-times ms-2"></i>
@@ -116,7 +116,7 @@ $(document).ready(async function () {
         return 'Rp ' + num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     }
 
-    function renderSliderPrice(form_id){
+    function renderSliderPrice(form_id) {
         const sliderPriceMin = $(`${form_id} #slider-price-min`);
         const sliderPriceMax = $(`${form_id} #slider-price-max`);
         const rangePriceMin = $(`${form_id} #range-price-min`);
@@ -171,7 +171,7 @@ $(document).ready(async function () {
     renderSliderPrice('#form-filter-price');
     renderSliderPrice('#form-filter-price-mob');
 
-    function renderSliderYear(form_id){
+    function renderSliderYear(form_id) {
         const sliderYearMin = $(`${form_id} #slider-year-min`);
         const sliderYearMax = $(`${form_id} #slider-year-max`);
         const rangeYearMin = $(`${form_id} #range-year-min`);
@@ -222,7 +222,7 @@ $(document).ready(async function () {
         sliderYearMin.on('input', updateYearValues);
         sliderYearMax.on('input', updateYearValues);
     }
-    
+
     renderSliderYear('#form-filter-year');
     renderSliderYear('#form-filter-year-mob');
 
@@ -241,7 +241,7 @@ $(document).ready(async function () {
             const card = `
                 <div class="col-6 col-md-4 product-card">
                     <a href="product-detail.html?category=motor&product=${p.id}" style="text-decoration: none;color: black;cursor:default">
-                        <div class="card position-relative" style="border-radius: 25px;margin:0 0 30px 0">
+                        <div class="card position-relative" style="border-radius: 20px;margin:0 0 30px 0">
                             <img src="${p.img}" class="card-img-top" alt="..." style="border-top-left-radius: 5.5%;border-top-right-radius: 5.5%; object-fit: cover;">
                             <div class="card-body">
                                 <h5 class="card-title section-price" style="color: #D40000;">
@@ -249,7 +249,7 @@ $(document).ready(async function () {
                                 <div class="card-text">
                                     <span class="d-block" style="margin: 5px 0px;">${p.name}</span>
                                     <span class="d-block" style="margin: 5px 0px;">${p.location}</span>
-                                    <div class="card-detail mb-3" style="border: 2px solid #EFEFEF;border-radius: 10px;padding: 20px 0px;">
+                                    <div class="card-detail mb-1" style="border: 2px solid #EFEFEF;border-radius: 10px;padding: 20px 0px;">
                                             <div class="row g-2 w-100 d-flex justify-content-center">
                                                 <div class="col-6 col-md-auto">
                                                     <span
@@ -289,7 +289,7 @@ $(document).ready(async function () {
                                     </span>
                                 </div>
                             </div>
-                            <div class="position-absolute top-0 start-100 translate-middle shadow" style="background-color: white;border-radius: 100%; padding: 5px 10px;font-size: 18pt;margin-left: -40px;margin-top: 40px;cursor: pointer;z-index:2">
+                            <div class="position-absolute top-0 start-100 translate-middle shadow btnFavorite" data-toggle=0 style="background-color: white;border-radius: 100%; padding: 5px 8px;margin-left: -20px;margin-top: 20px;cursor: pointer;z-index:2">
                                 <i class="far fa-star text-dark"></i>
                             </div>
                         </div>
@@ -299,20 +299,24 @@ $(document).ready(async function () {
 
             $('#cardProduct').append(card);
         });
-
-        $(document).on('click', '.fa-star', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-
-            const icon = $(this);
-
-            if (icon.hasClass('far')) {
-                icon.removeClass('far text-dark').addClass('fas text-danger');
-            } else {
-                icon.removeClass('fas text-danger').addClass('far text-dark');
-            }
-        });
     }
+
+    $(document).on('click', '.btnFavorite', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        let toggle = parseInt($(this).attr('data-toggle')) || 0;
+        toggle = toggle == 0 ? 1 : 0;
+
+        $(this).attr('data-toggle', toggle);
+        console.log("attr data-toggle:", toggle);
+
+        if (toggle == 0) {
+            $(this).html('<i class="far fa-star text-dark"></i>');
+        } else {
+            $(this).html('<i class="fas fa-star text-danger"></i>');
+        }
+    });
 
     function renderPagination() {
         const pagination = $(".pagination");
@@ -370,7 +374,7 @@ $(document).ready(async function () {
         }
     });
 
-    $("#btn-filter-mob").click(function(e){
+    $("#btn-filter-mob").click(function (e) {
         e.stopPropagation();
         $('body').toggleClass('no-scroll'); // ketika form muncul
         $('#form-filter-mob, #overlay-product').toggleClass('show');
@@ -378,7 +382,7 @@ $(document).ready(async function () {
 
     // $("#btn-filter-mob").click()
 
-    $("#btn-sort-mob").click(function(e){
+    $("#btn-sort-mob").click(function (e) {
         e.stopPropagation();
         $('body').toggleClass('no-scroll'); // ketika form muncul
         $('#form-sort-mob, #overlay-product').toggleClass('show');
