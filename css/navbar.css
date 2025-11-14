@@ -77,6 +77,18 @@
   pointer-events: auto;
 }
 
+/* Search */
+#search {
+  border-radius: 100px;
+  overflow: hidden;
+  border-left: 0.5px solid rgb(200, 200, 200);
+  border-right: 0.5px solid rgb(200, 200, 200);
+}
+
+#search input {
+  background-color: #e9ecef;
+}
+
 /*  */
 .running-text {
   display: inline-block;
