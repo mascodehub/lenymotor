@@ -1,78 +1,107 @@
 #navbar a {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
 
 #navbar #menubar td:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 #navbar #menubar td:hover a:not(.menuDropdown) {
-    padding-top: 28px;
-    border-top: 2px solid red;
+  padding-top: 28px;
+  border-top: 2px solid red;
 }
 
 #navbarmob {
-    opacity: 0;
-    transform: translateY(-20px);
-    transition: all 0.3s ease-out;
-    pointer-events: none;
-    max-height: 0;
-    overflow: hidden;
-    z-index: 1060;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.3s ease-out;
+  pointer-events: none;
+  max-height: 0;
+  overflow: hidden;
+  z-index: 1060;
 }
 
 #navbarmob.show {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-    max-height: 100%;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  max-height: 100%;
 }
 
 .menuDropdown:not(.articlePage.menuDropdown) {
-    margin-left: 20px;
-    padding-left: 20px;
+  margin-left: 20px;
+  padding-left: 20px;
 }
 
 .menuDropdown:not(.articlePage.menuDropdown):hover {
-    border-left: 2px solid red;
-    margin-left: 20px;
-    padding-left: 20px;
+  border-left: 2px solid red;
+  margin-left: 20px;
+  padding-left: 20px;
 }
 
 .dropdown-content {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    min-width: 180px;
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-    padding: 10px 0;
-    z-index: 99;
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 180px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  padding: 10px 0;
+  z-index: 99;
 }
 
 .dropdown-content.show {
-    display: block !important;
-    opacity: 1;
-    transform: translateY(0);
+  display: block !important;
+  opacity: 1;
+  transform: translateY(0);
 }
 
 #overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    transition: opacity 0.3s ease-out;
-    pointer-events: none;
-    z-index: 1050;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+  pointer-events: none;
+  z-index: 1050;
 }
 
 #overlay.show {
-    opacity: 1;
-    pointer-events: auto;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Search */
+#search {
+  border-radius: 100px;
+  overflow: hidden;
+  border-left: 0.5px solid rgb(200, 200, 200);
+  border-right: 0.5px solid rgb(200, 200, 200);
+}
+
+#search input {
+  background-color: #e9ecef;
+}
+
+/*  */
+.running-text {
+  display: inline-block;
+  white-space: nowrap;
+  padding-left: 100%;
+  animation: marquee 10s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
