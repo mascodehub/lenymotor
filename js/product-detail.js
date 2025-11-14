@@ -179,7 +179,7 @@ $(document).ready(async function () {
                     <div class="card position-relative" style="border-radius: 25px;margin:0 0 30px 0">
                         <img src="${val.img}" class="card-img-top" alt="..." style="border-top-left-radius: 5.5%;border-top-right-radius: 5.5%; object-fit: cover;">
                         <div class="card-body">
-                            <h5 class="card-title section-price" style="font-size: 24px;color: #D40000;">
+                            <h5 class="card-title section-price" style="color: #D40000;">
                                 ${val.price}</h5>
                             <div class="card-text">
                                 <span class="d-block" style="margin: 5px 0px;">${val.name}</span>
@@ -224,7 +224,7 @@ $(document).ready(async function () {
                                 </span>
                             </div>
                         </div>
-                        <div class="position-absolute top-0 start-100 translate-middle shadow" style="background-color: white;border-radius: 100%; padding: 5px 10px;font-size: 18pt;margin-left: -40px;margin-top: 40px;cursor: pointer;z-index:2">
+                        <div class="position-absolute top-0 start-100 translate-middle shadow" style="background-color: white;border-radius: 100%; padding: 5px 10px;margin-left: -40px;margin-top: 40px;cursor: pointer;z-index:2">
                             <i class="far fa-star text-dark"></i>
                         </div>
                     </div>
