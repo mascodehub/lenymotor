@@ -234,12 +234,12 @@ $(document).ready(async function () {
 
   $("#spanFilterProduct").text(`Menampilkan ${PRODUCT_IMAGES.length} Motor`);
 
-  let totalPages = PRODUCT_IMAGES.length / 6;
+  let totalPages = PRODUCT_IMAGES.length / 12;
   let currentPage = 1;
 
   function renderData() {
-    const startIndex = (currentPage - 1) * 6;
-    const endIndex = startIndex + 6;
+    const startIndex = (currentPage - 1) * 12;
+    const endIndex = startIndex + 12;
     const currentData = PRODUCT_IMAGES.slice(startIndex, endIndex);
 
     $("#cardProduct").html("");
