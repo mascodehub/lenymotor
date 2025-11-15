@@ -414,13 +414,30 @@ $(document).ready(async function () {
                             </span>
                         </div>
                     </div>
-                    <div class="position-absolute top-0 start-100 translate-middle shadow" style="background-color: white;border-radius: 100%; padding: 5px 10px;font-size: 18pt;margin-left: -40px;margin-top: 40px;">
+                    <div class="position-absolute top-0 start-100 translate-middle shadow btnFavorite" data-toggle=0 style="background-color: white;border-radius: 100%; padding: 5px 10px;font-size: 18pt;margin-left: -40px;margin-top: 40px;">
                         <i class="far fa-star text-dark" style="cursor: pointer;"></i>
                     </div>
                 </a>
             </div>
         `;
     carousel_motor.append(card);
+  });
+
+  $(document).on("click", ".btnFavorite", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    let toggle = parseInt($(this).attr("data-toggle")) || 0;
+    toggle = toggle == 0 ? 1 : 0;
+
+    $(this).attr("data-toggle", toggle);
+    console.log("attr data-toggle:", toggle);
+
+    if (toggle == 0) {
+      $(this).html('<i class="far fa-star text-dark"></i>');
+    } else {
+      $(this).html('<i class="fas fa-star text-danger"></i>');
+    }
   });
 
   let isDown = false;
