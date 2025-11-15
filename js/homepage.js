@@ -240,7 +240,23 @@ const dealers = [
   },
 ];
 
+let MOTOR_PRODUCT_DETAIL, CAR_PRODUCT_DETAIL;
+
+function initData() {
+  const urlParams = new URLSearchParams(window.location.search);
+
+  PRODUCT_CATEGORY = urlParams.get("category");
+
+  return $.getJSON("../data/product-detail.json", function (data) {
+    MOTOR_PRODUCT_DETAIL = data.motor_products;
+    CAR_PRODUCT_DETAIL = data.car_products;
+  });
+}
+
 $(document).ready(async function () {
+  await initData();
+  
+  
   $("#navbar").load("../components/navbar.html");
   $("#footbar").load("../components/footbar.html");
 
@@ -350,7 +366,7 @@ $(document).ready(async function () {
 
   let carousel_motor = $("#carousel-motor");
 
-  $.each(motor_products, function (i, p) {
+  $.each(MOTOR_PRODUCT_DETAIL, function (i, p) {
     const card = `
             <div class="card position-relative"  style="width: 30rem;border-radius: 25px;margin: 0 15px;">
                 <a href="product-detail.html?category=motor&product=${p.id}" style="text-decoration: none;color: black;cursor:default">
@@ -454,7 +470,7 @@ $(document).ready(async function () {
 
   const $carousel_mobil = $("#carousel-mobil");
 
-  $.each(car_products, function (i, p) {
+  $.each(CAR_PRODUCT_DETAIL, function (i, p) {
     const card = `
             <div class="card position-relative"  style="width: 30rem;border-radius: 25px;margin: 0 15px;">
                 <a href="product-detail.html?category=mobil&product=${p.id}" style="text-decoration: none;color: black;cursor:default">
