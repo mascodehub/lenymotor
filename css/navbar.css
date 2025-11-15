@@ -14,6 +14,7 @@
 
 #navbarmob {
   opacity: 0;
+  display: none;
   transform: translateY(-20px);
   transition: all 0.3s ease-out;
   pointer-events: none;
@@ -24,6 +25,7 @@
 
 #navbarmob.show {
   opacity: 1;
+  display: block;
   transform: translateY(0);
   pointer-events: auto;
   max-height: 100%;
