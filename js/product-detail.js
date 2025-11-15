@@ -22,6 +22,10 @@ $(document).ready(async function () {
   $("#navbar").load("../components/navbar.html");
   $("#footbar").load("../components/footbar.html");
 
+  $('.slug-product-type').html(`Beranda > ${PRODUCT_CATEGORY[0].toUpperCase() + PRODUCT_CATEGORY.slice(1)} Bekas > <b>${PRODUCT_DETAIL.find((u) => u.id === PRODUCT_ID).name} / ${PRODUCT_DETAIL.find((u) => u.id === PRODUCT_ID).location}</b>`)
+
+  
+
   let card_scroll = $(".card-scroll");
   let isDown = false;
   let startX = 0;
