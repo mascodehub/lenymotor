@@ -52,3 +52,12 @@ $(document).on("click", function (e) {
     $(".dropdown-content").removeClass("show");
   }
 });
+
+// Fungsi toggle dropdown di mobile
+function toggleDropdownMob(el) {
+  const dropdown = el.nextElementSibling;
+  dropdown.style.display =
+    dropdown.style.display === "none" || dropdown.style.display === ""
+      ? "block"
+      : "none";
+}
