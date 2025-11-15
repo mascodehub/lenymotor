@@ -22,11 +22,17 @@ $(document).ready(async function () {
   $("#navbar").load("../components/navbar.html");
   $("#footbar").load("../components/footbar.html");
 
-  $('.slug-product-type').html(`Beranda > ${PRODUCT_CATEGORY[0].toUpperCase() + PRODUCT_CATEGORY.slice(1)} Bekas > <b>${PRODUCT_DETAIL.find((u) => u.id === PRODUCT_ID).name} / ${PRODUCT_DETAIL.find((u) => u.id === PRODUCT_ID).location}</b>`)
+  $(".slug-product-type").html(
+    `Beranda > ${
+      PRODUCT_CATEGORY[0].toUpperCase() + PRODUCT_CATEGORY.slice(1)
+    } Bekas > <b>${PRODUCT_DETAIL.find((u) => u.id === PRODUCT_ID).name} / ${
+      PRODUCT_DETAIL.find((u) => u.id === PRODUCT_ID).location
+    }</b>`
+  );
 
-  $('#btn-show-product').click(function(){
+  $("#btn-show-product").click(function () {
     window.location.href = `product.html?category=${PRODUCT_CATEGORY}`;
-  })
+  });
 
   let card_scroll = $(".card-scroll");
   let isDown = false;
@@ -255,8 +261,8 @@ $(document).ready(async function () {
   $.each(PRODUCT_DETAIL, function (idx, p) {
     $("#other-product").append(`
             <div class="col-8 col-md-3 product-card">
-                <a href="product-detail.html?category=motor&product=${p.id}" style="text-decoration: none;color: black;cursor:default">
-                        <div class="card position-relative" style="border-radius: 20px;margin:0 0 30px 0">
+                <a href="product-detail.html?category=${PRODUCT_CATEGORY}&product=${p.id}" style="text-decoration: none;color: black;cursor:default">
+                        <div class="card position-relative" style="border-radius: 20px">
                             <img src="${p.img}" class="card-img-top" alt="..." style="border-top-left-radius: 5.5%;border-top-right-radius: 5.5%; object-fit: cover;">
                             <div class="card-body">
                                 <h5 class="card-title section-price" style="color: #D40000;">
@@ -267,30 +273,42 @@ $(document).ready(async function () {
                                     <span class="d-block fw-bold" style="margin: 5px 0px;font-size:small;">${p.name} ${p.year}</span>
                                     <span class="d-block" style="margin: 5px 0px;">${p.location}</span>
                                   </div>
-                                    <div class="card-detail mb-1" style="border: 2px solid #EFEFEF;border-radius: 10px;padding: 20px 0px;">
-                                            <div class="row g-2 w-100 d-flex justify-content-center">
+                                    <div class="card-detail mb-2" style="border: 2px solid #EFEFEF;border-radius: 10px;padding: 20px 0px;">
+                                            <div class="row g-2 w-100 d-flex justify-content-center align-items-center" style="margin:auto">
                                                 <div class="col-6 col-md-auto">
                                                     <span
-                                                        class="d-flex align-items-center ms-1 ">
-                                                        <img src="../assets/icon/date.png" style="width: 20px;height: 20px;">&nbsp;${p.year}
-                                                    </span>
+                                                        class="d-flex align-items-center ms-1">
+                                                          <img src="../assets/icon/date.png" style="width: 20px;height: 20px;">
+                                                          <span>
+                                                            &nbsp;${p.year}
+                                                          </span>
+                                                        </span>
                                                 </div>
                                                 <div class="col-6 col-md-auto">
                                                     <span
                                                         class="d-flex align-items-center ms-1 ">
-                                                        <img src="../assets/icon/road.png" style="width: 20px;height: 20px;">&nbsp;${p.km}
+                                                        <img src="../assets/icon/road.png" style="width: 20px;height: 20px;">
+                                                        <span>
+                                                          &nbsp;${p.km}
+                                                        </span>
                                                     </span>
                                                 </div>
-                                                <div class="col-6 col-md-auto">
+                                                <div class="col-6 col-md-3">
                                                     <span
                                                         class="d-flex align-items-center ms-1 ">
-                                                        <img src="../assets/icon/transmission.png" style="width: 20px;height: 20px;">&nbsp;${p.transmission}
+                                                          <img src="../assets/icon/transmission.png" style="width: 20px;height: 20px;">
+                                                          <span>
+                                                            &nbsp;${p.transmission}
+                                                          </span>
                                                     </span>
                                                 </div>
-                                                <div class="col-6 col-md-auto">
+                                                <div class="col-6 col-md-3">
                                                     <span
-                                                        class="d-flex align-items-center ms-1 ">
-                                                        <i class="fa fa-circle" style="color: #D40000;"></i>&nbsp;${p.color}
+                                                        class="d-flex gap-1 align-items-center ms-1 ">
+                                                        <i class="fa fa-circle" style="color: #D40000;"></i>
+                                                        <span style="width:75%;font-size:smaller;">
+                                                          ${p.color}
+                                                        </span>
                                                     </span>
                                                 </div>
                                             </div>
