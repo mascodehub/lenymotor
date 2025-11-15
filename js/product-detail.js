@@ -24,7 +24,9 @@ $(document).ready(async function () {
 
   $('.slug-product-type').html(`Beranda > ${PRODUCT_CATEGORY[0].toUpperCase() + PRODUCT_CATEGORY.slice(1)} Bekas > <b>${PRODUCT_DETAIL.find((u) => u.id === PRODUCT_ID).name} / ${PRODUCT_DETAIL.find((u) => u.id === PRODUCT_ID).location}</b>`)
 
-  
+  $('#btn-show-product').click(function(){
+    window.location.href = `product.html?category=${PRODUCT_CATEGORY}`;
+  })
 
   let card_scroll = $(".card-scroll");
   let isDown = false;
