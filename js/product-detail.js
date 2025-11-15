@@ -254,7 +254,7 @@ $(document).ready(async function () {
                                 </span>
                             </div>
                         </div>
-                        <div class="position-absolute top-0 start-100 translate-middle shadow" style="background-color: white;border-radius: 100%; padding: 5px 10px;margin-left: -40px;margin-top: 40px;cursor: pointer;z-index:2">
+                        <div class="position-absolute top-0 start-100 translate-middle shadow btnFavorite" style="background-color: white;border-radius: 100%; padding: 5px 10px;margin-left: -40px;margin-top: 40px;cursor: pointer;z-index:2">
                             <i class="far fa-star text-dark"></i>
                         </div>
                     </div>
@@ -262,6 +262,22 @@ $(document).ready(async function () {
             </div>
         `);
     })
+
+    $(document).on('click', '.btnFavorite', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        let toggle = parseInt($(this).attr('data-toggle')) || 0;
+        toggle = toggle == 0 ? 1 : 0;
+
+        $(this).attr('data-toggle', toggle);
+
+        if (toggle == 0) {
+            $(this).html('<i class="far fa-star text-dark"></i>');
+        } else {
+            $(this).html('<i class="fas fa-star text-danger"></i>');
+        }
+    });
 
     $(".main-img #show-product img").click(function (e) {
         e.stopPropagation();
