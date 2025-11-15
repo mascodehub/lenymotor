@@ -104,6 +104,10 @@ $(document).ready(async function () {
                 <img src="${PRODUCT_IMAGES[idxProduct]}" class="card-img-top" alt="..." style="object-fit: contain;">    
             `);
 
+            $('#show-product').html(`
+                <img src="${PRODUCT_IMAGES[idxProduct]}" class="card-img-top" alt="..." style="object-fit: contain;">    
+            `);
+
             $('#product-img-mob #product-list-img').html('');
             $.each(PRODUCT_IMAGES, function (idx, val) {
                 let active = idxProduct == idx ? 'border: 3px solid red;' : '';
