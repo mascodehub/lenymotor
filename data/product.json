@@ -11,7 +11,7 @@
       "id": "1dce60c2-0191-4f2e-b5b0-b8d8b7d6d3a1",
       "img": "../assets/Product-1.png",
       "price": "Rp. 18,000,000",
-      "name": "Honda PCX 150",
+      "name": "Yamaha All New NMAX 155",
       "location": "LENY NGASEM",
       "year": "2020",
       "km": "12.500 KM",
@@ -224,7 +224,5 @@
       "cicilan": "Rp 400rb / Bulan"
     }
   ],
-  "product_filter": [
-    
-  ]
+  "product_filter": []
 }
