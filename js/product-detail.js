@@ -1,74 +1,78 @@
 let MOTOR_PRODUCTS, PRODUCT_IMAGES;
 
 function initData() {
-    return $.getJSON('../data/product-detail.json', function (data) {
-        MOTOR_PRODUCTS = data.motor_products;
-        PRODUCT_IMAGES = data.product_images;
-    });
+  return $.getJSON("../data/product-detail.json", function (data) {
+    MOTOR_PRODUCTS = data.motor_products;
+    PRODUCT_IMAGES = data.product_images;
+  });
 }
 
 $(document).ready(async function () {
-    await initData();
+  await initData();
 
-    $("#navbar").load("../components/navbar.html");
-    $("#footbar").load("../components/footbar.html");
+  $("#navbar").load("../components/navbar.html");
+  $("#footbar").load("../components/footbar.html");
 
-    let card_scroll = $('.card-scroll');
-    let isDown = false;
-    let startX = 0;
-    let startScrollLeft = 0;
-    let currentScroll = 0;
-    let targetScroll = 0;
-    let isAnimating = false;
-    const ease = 0.25;
+  let card_scroll = $(".card-scroll");
+  let isDown = false;
+  let startX = 0;
+  let startScrollLeft = 0;
+  let currentScroll = 0;
+  let targetScroll = 0;
+  let isAnimating = false;
+  const ease = 0.25;
 
-    card_scroll.on("mousedown", function (e) {
-        isDown = true;
-        startX = e.pageX;
-        startScrollLeft = $(this).scrollLeft();
-        currentScroll = startScrollLeft;
-        targetScroll = startScrollLeft;
-        e.preventDefault();
+  card_scroll.on("mousedown", function (e) {
+    isDown = true;
+    startX = e.pageX;
+    startScrollLeft = $(this).scrollLeft();
+    currentScroll = startScrollLeft;
+    targetScroll = startScrollLeft;
+    e.preventDefault();
 
-        if (!isAnimating) {
-            isAnimating = true;
-        }
-    });
-
-    $(window).on("mouseup", function () {
-        isDown = false;
-    });
-
-    card_scroll.on("mousemove", function (e) {
-        if (!isDown) return;
-        e.preventDefault();
-        const dx = e.pageX - startX;
-        targetScroll = startScrollLeft - dx * 1.5; // faktor kecepatan
-
-        // batasi agar tidak keluar batas
-        const maxScroll = $(this)[0].scrollWidth - $(this).outerWidth();
-        if (targetScroll < 0) targetScroll = 0;
-        if (targetScroll > maxScroll) targetScroll = maxScroll;
-
-        // langsung update sedikit agar terasa responsif di awal
-        currentScroll = currentScroll + (targetScroll - currentScroll) * 0.7;
-        $(this).scrollLeft(currentScroll);
-
-        if (!isAnimating) {
-            isAnimating = true;
-        }
-    });
-
-    function renderIndicators(index) {
-        $('.carousel-indicator').empty();
-        $.each(PRODUCT_IMAGES, function (i, src) {
-            $('.carousel-indicator').append(i == index ? `<i class="fa fa-circle text-white banner-indicator" style="font-size: 8pt" data-index="${i}"></i>` : `<i class="far fa-circle text-white banner-indicator" style="font-size: 8pt" data-index="${i}"></i>`);
-        });
+    if (!isAnimating) {
+      isAnimating = true;
     }
+  });
 
-    renderIndicators(0);
+  $(window).on("mouseup", function () {
+    isDown = false;
+  });
 
-    let text = `
+  card_scroll.on("mousemove", function (e) {
+    if (!isDown) return;
+    e.preventDefault();
+    const dx = e.pageX - startX;
+    targetScroll = startScrollLeft - dx * 1.5; // faktor kecepatan
+
+    // batasi agar tidak keluar batas
+    const maxScroll = $(this)[0].scrollWidth - $(this).outerWidth();
+    if (targetScroll < 0) targetScroll = 0;
+    if (targetScroll > maxScroll) targetScroll = maxScroll;
+
+    // langsung update sedikit agar terasa responsif di awal
+    currentScroll = currentScroll + (targetScroll - currentScroll) * 0.7;
+    $(this).scrollLeft(currentScroll);
+
+    if (!isAnimating) {
+      isAnimating = true;
+    }
+  });
+
+  function renderIndicators(index) {
+    $(".carousel-indicator").empty();
+    $.each(PRODUCT_IMAGES, function (i, src) {
+      $(".carousel-indicator").append(
+        i == index
+          ? `<i class="fa fa-circle text-white banner-indicator" style="font-size: 8pt" data-index="${i}"></i>`
+          : `<i class="far fa-circle text-white banner-indicator" style="font-size: 8pt" data-index="${i}"></i>`
+      );
+    });
+  }
+
+  renderIndicators(0);
+
+  let text = `
         ** Harap dibaca sampai selesai ** 
 
         PUSAT MOTOR SEKEN BERKUALITAS
@@ -94,120 +98,131 @@ $(document).ready(async function () {
         LENY MOTOR
     `;
 
-    $('#product-description pre').append(text)
+  $("#product-description pre").append(text);
 
-    let idxProduct = 0;
+  let idxProduct = 0;
 
-    function renderProductImg(mode = 'main') {
-        if (mode == 'mobile') {
-            $('#product-img-mob #show-product').html(`
+  function renderProductImg(mode = "main") {
+    if (mode == "mobile") {
+      $("#product-img-mob #show-product").html(`
                 <img src="${PRODUCT_IMAGES[idxProduct]}" class="card-img-top" alt="..." style="object-fit: contain;">    
             `);
 
-            $('#show-product').html(`
+      $("#show-product").html(`
                 <img src="${PRODUCT_IMAGES[idxProduct]}" class="card-img-top" alt="..." style="object-fit: contain;">    
             `);
 
-            $('#product-img-mob #product-list-img').html('');
-            $.each(PRODUCT_IMAGES, function (idx, val) {
-                let active = idxProduct == idx ? 'border: 3px solid red;' : '';
-                $('#product-img-mob #product-list-img').append(`
+      $("#product-img-mob #product-list-img").html("");
+      $.each(PRODUCT_IMAGES, function (idx, val) {
+        let active = idxProduct == idx ? "border: 3px solid red;" : "";
+        $("#product-img-mob #product-list-img").append(`
                     <div class="product-img" data-id="${idx}">
                         <img src="${val}" class="card-img-top" alt="..."
                             style="width: 100%; height: 100%;${active}">
                     </div>            
                 `);
-            })
-        } else {
-            $('#show-product').html(`
+      });
+    } else {
+      $("#show-product").html(`
                 <img src="${PRODUCT_IMAGES[idxProduct]}" class="card-img-top" alt="..." style="object-fit: contain;">    
             `);
 
-            $('#product-list-img').html('');
-            $.each(PRODUCT_IMAGES, function (idx, val) {
-                let active = idxProduct == idx ? 'border: 3px solid red;' : '';
-                $('#product-list-img').append(`
+      $("#product-list-img").html("");
+      $.each(PRODUCT_IMAGES, function (idx, val) {
+        let active = idxProduct == idx ? "border: 3px solid red;" : "";
+        $("#product-list-img").append(`
                     <div class="product-img" data-id="${idx}" style="cursor: pointer">
                         <img src="${val}" class="card-img-top" alt="..."
                             style="width: 100%; height: 100%;${active}">
                     </div>            
                 `);
-            })
-        }
+      });
     }
+  }
 
+  renderProductImg();
+  renderProductImg("mobile");
+
+  $(document).on(
+    "click",
+    "#product-img-mob #product-list-img .product-img",
+    function (e) {
+      e.stopPropagation();
+      $("body").addClass("no-scroll");
+      idxProduct = $(this).data("id");
+      renderIndicators(idxProduct);
+      renderProductImg("mobile");
+    }
+  );
+
+  $(document).on(
+    "click",
+    ".main-img#product-list-img .product-img",
+    function (e) {
+      e.stopPropagation();
+      idxProduct = $(this).data("id");
+      renderIndicators(idxProduct);
+      renderProductImg();
+    }
+  );
+
+  $("#btn-prev-product").click(function () {
+    if (idxProduct <= 0)
+      card_scroll.animate(
+        { scrollLeft: `+=${200 * (PRODUCT_IMAGES.length - 1)}` },
+        300
+      );
+    else card_scroll.animate({ scrollLeft: "-=200" }, 300);
+
+    idxProduct = idxProduct <= 0 ? PRODUCT_IMAGES.length - 1 : idxProduct - 1;
     renderProductImg();
-    renderProductImg('mobile');
+  });
 
-    $(document).on('click', '#product-img-mob #product-list-img .product-img', function (e) {
-        e.stopPropagation();
-        $('body').addClass('no-scroll');
-        idxProduct = $(this).data('id');
-        renderIndicators(idxProduct);
-        renderProductImg('mobile');
-    })
+  $("#btn-next-product").click(function () {
+    if (idxProduct >= PRODUCT_IMAGES.length - 1)
+      card_scroll.animate(
+        { scrollLeft: `-=${200 * (PRODUCT_IMAGES.length - 1)}` },
+        300
+      );
+    else card_scroll.animate({ scrollLeft: "+=200" }, 300);
 
-    $(document).on('click', '.main-img#product-list-img .product-img', function (e) {
-        e.stopPropagation();
-        idxProduct = $(this).data('id');
-        renderIndicators(idxProduct);
-        renderProductImg();
-    })
+    idxProduct = idxProduct >= PRODUCT_IMAGES.length - 1 ? 0 : idxProduct + 1;
+    renderProductImg();
+  });
 
-    $('#btn-prev-product').click(function () {
-        if (idxProduct <= 0)
-            card_scroll.animate({ scrollLeft: `+=${200 * (PRODUCT_IMAGES.length - 1)}` }, 300);
-        else
-            card_scroll.animate({ scrollLeft: "-=200" }, 300);
+  let touchStartX = 0;
+  let touchEndX = 0;
 
-        idxProduct = idxProduct <= 0 ? PRODUCT_IMAGES.length - 1 : (idxProduct - 1);
-        renderProductImg();
-    });
+  function handleGesture() {
+    const diff = touchEndX - touchStartX;
 
-    $('#btn-next-product').click(function () {
-        if (idxProduct >= PRODUCT_IMAGES.length - 1)
-            card_scroll.animate({ scrollLeft: `-=${200 * (PRODUCT_IMAGES.length - 1)}` }, 300);
-        else
-            card_scroll.animate({ scrollLeft: "+=200" }, 300);
-
-        idxProduct = idxProduct >= PRODUCT_IMAGES.length - 1 ? 0 : (idxProduct + 1);
-        renderProductImg();
-    });
-
-    let touchStartX = 0;
-    let touchEndX = 0;
-
-    function handleGesture() {
-        const diff = touchEndX - touchStartX;
-
-        if (Math.abs(diff) < 50) {
-            return; // jarak terlalu kecil → bukan swipe
-        }
-
-        if (diff > 0) {
-            idxProduct = idxProduct <= 0 ? PRODUCT_IMAGES.length - 1 : (idxProduct - 1);
-            renderIndicators(idxProduct);
-            renderProductImg('mobile');
-        } else {
-            idxProduct = idxProduct >= PRODUCT_IMAGES.length - 1 ? 0 : (idxProduct + 1);
-            renderIndicators(idxProduct);
-            renderProductImg('mobile');
-        }
+    if (Math.abs(diff) < 50) {
+      return; // jarak terlalu kecil → bukan swipe
     }
 
-    $('#show-product').on("touchstart", function (e) {
-        touchStartX = e.originalEvent.changedTouches[0].screenX;
-    });
-    
-    $('#show-product').on("touchend", function (e) {
-        touchEndX = e.originalEvent.changedTouches[0].screenX;
-        handleGesture();
-    });
+    if (diff > 0) {
+      idxProduct = idxProduct <= 0 ? PRODUCT_IMAGES.length - 1 : idxProduct - 1;
+      renderIndicators(idxProduct);
+      renderProductImg("mobile");
+    } else {
+      idxProduct = idxProduct >= PRODUCT_IMAGES.length - 1 ? 0 : idxProduct + 1;
+      renderIndicators(idxProduct);
+      renderProductImg("mobile");
+    }
+  }
 
-    $('#other-product').html('');
-    $.each(MOTOR_PRODUCTS, function (idx, val) {
+  $("#show-product").on("touchstart", function (e) {
+    touchStartX = e.originalEvent.changedTouches[0].screenX;
+  });
 
-        $('#other-product').append(`
+  $("#show-product").on("touchend", function (e) {
+    touchEndX = e.originalEvent.changedTouches[0].screenX;
+    handleGesture();
+  });
+
+  $("#other-product").html("");
+  $.each(MOTOR_PRODUCTS, function (idx, val) {
+    $("#other-product").append(`
             <div class="col-8 col-md-3 product-card">
                 <a href="product-detail.html?category=motor&product=${val.id}" style="text-decoration: none;color: black;cursor:default">
                     <div class="card position-relative" style="border-radius: 25px;margin:0 0 30px 0">
@@ -216,7 +231,7 @@ $(document).ready(async function () {
                             <h5 class="card-title section-price" style="color: #D40000;">
                                 ${val.price}</h5>
                             <div class="card-text">
-                                <span class="d-block" style="margin: 5px 0px;">${val.name}</span>
+                                <span class="d-block fw-bold" style="margin: 5px 0px;">${val.name}</span>
                                 <span class="d-block" style="margin: 5px 0px;">${val.location}</span>
                                 <div class="card-detail mb-3" style="border: 2px solid #EFEFEF;border-radius: 10px;padding: 20px 0px;">
                                     <div class="row g-md-2 g-0 w-100 d-flex align-items-center justify-content-center">
@@ -265,48 +280,52 @@ $(document).ready(async function () {
                 </a>
             </div>
         `);
-    })
+  });
 
-    $(document).on('click', '.btnFavorite', function (e) {
-        e.preventDefault();
-        e.stopPropagation();
+  $(document).on("click", ".btnFavorite", function (e) {
+    e.preventDefault();
+    e.stopPropagation();
 
-        let toggle = parseInt($(this).attr('data-toggle')) || 0;
-        toggle = toggle == 0 ? 1 : 0;
+    let toggle = parseInt($(this).attr("data-toggle")) || 0;
+    toggle = toggle == 0 ? 1 : 0;
 
-        $(this).attr('data-toggle', toggle);
+    $(this).attr("data-toggle", toggle);
 
-        if (toggle == 0) {
-            $(this).html('<i class="far fa-star text-dark"></i>');
-        } else {
-            $(this).html('<i class="fas fa-star text-danger"></i>');
-        }
-    });
+    if (toggle == 0) {
+      $(this).html('<i class="far fa-star text-dark"></i>');
+    } else {
+      $(this).html('<i class="fas fa-star text-danger"></i>');
+    }
+  });
 
-    $(".main-img #show-product img").click(function (e) {
-        e.stopPropagation();
-        $('#product-img-mob').toggleClass('show');
-        $('#overlay-product-detail').toggleClass('show');
-        $('body').addClass('no-scroll'); // ketika form muncul
-    })
+  $(".main-img #show-product img").click(function (e) {
+    e.stopPropagation();
+    $("#product-img-mob").toggleClass("show");
+    $("#overlay-product-detail").toggleClass("show");
+    $("body").addClass("no-scroll"); // ketika form muncul
+  });
 
-    $(document).on('click', function (e) {
-        const productImg = $('#product-img-mob');
-        const overlay = $('#overlay-product-detail');
+  $(document).on("click", function (e) {
+    const productImg = $("#product-img-mob");
+    const overlay = $("#overlay-product-detail");
 
-        if (productImg.hasClass('show') && !productImg.is(e.target) && productImg.has(e.target).length === 0) {
-            productImg.removeClass('show');
-            overlay.removeClass('show');
-            $('body').removeClass('no-scroll'); // ketika form muncul
-        }
-    });
+    if (
+      productImg.hasClass("show") &&
+      !productImg.is(e.target) &&
+      productImg.has(e.target).length === 0
+    ) {
+      productImg.removeClass("show");
+      overlay.removeClass("show");
+      $("body").removeClass("no-scroll"); // ketika form muncul
+    }
+  });
 
-    $('#btn-close-product-img-mob').click(function(){
-        const productImg = $('#product-img-mob');
-        const overlay = $('#overlay-product-detail');
+  $("#btn-close-product-img-mob").click(function () {
+    const productImg = $("#product-img-mob");
+    const overlay = $("#overlay-product-detail");
 
-        productImg.removeClass('show');
-        overlay.removeClass('show');
-        $('body').removeClass('no-scroll'); // ketika form muncul
-    })
-})
+    productImg.removeClass("show");
+    overlay.removeClass("show");
+    $("body").removeClass("no-scroll"); // ketika form muncul
+  });
+});
