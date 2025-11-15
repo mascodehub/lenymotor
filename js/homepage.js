@@ -321,7 +321,7 @@ $(document).ready(async function () {
                     <div class="card-body">
                         <p class="card-title section-price fw-bold" style="font-size:20px;color: #D40000;">${p.price}</p>
                         <div class="card-text">
-                            <span class="d-block fw-bold" style="margin: 5px 0px;">${p.name}</span>
+                            <span class="d-block fw-bold" style="margin: 5px 0px;">${p.name} ${p.year}</span>
                             <span class="d-block" style="margin: 5px 0px;">${p.location}</span>
                             <div class="card-detail mb-3" style="border: 2px solid #EFEFEF;border-radius: 10px;padding: 20px 0px;">
                                 <table style="width: 100%;">
@@ -425,7 +425,7 @@ $(document).ready(async function () {
                     <div class="card-body">
                         <p class="card-title section-price fw-bold" style="font-size:20px;color: #D40000;">${p.price}</p>
                         <div class="card-text">
-                            <span class="d-block fw-bold" style="margin: 5px 0px;">${p.name}</span>
+                            <span class="d-block fw-bold" style="margin: 5px 0px;">${p.name} ${p.year}</span>
                             <span class="d-block" style="margin: 5px 0px;">${p.location}</span>
                             <div class="card-detail mb-3" style="border: 2px solid #EFEFEF;border-radius: 10px;padding: 20px 0px;">
                                 <table style="width: 100%;">
