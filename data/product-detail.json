@@ -55,5 +55,62 @@
     "../assets/Product-1.png",
     "../assets/mobil.png",
     "../assets/Product-1.png"
+  ],
+  "car_products": [
+    {
+      "id": "1dce60c2-0191-4f2e-b5b0-b8d8b7d6d3a1",
+      "img": "../assets/mobil.png",
+      "price": "Rp. 360,000,000",
+      "name": "Honda CRV Turbo Prestige",
+      "location": "LENY MOBIL",
+      "year": "2021",
+      "km": "12.500 KM",
+      "transmission": "Matic",
+      "color": "Hitam",
+      "cicilan": "Rp 2jt / Bulan"
+    },
+    {
+      "id": "b2f642a3-1b57-44e5-9cb8-bb4f3db46e0c",
+      "img": "../assets/mobil.png",
+      "price": "Rp. 480,000,000",
+      "name": "Honda CRV Turbo Prestige",
+      "location": "LENY MOBIL",
+      "year": "2021",
+      "km": "12.500 KM",
+      "transmission": "Matic",
+      "color": "Hitam",
+      "cicilan": "Rp 2jt / Bulan"
+    },
+    {
+      "id": "f5ae7a0f-91d1-4d63-93dc-50ce02b07d1e",
+      "img": "../assets/mobil.png",
+      "price": "Rp. 480,000,000",
+      "name": "Honda CRV Turbo Prestige",
+      "location": "LENY MOBIL",
+      "year": "2021",
+      "km": "12.500 KM",
+      "transmission": "Matic",
+      "color": "Hitam",
+      "cicilan": "Rp 2jt / Bulan"
+    },
+    {
+      "id": "c2d8a15a-14b3-4d05-bd25-ecf5d8a1d38b",
+      "img": "../assets/mobil.png",
+      "price": "Rp. 480,000,000",
+      "name": "Honda CRV Turbo Prestige",
+      "location": "LENY MOBIL",
+      "year": "2021",
+      "km": "12.500 KM",
+      "transmission": "Matic",
+      "color": "Hitam",
+      "cicilan": "Rp 2jt / Bulan"
+    }
+  ],
+  "car_product_images" :[
+    "../assets/mobil.png",
+    "../assets/Product-1.png",
+    "../assets/mobil.png",
+    "../assets/Product-1.png",
+    "../assets/mobil.png"
   ]
 }
