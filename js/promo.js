@@ -67,7 +67,7 @@ $(document).ready(async function () {
     setInterval(function () {
         currentIndex = (currentIndex + 1) % CAROUSEL_IMAGES.length;
         updateCarousel(currentIndex);
-    }, 3000);
+    }, 10000);
 
     let touchStartX = 0;
     let touchEndX = 0;

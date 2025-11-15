@@ -87,7 +87,7 @@ $(document).ready(async function () {
   setInterval(function () {
     currentIndex = (currentIndex + 1) % CAROUSEL_IMAGES.length;
     updateCarousel(currentIndex);
-  }, 3000);
+  }, 10000);
 
   $("#form-filter-merk").html("");
   let content = "";
