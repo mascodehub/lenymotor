@@ -109,22 +109,22 @@ $(document).ready(async function () {
   }
 
   carouselTrack
-  .on("touchstart mousedown", function (e) {
-    if (e.type === "touchstart") {
-      touchStartX = e.originalEvent.touches[0].clientX;
-    } else {
-      touchStartX = e.clientX;
-    }
-  })
-  .on("touchend mouseup", function (e) {
-    if (e.type === "touchend") {
-      touchEndX = e.originalEvent.changedTouches[0].clientX;
-    } else {
-      touchEndX = e.clientX;
-    }
-    
-    handleGesture();
-  });
+    .on("touchstart mousedown", function (e) {
+      if (e.type === "touchstart") {
+        touchStartX = e.originalEvent.touches[0].clientX;
+      } else {
+        touchStartX = e.clientX;
+      }
+    })
+    .on("touchend mouseup", function (e) {
+      if (e.type === "touchend") {
+        touchEndX = e.originalEvent.changedTouches[0].clientX;
+      } else {
+        touchEndX = e.clientX;
+      }
+
+      handleGesture();
+    });
 
   $("#form-filter-merk").html("");
   let content = "";
@@ -359,10 +359,10 @@ $(document).ready(async function () {
                                     <span class="d-block" style="margin: 5px 0px;">${p.location}</span>
                                   </div>
                                     <div class="card-detail mb-2" style="border: 2px solid #EFEFEF;border-radius: 10px;padding: 20px 0px;">
-                                            <div class="row g-2 w-100 d-flex justify-content-center">
+                                            <div class="row g-2 w-100 d-flex justify-content-center align-items-center" style="margin:auto">
                                                 <div class="col-6 col-md-auto">
                                                     <span
-                                                        class="d-flex align-items-center ms-1 ">
+                                                        class="d-flex align-items-center ms-1">
                                                           <img src="../assets/icon/date.png" style="width: 20px;height: 20px;">
                                                           <span>
                                                             &nbsp;${p.year}
@@ -378,7 +378,7 @@ $(document).ready(async function () {
                                                         </span>
                                                     </span>
                                                 </div>
-                                                <div class="col-6 col-md-auto">
+                                                <div class="col-6 col-md-3">
                                                     <span
                                                         class="d-flex align-items-center ms-1 ">
                                                           <img src="../assets/icon/transmission.png" style="width: 20px;height: 20px;">
@@ -387,10 +387,13 @@ $(document).ready(async function () {
                                                           </span>
                                                     </span>
                                                 </div>
-                                                <div class="col-6 col-md-auto">
+                                                <div class="col-6 col-md-3">
                                                     <span
-                                                        class="d-flex align-items-center ms-1 ">
-                                                        <i class="fa fa-circle" style="color: #D40000;"></i>&nbsp;${p.color}
+                                                        class="d-flex gap-1 align-items-center ms-1 ">
+                                                        <i class="fa fa-circle" style="color: #D40000;"></i>
+                                                        <span style="width:75%;font-size:smaller;">
+                                                          ${p.color}
+                                                        </span>
                                                     </span>
                                                 </div>
                                             </div>
@@ -419,7 +422,9 @@ $(document).ready(async function () {
     });
   }
 
-  $('.slug-product-type').html(PRODUCT_CATEGORY[0].toUpperCase() + PRODUCT_CATEGORY.slice(1) )
+  $(".slug-product-type").html(
+    PRODUCT_CATEGORY[0].toUpperCase() + PRODUCT_CATEGORY.slice(1)
+  );
 
   $(document).on("click", ".btnFavorite", function (e) {
     e.preventDefault();
