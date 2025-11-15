@@ -231,7 +231,7 @@ $(document).ready(async function () {
                             <h5 class="card-title section-price" style="color: #D40000;">
                                 ${val.price}</h5>
                             <div class="card-text">
-                                <span class="d-block fw-bold" style="margin: 5px 0px;">${val.name}</span>
+                                <span class="d-block fw-bold" style="margin: 5px 0px;font-size:small;">${val.name}</span>
                                 <span class="d-block" style="margin: 5px 0px;">${val.location}</span>
                                 <div class="card-detail mb-3" style="border: 2px solid #EFEFEF;border-radius: 10px;padding: 20px 0px;">
                                     <div class="row g-md-2 g-0 w-100 d-flex align-items-center justify-content-center">
