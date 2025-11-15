@@ -136,6 +136,10 @@ body.no-scroll {
         /* font-size: 12pt !important; */
     }
 
+    #other-product .card-text {
+        font-size: 0.8em;
+    }
+
     #other-product .product-card {
         padding: 5px !important;
     }
@@ -145,7 +149,7 @@ body.no-scroll {
     }
 
     #other-product .card .card-detail {
-        /* font-size: 7pt !important; */
+        font-size: 0.6em !important;
         padding: 0 !important;
     }
 
@@ -174,7 +178,7 @@ body.no-scroll {
     }
 
     .foot-card {
-        /* font-size: 6pt !important; */
+        font-size: 0.7em !important;
         padding: 5px !important;
     }
 

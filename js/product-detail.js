@@ -170,6 +170,36 @@ $(document).ready(async function () {
         renderProductImg();
     });
 
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    function handleGesture() {
+        const diff = touchEndX - touchStartX;
+
+        if (Math.abs(diff) < 50) {
+            return; // jarak terlalu kecil → bukan swipe
+        }
+
+        if (diff > 0) {
+            idxProduct = idxProduct <= 0 ? PRODUCT_IMAGES.length - 1 : (idxProduct - 1);
+            renderIndicators(idxProduct);
+            renderProductImg('mobile');
+        } else {
+            idxProduct = idxProduct >= PRODUCT_IMAGES.length - 1 ? 0 : (idxProduct + 1);
+            renderIndicators(idxProduct);
+            renderProductImg('mobile');
+        }
+    }
+
+    $('#show-product').on("touchstart", function (e) {
+        touchStartX = e.originalEvent.changedTouches[0].screenX;
+    });
+    
+    $('#show-product').on("touchend", function (e) {
+        touchEndX = e.originalEvent.changedTouches[0].screenX;
+        handleGesture();
+    });
+
     $('#other-product').html('');
     $.each(MOTOR_PRODUCTS, function (idx, val) {
 
