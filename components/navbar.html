@@ -187,7 +187,7 @@
 <nav
   class="fixed-bottom shadow-sm"
   id="navbarmob"
-  style="height: 75vh; background-color: white"
+  style="min-height: 75vh; background-color: white"
 >
   <div
     class="text-center"
@@ -200,7 +200,7 @@
     class="profilnav row d-flex align-items-center justify-content-center"
     style="height: 30%; background-color: #d40000; color: white"
   >
-    <div class="col-10">
+    <div class="col-10 py-4">
       <span class="d-block pb-3 ps-2 pe-2">
         <b> Hubungi Kami </b>
       </span>
@@ -235,15 +235,12 @@
       <table style="width: 100%">
         <tr style="height: 50px">
           <td style="text-align: left">
-            <a
-              href="javascript:void(0)"
-              class="ps-2 pe-2 productmobilMobPage"
-              style="border-left: 2px solid #d40000"
+            <a href="javascript:void(0)" class="ps-2 pe-2 productmobilMobPage"
               >Mobil</a
             >
           </td>
         </tr>
-        <tr style="height: 50px">
+        <tr style="height: auto">
           <td class="border-bottom" style="text-align: left">
             <a href="product.html" class="ps-2 pe-2 productmotorMobPage"
               >Motor</a
@@ -265,10 +262,20 @@
           </td>
         </tr>
         <tr style="height: 50px">
-          <td style="text-align: left">
-            <a href="article.html" class="ps-2 pe-2 articleMobPage"
+          <td style="text-align: left" class="dropdown">
+            <a
+              href="javascript:void(0)"
+              class="ps-2 pe-2 articleMobPage dropdown-toggle"
+              onclick="toggleDropdownMob(this)"
               >Leny News</a
             >
+            <div
+              class="dropdown-content-mob"
+              style="display: none; text-align: left; padding-left: 15px"
+            >
+              <a class="d-block mb-2" href="article.html">Leny Artikel</a>
+              <a class="d-block" href="youtube.html">Leny Youtube</a>
+            </div>
           </td>
         </tr>
         <tr style="height: 50px">

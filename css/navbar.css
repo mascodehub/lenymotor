@@ -77,6 +77,19 @@
   pointer-events: auto;
 }
 
+/* Dropdown Artikel Mob */
+/* Styling sederhana untuk dropdown mobile */
+.dropdown-content-mob a {
+  display: block;
+  padding: 5px 0;
+  color: #000;
+  text-decoration: none;
+}
+
+.dropdown-content-mob a:hover {
+  color: #d40000;
+}
+
 /* Search */
 #search {
   border-radius: 100px;
