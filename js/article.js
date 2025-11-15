@@ -128,31 +128,36 @@ $(document).ready(function () {
     return html;
   }
 
+  // -------------------
+  // FUNGSI RENDER ARTICLE
+  // -------------------
   function renderArticles(list) {
-    $("#article-list").empty();
+    let html = "";
+
     list.forEach((a) => {
-      $("#article-list").append(`
-       <div id="article" class="article-card d-block d-md-flex align-items-center mb-3 rounded-lg shadow-sm" style="border-radius: 0.5rem;padding: 1rem;">
+      html += `
+      <div id="article" class="article-card d-block d-md-flex align-items-center mb-3 rounded-lg shadow-sm"
+           style="border-radius: 0.5rem;padding: 1rem;">
         <img src="${a.image}" alt="Article" class="article-img rounded-3 me-3" style="border-radius: 0.7rem;">
         <div class="article-info">
           <div class="d-flex align-items-center mb-1">
             <span class="badge bg-danger me-2 rounded-pill" style="padding: 0.7rem 1rem;">BARU</span>
             <small class="text-muted">${a.date}</small>
           </div>
-          <h5 class="fw-bold mb-1"><a href="article-detail.html?title=${a.title}">${a.title}</a></h5>
+          <h5 class="fw-bold mb-1">
+            <a href="article-detail.html?title=${a.title}">${a.title}</a>
+          </h5>
           <p class="text-muted mb-0">${a.desc} [...]</p>
         </div>
       </div>
-      `);
+    `;
     });
+
+    return html;
   }
 
-  renderArticles(articles);
-  $("#banner-article").html(renderBannerArticle(articles));
-  $("#banner-article-mobile").html(renderBannerArticleMobile(articles));
-
   // -------------------
-  // KONFIGURASI PAGINATION
+  // CONFIG PAGINATION
   // -------------------
   const perPage = 5;
   let currentPage = 1;
@@ -206,21 +211,24 @@ $(document).ready(function () {
 
     $(".prev").prop("disabled", currentPage === 1);
     $(".next").prop("disabled", currentPage === totalPages);
-
-    renderData();
   }
 
+  // -------------------
+  // PAGINATION CLICK EVENTS
+  // -------------------
   $(document).on("click", ".pagination li", function () {
     const text = $(this).text();
     if (text === "..." || parseInt(text) === currentPage) return;
     currentPage = parseInt(text);
     renderPagination();
+    renderPage(currentPage);
   });
 
   $(".prev").click(function () {
     if (currentPage > 1) {
       currentPage--;
       renderPagination();
+      renderPage(currentPage);
     }
   });
 
@@ -228,11 +236,12 @@ $(document).ready(function () {
     if (currentPage < totalPages) {
       currentPage++;
       renderPagination();
+      renderPage(currentPage);
     }
   });
-  renderPagination();
+
   // -------------------
-  // FUNGSI RENDER UTAMA
+  // FUNGSI RENDER PAGE
   // -------------------
   function renderPage(page) {
     const start = (page - 1) * perPage;
@@ -242,7 +251,15 @@ $(document).ready(function () {
     $("#article-list").html(renderArticles(dataPage));
   }
 
+  // RENDER AWAL
+  renderPagination();
   renderPage(currentPage);
+
+  // -------------------
+  // RENDER BANNER (jika ada)
+  // -------------------
+  $("#banner-article").html(renderBannerArticle(articles));
+  $("#banner-article-mobile").html(renderBannerArticleMobile(articles));
 
   // Sidebar interactivity
   $(".menu-item").click(function () {

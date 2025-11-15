@@ -1,4 +1,9 @@
-let CAROUSEL_IMAGES, PRODUCT_IMAGES, PRODUCT_FILTER, CAR_PRODUCT_IMAGES, BRAND_FILTER, PRODUCT_CATEGORY;
+let CAROUSEL_IMAGES,
+  PRODUCT_IMAGES,
+  PRODUCT_FILTER,
+  CAR_PRODUCT_IMAGES,
+  BRAND_FILTER,
+  PRODUCT_CATEGORY;
 
 function initData() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -7,9 +12,15 @@ function initData() {
 
   return $.getJSON("../data/product.json", function (data) {
     CAROUSEL_IMAGES = data.carousel_images;
-    PRODUCT_IMAGES = PRODUCT_CATEGORY == 'motor' ? data.product_images : data.car_product_images;
+    PRODUCT_IMAGES =
+      PRODUCT_CATEGORY == "motor"
+        ? data.product_images
+        : data.car_product_images;
     PRODUCT_FILTER = data.product_filter;
-    BRAND_FILTER = PRODUCT_CATEGORY == 'motor' ? data.motor_brand_filter : data.car_brand_filter;
+    BRAND_FILTER =
+      PRODUCT_CATEGORY == "motor"
+        ? data.motor_brand_filter
+        : data.car_brand_filter;
   });
 }
 
@@ -78,10 +89,9 @@ $(document).ready(async function () {
     updateCarousel(currentIndex);
   }, 3000);
 
-  $('#form-filter-merk').html('');
-  let content = '';
+  $("#form-filter-merk").html("");
+  let content = "";
   $.each(BRAND_FILTER, function (idx, val) {
-
     content += `
       <div class="row">
         <div class="col">
@@ -111,7 +121,7 @@ $(document).ready(async function () {
                 </li>
               </ul>
       `;
-    })
+    });
 
     content += `
             </li>
@@ -119,11 +129,12 @@ $(document).ready(async function () {
         </div>
       </div>
     `;
+  });
 
-  })
-
-  $('#form-filter-merk, #form-filter-merk-mob').append(content);
-  $('#form-filter-merk, #form-filter-merk-mob').append('<span style="color: red">Lihat Semua</span>');
+  $("#form-filter-merk, #form-filter-merk-mob").append(content);
+  $("#form-filter-merk, #form-filter-merk-mob").append(
+    '<span style="color: red">Lihat Semua</span>'
+  );
 
   $("#filter-location").click(function () {
     $("#form-filter-location").toggle();
@@ -299,36 +310,44 @@ $(document).ready(async function () {
       const card = `
                 <div class="col-6 col-md-4 product-card">
                     <a href="product-detail.html?category=${PRODUCT_CATEGORY}&product=${p.id}" style="text-decoration: none;color: black;cursor:default">
-                        <div class="card position-relative" style="border-radius: 20px;margin:0 0 30px 0">
+                        <div class="card position-relative" style="border-radius: 20px">
                             <img src="${p.img}" class="card-img-top" alt="..." style="border-top-left-radius: 5.5%;border-top-right-radius: 5.5%; object-fit: cover;">
                             <div class="card-body">
-                                <h5 class="card-title section-price d-none d-md-block" style="color: #D40000;">
-                                    ${p.price}
-                                </h5>
-                                <h5 class="card-title section-price d-block d-md-none" style="color: #D40000;font-size:16px">
+                                <h5 class="card-title section-price" style="color: #D40000;">
                                     ${p.price}
                                 </h5>
                                 <div class="card-text">
+                                  <div id="product-card-title">
                                     <span class="d-block fw-bold" style="margin: 5px 0px;font-size:small;">${p.name} ${p.year}</span>
                                     <span class="d-block" style="margin: 5px 0px;">${p.location}</span>
-                                    <div class="card-detail mb-1" style="border: 2px solid #EFEFEF;border-radius: 10px;padding: 20px 0px;">
+                                  </div>
+                                    <div class="card-detail mb-2" style="border: 2px solid #EFEFEF;border-radius: 10px;padding: 20px 0px;">
                                             <div class="row g-2 w-100 d-flex justify-content-center">
                                                 <div class="col-6 col-md-auto">
                                                     <span
                                                         class="d-flex align-items-center ms-1 ">
-                                                        <img src="../assets/icon/date.png" style="width: 20px;height: 20px;">&nbsp;${p.year}
+                                                          <img src="../assets/icon/date.png" style="width: 20px;height: 20px;">
+                                                          <span>
+                                                            &nbsp;${p.year}
+                                                          </span>
+                                                        </span>
+                                                </div>
+                                                <div class="col-6 col-md-auto">
+                                                    <span
+                                                        class="d-flex align-items-center ms-1 ">
+                                                        <img src="../assets/icon/road.png" style="width: 20px;height: 20px;">
+                                                        <span>
+                                                          &nbsp;${p.km}
+                                                        </span>
                                                     </span>
                                                 </div>
                                                 <div class="col-6 col-md-auto">
                                                     <span
                                                         class="d-flex align-items-center ms-1 ">
-                                                        <img src="../assets/icon/road.png" style="width: 20px;height: 20px;">&nbsp;${p.km}
-                                                    </span>
-                                                </div>
-                                                <div class="col-6 col-md-auto">
-                                                    <span
-                                                        class="d-flex align-items-center ms-1 ">
-                                                        <img src="../assets/icon/transmission.png" style="width: 20px;height: 20px;">&nbsp;${p.transmission}
+                                                          <img src="../assets/icon/transmission.png" style="width: 20px;height: 20px;">
+                                                          <span>
+                                                            &nbsp;${p.transmission}
+                                                          </span>
                                                     </span>
                                                 </div>
                                                 <div class="col-6 col-md-auto">
