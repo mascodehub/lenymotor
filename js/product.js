@@ -382,6 +382,8 @@ $(document).ready(async function () {
     });
   }
 
+  $('.slug-product-type').html(PRODUCT_CATEGORY[0].toUpperCase() + PRODUCT_CATEGORY.slice(1) )
+
   $(document).on("click", ".btnFavorite", function (e) {
     e.preventDefault();
     e.stopPropagation();
