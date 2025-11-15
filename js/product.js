@@ -57,7 +57,7 @@ $(document).ready(async function () {
   // Tambahkan semua gambar
   $.each(CAROUSEL_IMAGES, function (i, src) {
     carouselTrack.append(`
-            <img src="${src}" alt="Carousel ${i + 1}"  style="border-radius: 30px" >
+            <img src="${src}" alt="Carousel ${i + 1}"  style="border-radius: 30px" draggable="false">
         `);
   });
 
@@ -88,6 +88,43 @@ $(document).ready(async function () {
     currentIndex = (currentIndex + 1) % CAROUSEL_IMAGES.length;
     updateCarousel(currentIndex);
   }, 10000);
+
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  function handleGesture() {
+    const diff = touchEndX - touchStartX;
+
+    if (Math.abs(diff) < 50) {
+      return; // jarak terlalu kecil → bukan swipe
+    }
+
+    if (diff > 0) {
+      currentIndex = (currentIndex - 1 + total) % total;
+      updateCarousel(currentIndex);
+    } else {
+      currentIndex = (currentIndex + 1) % total;
+      updateCarousel(currentIndex);
+    }
+  }
+
+  carouselTrack
+  .on("touchstart mousedown", function (e) {
+    if (e.type === "touchstart") {
+      touchStartX = e.originalEvent.touches[0].clientX;
+    } else {
+      touchStartX = e.clientX;
+    }
+  })
+  .on("touchend mouseup", function (e) {
+    if (e.type === "touchend") {
+      touchEndX = e.originalEvent.changedTouches[0].clientX;
+    } else {
+      touchEndX = e.clientX;
+    }
+    
+    handleGesture();
+  });
 
   $("#form-filter-merk").html("");
   let content = "";
