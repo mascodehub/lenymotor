@@ -1,9 +1,18 @@
-let MOTOR_PRODUCTS, PRODUCT_IMAGES;
+let PRODUCT_DETAIL, PRODUCT_IMAGES, PRODUCT_CATEGORY, PRODUCT_ID;
 
 function initData() {
+  const urlParams = new URLSearchParams(window.location.search);
+
+  PRODUCT_CATEGORY = urlParams.get("category");
+  PRODUCT_ID = urlParams.get("product");
+
   return $.getJSON("../data/product-detail.json", function (data) {
-    MOTOR_PRODUCTS = data.motor_products;
-    PRODUCT_IMAGES = data.product_images;
+    PRODUCT_DETAIL =
+      PRODUCT_CATEGORY == "motor" ? data.motor_products : data.car_products;
+    PRODUCT_IMAGES =
+      PRODUCT_CATEGORY == "motor"
+        ? data.product_images
+        : data.car_product_images;
   });
 }
 
@@ -143,6 +152,22 @@ $(document).ready(async function () {
   renderProductImg();
   renderProductImg("mobile");
 
+  $("#product_name").html(PRODUCT_DETAIL.find((u) => u.id === PRODUCT_ID).name);
+  $("#product_price").html(
+    PRODUCT_DETAIL.find((u) => u.id === PRODUCT_ID).price
+  );
+  $("#product_branch").html(
+    PRODUCT_DETAIL.find((u) => u.id === PRODUCT_ID).location
+  );
+  $("#product_year").html(PRODUCT_DETAIL.find((u) => u.id === PRODUCT_ID).year);
+  $("#product_km").html(PRODUCT_DETAIL.find((u) => u.id === PRODUCT_ID).km);
+  $("#product_transmission").html(
+    PRODUCT_DETAIL.find((u) => u.id === PRODUCT_ID).transmission
+  );
+  $("#product_color").html(
+    PRODUCT_DETAIL.find((u) => u.id === PRODUCT_ID).color
+  );
+
   $(document).on(
     "click",
     "#product-img-mob #product-list-img .product-img",
@@ -221,7 +246,7 @@ $(document).ready(async function () {
   });
 
   $("#other-product").html("");
-  $.each(MOTOR_PRODUCTS, function (idx, p) {
+  $.each(PRODUCT_DETAIL, function (idx, p) {
     $("#other-product").append(`
             <div class="col-8 col-md-3 product-card">
                 <a href="product-detail.html?category=motor&product=${p.id}" style="text-decoration: none;color: black;cursor:default">

@@ -1,10 +1,26 @@
-let CAROUSEL_IMAGES, PRODUCT_IMAGES, PRODUCT_FILTER;
+let CAROUSEL_IMAGES,
+  PRODUCT_IMAGES,
+  PRODUCT_FILTER,
+  CAR_PRODUCT_IMAGES,
+  BRAND_FILTER,
+  PRODUCT_CATEGORY;
 
 function initData() {
+  const urlParams = new URLSearchParams(window.location.search);
+
+  PRODUCT_CATEGORY = urlParams.get("category");
+
   return $.getJSON("../data/product.json", function (data) {
     CAROUSEL_IMAGES = data.carousel_images;
-    PRODUCT_IMAGES = data.product_images;
+    PRODUCT_IMAGES =
+      PRODUCT_CATEGORY == "motor"
+        ? data.product_images
+        : data.car_product_images;
     PRODUCT_FILTER = data.product_filter;
+    BRAND_FILTER =
+      PRODUCT_CATEGORY == "motor"
+        ? data.motor_brand_filter
+        : data.car_brand_filter;
   });
 }
 
@@ -72,6 +88,53 @@ $(document).ready(async function () {
     currentIndex = (currentIndex + 1) % CAROUSEL_IMAGES.length;
     updateCarousel(currentIndex);
   }, 3000);
+
+  $("#form-filter-merk").html("");
+  let content = "";
+  $.each(BRAND_FILTER, function (idx, val) {
+    content += `
+      <div class="row">
+        <div class="col">
+          <ul style="list-style-type: none">
+            <li class="mb-1" style="margin-left: -32px">
+              <input
+                type="checkbox"
+                name="txtCheckbox"
+                id="txtCheckbox"
+              />
+                ${val.brand_name}
+              <i class="fa fa-angle-up text-dark"></i>
+            </li>
+            <li>
+    `;
+
+    $.each(val.brand_sub, function (idx_sub, val_sub) {
+      content += `
+              <ul style="list-style-type: none">
+                <li class="mb-1" style="margin-left: -45px">
+                  <input
+                    type="checkbox"
+                    name="txtCheckbox"
+                    id="txtCheckbox"
+                  />
+                  ${val_sub.sub_name}
+                </li>
+              </ul>
+      `;
+    });
+
+    content += `
+            </li>
+          </ul>
+        </div>
+      </div>
+    `;
+  });
+
+  $("#form-filter-merk, #form-filter-merk-mob").append(content);
+  $("#form-filter-merk, #form-filter-merk-mob").append(
+    '<span style="color: red">Lihat Semua</span>'
+  );
 
   $("#filter-location").click(function () {
     $("#form-filter-location").toggle();
@@ -246,7 +309,7 @@ $(document).ready(async function () {
     currentData.forEach((p) => {
       const card = `
                 <div class="col-6 col-md-4 product-card">
-                    <a href="product-detail.html?category=motor&product=${p.id}" style="text-decoration: none;color: black;cursor:default">
+                    <a href="product-detail.html?category=${PRODUCT_CATEGORY}&product=${p.id}" style="text-decoration: none;color: black;cursor:default">
                         <div class="card position-relative" style="border-radius: 20px">
                             <img src="${p.img}" class="card-img-top" alt="..." style="border-top-left-radius: 5.5%;border-top-right-radius: 5.5%; object-fit: cover;">
                             <div class="card-body">

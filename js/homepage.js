@@ -279,7 +279,7 @@ $(document).ready(async function () {
   // Tambahkan semua gambar
   $.each(images, function (i, src) {
     $track.append(`
-            <img src="${src}" alt="Carousel ${i + 1}"  class="rounded-3" >
+            <img src="${src}" alt="Carousel ${i + 1}"  class="rounded-3" draggable="false">
         `);
   });
 
@@ -309,7 +309,44 @@ $(document).ready(async function () {
   setInterval(function () {
     currentIndex = (currentIndex + 1) % images.length;
     updateCarousel(currentIndex);
-  }, 3000);
+  }, 5000);
+
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  function handleGesture() {
+    const diff = touchEndX - touchStartX;
+
+    if (Math.abs(diff) < 50) {
+      return; // jarak terlalu kecil → bukan swipe
+    }
+
+    if (diff > 0) {
+      currentIndex = (currentIndex - 1 + total) % total;
+      updateCarousel(currentIndex);
+    } else {
+      currentIndex = (currentIndex + 1) % total;
+      updateCarousel(currentIndex);
+    }
+  }
+
+  $track
+  .on("touchstart mousedown", function (e) {
+    if (e.type === "touchstart") {
+      touchStartX = e.originalEvent.touches[0].clientX;
+    } else {
+      touchStartX = e.clientX;
+    }
+  })
+  .on("touchend mouseup", function (e) {
+    if (e.type === "touchend") {
+      touchEndX = e.originalEvent.changedTouches[0].clientX;
+    } else {
+      touchEndX = e.clientX;
+    }
+    
+    handleGesture();
+  });
 
   let carousel_motor = $("#carousel-motor");
 
