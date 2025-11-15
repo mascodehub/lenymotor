@@ -1,322 +1,327 @@
 const car_products = [
-    {
-        id: 1,
-        img: "../assets/mobil.png",
-        price: "Rp. 460,000,000",
-        name: "Honda CRV Turbo Prestige",
-        location: "LENY NGASEM",
-        year: "2020",
-        km: "20.000 KM",
-        transmission: "Matic",
-        color: "Merah",
-        cicilan: "Rp 1jt / Bulan"
-    },
-    {
-        id: 1,
-        img: "../assets/mobil.png",
-        price: "Rp. 250,000,000",
-        name: "Toyota Yaris TRD",
-        location: "LENY NGASEM",
-        year: "2019",
-        km: "15.000 KM",
-        transmission: "Manual",
-        color: "Putih",
-        cicilan: "Rp 2jt / Bulan"
-    },
-    {
-        id: 1,
-        img: "../assets/mobil.png",
-        price: "Rp. 185,000,000",
-        name: "Honda Jazz RS",
-        location: "LENY NGASEM",
-        year: "2018",
-        km: "25.000 KM",
-        transmission: "Matic",
-        color: "Hitam",
-        cicilan: "Rp 1,5jt / Bulan"
-    },
-    {
-        id: 1,
-        img: "../assets/mobil.png",
-        price: "Rp. 460,000,000",
-        name: "Honda CRV Turbo Prestige",
-        location: "LENY NGASEM",
-        year: "2020",
-        km: "20.000 KM",
-        transmission: "Matic",
-        color: "Merah",
-        cicilan: "Rp 1jt / Bulan"
-    },
-    {
-        id: 1,
-        img: "../assets/mobil.png",
-        price: "Rp. 250,000,000",
-        name: "Toyota Yaris TRD",
-        location: "LENY NGASEM",
-        year: "2019",
-        km: "15.000 KM",
-        transmission: "Manual",
-        color: "Putih",
-        cicilan: "Rp 2jt / Bulan"
-    },
-    {
-        id: 1,
-        img: "../assets/mobil.png",
-        price: "Rp. 185,000,000",
-        name: "Honda Jazz RS",
-        location: "LENY NGASEM",
-        year: "2018",
-        km: "25.000 KM",
-        transmission: "Matic",
-        color: "Hitam",
-        cicilan: "Rp 1,5jt / Bulan"
-    }
+  {
+    id: 1,
+    img: "../assets/mobil.png",
+    price: "Rp. 460,000,000",
+    name: "Honda CRV Turbo Prestige",
+    location: "LENY NGASEM",
+    year: "2020",
+    km: "20.000 KM",
+    transmission: "Matic",
+    color: "Merah",
+    cicilan: "Rp 1jt / Bulan",
+  },
+  {
+    id: 1,
+    img: "../assets/mobil.png",
+    price: "Rp. 250,000,000",
+    name: "Toyota Yaris TRD",
+    location: "LENY NGASEM",
+    year: "2019",
+    km: "15.000 KM",
+    transmission: "Manual",
+    color: "Putih",
+    cicilan: "Rp 2jt / Bulan",
+  },
+  {
+    id: 1,
+    img: "../assets/mobil.png",
+    price: "Rp. 185,000,000",
+    name: "Honda Jazz RS",
+    location: "LENY NGASEM",
+    year: "2018",
+    km: "25.000 KM",
+    transmission: "Matic",
+    color: "Hitam",
+    cicilan: "Rp 1,5jt / Bulan",
+  },
+  {
+    id: 1,
+    img: "../assets/mobil.png",
+    price: "Rp. 460,000,000",
+    name: "Honda CRV Turbo Prestige",
+    location: "LENY NGASEM",
+    year: "2020",
+    km: "20.000 KM",
+    transmission: "Matic",
+    color: "Merah",
+    cicilan: "Rp 1jt / Bulan",
+  },
+  {
+    id: 1,
+    img: "../assets/mobil.png",
+    price: "Rp. 250,000,000",
+    name: "Toyota Yaris TRD",
+    location: "LENY NGASEM",
+    year: "2019",
+    km: "15.000 KM",
+    transmission: "Manual",
+    color: "Putih",
+    cicilan: "Rp 2jt / Bulan",
+  },
+  {
+    id: 1,
+    img: "../assets/mobil.png",
+    price: "Rp. 185,000,000",
+    name: "Honda Jazz RS",
+    location: "LENY NGASEM",
+    year: "2018",
+    km: "25.000 KM",
+    transmission: "Matic",
+    color: "Hitam",
+    cicilan: "Rp 1,5jt / Bulan",
+  },
 ];
 
 const motor_products = [
-    {
-        id: 1,
-        img: "../assets/Product-1.png",
-        price: "Rp. 18,000,000",
-        name: "Honda PCX 150",
-        location: "LENY NGASEM",
-        year: "2020",
-        km: "12.500 KM",
-        transmission: "Matic",
-        color: "Hitam",
-        cicilan: "Rp 700rb / Bulan"
-    },
-    {
-        id: 1,
-        img: "../assets/Product-1.png",
-        price: "Rp. 15,500,000",
-        name: "Yamaha NMAX 155",
-        location: "LENY NGASEM",
-        year: "2019",
-        km: "10.000 KM",
-        transmission: "Matic",
-        color: "Putih",
-        cicilan: "Rp 650rb / Bulan"
-    },
-    {
-        id: 1,
-        img: "../assets/Product-1.png",
-        price: "Rp. 13,000,000",
-        name: "Honda Vario 150",
-        location: "LENY NGASEM",
-        year: "2018",
-        km: "15.000 KM",
-        transmission: "Matic",
-        color: "Merah",
-        cicilan: "Rp 550rb / Bulan"
-    },
-    {
-        id: 1,
-        img: "../assets/Product-1.png",
-        price: "Rp. 9,800,000",
-        name: "Yamaha Mio M3",
-        location: "LENY NGASEM",
-        year: "2017",
-        km: "20.000 KM",
-        transmission: "Matic",
-        color: "Biru",
-        cicilan: "Rp 400rb / Bulan"
-    },
-    {
-        id: 1,
-        img: "../assets/Product-1.png",
-        price: "Rp. 18,000,000",
-        name: "Honda PCX 150",
-        location: "LENY NGASEM",
-        year: "2020",
-        km: "12.500 KM",
-        transmission: "Matic",
-        color: "Hitam",
-        cicilan: "Rp 700rb / Bulan"
-    },
-    {
-        id: 1,
-        img: "../assets/Product-1.png",
-        price: "Rp. 15,500,000",
-        name: "Yamaha NMAX 155",
-        location: "LENY NGASEM",
-        year: "2019",
-        km: "10.000 KM",
-        transmission: "Matic",
-        color: "Putih",
-        cicilan: "Rp 650rb / Bulan"
-    },
-    {
-        id: 1,
-        img: "../assets/Product-1.png",
-        price: "Rp. 13,000,000",
-        name: "Honda Vario 150",
-        location: "LENY NGASEM",
-        year: "2018",
-        km: "15.000 KM",
-        transmission: "Matic",
-        color: "Merah",
-        cicilan: "Rp 550rb / Bulan"
-    },
-    {
-        id: 1,
-        img: "../assets/Product-1.png",
-        price: "Rp. 9,800,000",
-        name: "Yamaha Mio M3",
-        location: "LENY NGASEM",
-        year: "2017",
-        km: "20.000 KM",
-        transmission: "Matic",
-        color: "Biru",
-        cicilan: "Rp 400rb / Bulan"
-    }
+  {
+    id: 1,
+    img: "../assets/Product-1.png",
+    price: "Rp. 18,000,000",
+    name: "Honda PCX 150",
+    location: "LENY NGASEM",
+    year: "2020",
+    km: "12.500 KM",
+    transmission: "Matic",
+    color: "Hitam",
+    cicilan: "Rp 700rb / Bulan",
+  },
+  {
+    id: 1,
+    img: "../assets/Product-1.png",
+    price: "Rp. 15,500,000",
+    name: "Yamaha NMAX 155",
+    location: "LENY NGASEM",
+    year: "2019",
+    km: "10.000 KM",
+    transmission: "Matic",
+    color: "Putih",
+    cicilan: "Rp 650rb / Bulan",
+  },
+  {
+    id: 1,
+    img: "../assets/Product-1.png",
+    price: "Rp. 13,000,000",
+    name: "Honda Vario 150",
+    location: "LENY NGASEM",
+    year: "2018",
+    km: "15.000 KM",
+    transmission: "Matic",
+    color: "Merah",
+    cicilan: "Rp 550rb / Bulan",
+  },
+  {
+    id: 1,
+    img: "../assets/Product-1.png",
+    price: "Rp. 9,800,000",
+    name: "Yamaha Mio M3",
+    location: "LENY NGASEM",
+    year: "2017",
+    km: "20.000 KM",
+    transmission: "Matic",
+    color: "Biru",
+    cicilan: "Rp 400rb / Bulan",
+  },
+  {
+    id: 1,
+    img: "../assets/Product-1.png",
+    price: "Rp. 18,000,000",
+    name: "Honda PCX 150",
+    location: "LENY NGASEM",
+    year: "2020",
+    km: "12.500 KM",
+    transmission: "Matic",
+    color: "Hitam",
+    cicilan: "Rp 700rb / Bulan",
+  },
+  {
+    id: 1,
+    img: "../assets/Product-1.png",
+    price: "Rp. 15,500,000",
+    name: "Yamaha NMAX 155",
+    location: "LENY NGASEM",
+    year: "2019",
+    km: "10.000 KM",
+    transmission: "Matic",
+    color: "Putih",
+    cicilan: "Rp 650rb / Bulan",
+  },
+  {
+    id: 1,
+    img: "../assets/Product-1.png",
+    price: "Rp. 13,000,000",
+    name: "Honda Vario 150",
+    location: "LENY NGASEM",
+    year: "2018",
+    km: "15.000 KM",
+    transmission: "Matic",
+    color: "Merah",
+    cicilan: "Rp 550rb / Bulan",
+  },
+  {
+    id: 1,
+    img: "../assets/Product-1.png",
+    price: "Rp. 9,800,000",
+    name: "Yamaha Mio M3",
+    location: "LENY NGASEM",
+    year: "2017",
+    km: "20.000 KM",
+    transmission: "Matic",
+    color: "Biru",
+    cicilan: "Rp 400rb / Bulan",
+  },
 ];
 
 const testimonials = [
-    {
-        rating: 5.0,
-        message: "Pelayanan ramah, proses cepat! Rekomendasi terbaik untuk mencari kendaraan second. Good job, puas banget!",
-        product: "HONDA PCX 150 2022",
-        date: "17/08/2025",
-        image: "../assets/mobil.png"
-    },
-    {
-        rating: 4.8,
-        message: "Unit sesuai deskripsi, penjual jujur dan fast respon. Sangat puas!",
-        product: "YAMAHA NMAX 2021",
-        date: "10/07/2025",
-        image: "../assets/mobil.png"
-    },
-    {
-        rating: 4.9,
-        message: "Motor masih sangat bagus, pelayanan terbaik dari LENY MOTOR!",
-        product: "HONDA VARIO 160 2023",
-        date: "05/05/2025",
-        image: "../assets/mobil.png"
-    },
-    {
-        rating: 4.9,
-        message: "Motor masih sangat bagus, pelayanan terbaik dari LENY MOTOR!",
-        product: "HONDA VARIO 160 2023",
-        date: "05/05/2025",
-        image: "../assets/mobil.png"
-    }
+  {
+    rating: 5.0,
+    message:
+      "Pelayanan ramah, proses cepat! Rekomendasi terbaik untuk mencari kendaraan second. Good job, puas banget!",
+    product: "HONDA PCX 150 2022",
+    date: "17/08/2025",
+    image: "../assets/mobil.png",
+  },
+  {
+    rating: 4.8,
+    message:
+      "Unit sesuai deskripsi, penjual jujur dan fast respon. Sangat puas!",
+    product: "YAMAHA NMAX 2021",
+    date: "10/07/2025",
+    image: "../assets/mobil.png",
+  },
+  {
+    rating: 4.9,
+    message: "Motor masih sangat bagus, pelayanan terbaik dari LENY MOTOR!",
+    product: "HONDA VARIO 160 2023",
+    date: "05/05/2025",
+    image: "../assets/mobil.png",
+  },
+  {
+    rating: 4.9,
+    message: "Motor masih sangat bagus, pelayanan terbaik dari LENY MOTOR!",
+    product: "HONDA VARIO 160 2023",
+    date: "05/05/2025",
+    image: "../assets/mobil.png",
+  },
 ];
 
 const dealers = [
-    {
-        name: "Leny Motor Bandar",
-        address: "Jl. Kh. Agus Salim No.12 Bandar Kidul - Kediri Jawa Timur 64118",
-        phone: "(0354) 774195",
-        whatsapp: "0813 3086 8885",
-        image: "../assets/mobil.png",
-        maps: "#"
-    },
-    {
-        name: "Leny Motor Pare",
-        address: "Jl. Raya Pamenang No.433 Ngasem - Kediri Jawa Timur 62154",
-        phone: "",
-        whatsapp: "0813 3086 8886",
-        image: "../assets/mobil.png",
-        maps: "#"
-    },
-    {
-        name: "Leny Motor Blitar",
-        address: "Jl. Letjen Panjaitan No.18 Tinalan - Kediri Jawa Timur 64131",
-        phone: "",
-        whatsapp: "0813 3086 8887",
-        image: "../assets/mobil.png",
-        maps: "#"
-    },
-    {
-        name: "Leny Motor Blitar",
-        address: "Jl. Kh. Agus Salim No.79 Bandar Kidul - Kediri Jawa Timur 64118",
-        phone: "",
-        whatsapp: "0811 3312 555",
-        image: "../assets/mobil.png",
-        maps: "#"
-    }
+  {
+    name: "Leny Motor Bandar",
+    address: "Jl. Kh. Agus Salim No.12 Bandar Kidul - Kediri Jawa Timur 64118",
+    phone: "(0354) 774195",
+    whatsapp: "0813 3086 8885",
+    image: "../assets/mobil.png",
+    maps: "#",
+  },
+  {
+    name: "Leny Motor Pare",
+    address: "Jl. Raya Pamenang No.433 Ngasem - Kediri Jawa Timur 62154",
+    phone: "",
+    whatsapp: "0813 3086 8886",
+    image: "../assets/mobil.png",
+    maps: "#",
+  },
+  {
+    name: "Leny Motor Blitar",
+    address: "Jl. Letjen Panjaitan No.18 Tinalan - Kediri Jawa Timur 64131",
+    phone: "",
+    whatsapp: "0813 3086 8887",
+    image: "../assets/mobil.png",
+    maps: "#",
+  },
+  {
+    name: "Leny Motor Blitar",
+    address: "Jl. Kh. Agus Salim No.79 Bandar Kidul - Kediri Jawa Timur 64118",
+    phone: "",
+    whatsapp: "0811 3312 555",
+    image: "../assets/mobil.png",
+    maps: "#",
+  },
 ];
 
-
 $(document).ready(async function () {
-    $("#navbar").load("../components/navbar.html");
-    $("#footbar").load("../components/footbar.html");
+  $("#navbar").load("../components/navbar.html");
+  $("#footbar").load("../components/footbar.html");
 
-    const images = [
-        "../assets/carousel-1.png",
-        "../assets/carousel-1.png",
-        "../assets/carousel-1.png",
-        "../assets/carousel-1.png",
-        "../assets/carousel-1.png"
-    ];
+  const images = [
+    "../assets/carousel-1.png",
+    "../assets/carousel-1.png",
+    "../assets/carousel-1.png",
+    "../assets/carousel-1.png",
+    "../assets/carousel-1.png",
+  ];
 
-    const $track = $("#carousel-banner .carousel-track");
-    const $indicators = $("#carousel-page");
+  const $track = $("#carousel-banner .carousel-track");
+  const $indicators = $("#carousel-page");
 
-    let currentIndex = 0;
-    const total = images.length;
+  let currentIndex = 0;
+  const total = images.length;
 
-    function renderIndicators(index) {
-        $indicators.empty();
-        $.each(images, function (i, src) {
-            $indicators.append(i == index ? `<i class="fa fa-circle text-white banner-indicator" data-index="${i}"></i>` : `<i class="far fa-circle text-white banner-indicator" data-index="${i}"></i>`);
-        });
-    }
-
-    // Fungsi update slide
-    function updateCarousel(index) {
-        $track.css("transform", `translateX(-${index * (100 / total)}%)`);
-
-        renderIndicators(index)
-    }
-
-    // Tambahkan semua gambar
+  function renderIndicators(index) {
+    $indicators.empty();
     $.each(images, function (i, src) {
-        $track.append(`
+      $indicators.append(
+        i == index
+          ? `<i class="fa fa-circle text-white banner-indicator" data-index="${i}"></i>`
+          : `<i class="far fa-circle text-white banner-indicator" data-index="${i}"></i>`
+      );
+    });
+  }
+
+  // Fungsi update slide
+  function updateCarousel(index) {
+    $track.css("transform", `translateX(-${index * (100 / total)}%)`);
+
+    renderIndicators(index);
+  }
+
+  // Tambahkan semua gambar
+  $.each(images, function (i, src) {
+    $track.append(`
             <img src="${src}" alt="Carousel ${i + 1}"  class="rounded-3" >
         `);
-    });
+  });
 
-    renderIndicators(0);
+  renderIndicators(0);
 
-    $(document).on("click", ".banner-indicator", function () {
-        const index = $(this).data("index");
-        currentIndex = index;
-        updateCarousel(index);
-    });
+  $(document).on("click", ".banner-indicator", function () {
+    const index = $(this).data("index");
+    currentIndex = index;
+    updateCarousel(index);
+  });
 
-    // Set lebar track total agar bisa digeser
-    $track.css("width", `${total * 100}%`);
+  // Set lebar track total agar bisa digeser
+  $track.css("width", `${total * 100}%`);
 
-    // Next & Prev
-    $(".carousel-next").on("click", function () {
-        currentIndex = (currentIndex + 1) % total;
-        updateCarousel(currentIndex);
-    });
+  // Next & Prev
+  $(".carousel-next").on("click", function () {
+    currentIndex = (currentIndex + 1) % total;
+    updateCarousel(currentIndex);
+  });
 
-    $(".carousel-prev").on("click", function () {
-        currentIndex = (currentIndex - 1 + total) % total;
-        updateCarousel(currentIndex);
-    });
+  $(".carousel-prev").on("click", function () {
+    currentIndex = (currentIndex - 1 + total) % total;
+    updateCarousel(currentIndex);
+  });
 
-    // Auto-slide setiap 4 detik
-    setInterval(function () {
-        currentIndex = (currentIndex + 1) % images.length;
-        updateCarousel(currentIndex);
-    }, 3000);
+  // Auto-slide setiap 4 detik
+  setInterval(function () {
+    currentIndex = (currentIndex + 1) % images.length;
+    updateCarousel(currentIndex);
+  }, 3000);
 
-    let carousel_motor = $('#carousel-motor');
+  let carousel_motor = $("#carousel-motor");
 
-    $.each(motor_products, function (i, p) {
-        const card = `
+  $.each(motor_products, function (i, p) {
+    const card = `
             <div class="card position-relative"  style="width: 30rem;border-radius: 25px;margin: 0 15px;">
                 <a href="product-detail.html?category=motor&product=${p.id}" style="text-decoration: none;color: black;cursor:default">
                     <img src="${p.img}" class="card-img-top" alt="..." style="border-top-left-radius: 5.5%;border-top-right-radius: 5.5%; object-fit: cover;">
                     <div class="card-body">
-                        <h5 class="card-title section-price" style="font-size: 24pt;color: #D40000;">${p.price}</h5>
+                        <p class="card-title section-price fw-bold" style="font-size:20px;color: #D40000;">${p.price}</p>
                         <div class="card-text">
-                            <span class="d-block" style="margin: 5px 0px;">${p.name}</span>
+                            <span class="d-block fw-bold" style="margin: 5px 0px;">${p.name}</span>
                             <span class="d-block" style="margin: 5px 0px;">${p.location}</span>
                             <div class="card-detail mb-3" style="border: 2px solid #EFEFEF;border-radius: 10px;padding: 20px 0px;">
                                 <table style="width: 100%;">
@@ -362,65 +367,65 @@ $(document).ready(async function () {
                 </a>
             </div>
         `;
-        carousel_motor.append(card);
-    });
+    carousel_motor.append(card);
+  });
 
-    let isDown = false;
-    let startX = 0;
-    let startScrollLeft = 0;
-    let currentScroll = 0;
-    let targetScroll = 0;
-    let isAnimating = false;
-    const ease = 0.25;
+  let isDown = false;
+  let startX = 0;
+  let startScrollLeft = 0;
+  let currentScroll = 0;
+  let targetScroll = 0;
+  let isAnimating = false;
+  const ease = 0.25;
 
-    carousel_motor.on("mousedown", function (e) {
-        isDown = true;
-        startX = e.pageX;
-        startScrollLeft = $(this).scrollLeft();
-        currentScroll = startScrollLeft;
-        targetScroll = startScrollLeft;
-        e.preventDefault();
+  carousel_motor.on("mousedown", function (e) {
+    isDown = true;
+    startX = e.pageX;
+    startScrollLeft = $(this).scrollLeft();
+    currentScroll = startScrollLeft;
+    targetScroll = startScrollLeft;
+    e.preventDefault();
 
-        if (!isAnimating) {
-            isAnimating = true;
-        }
-    });
+    if (!isAnimating) {
+      isAnimating = true;
+    }
+  });
 
-    $(window).on("mouseup", function () {
-        isDown = false;
-    });
+  $(window).on("mouseup", function () {
+    isDown = false;
+  });
 
-    carousel_motor.on("mousemove", function (e) {
-        if (!isDown) return;
-        e.preventDefault();
-        const dx = e.pageX - startX;
-        targetScroll = startScrollLeft - dx * 1.5; // faktor kecepatan
+  carousel_motor.on("mousemove", function (e) {
+    if (!isDown) return;
+    e.preventDefault();
+    const dx = e.pageX - startX;
+    targetScroll = startScrollLeft - dx * 1.5; // faktor kecepatan
 
-        // batasi agar tidak keluar batas
-        const maxScroll = $(this)[0].scrollWidth - $(this).outerWidth();
-        if (targetScroll < 0) targetScroll = 0;
-        if (targetScroll > maxScroll) targetScroll = maxScroll;
+    // batasi agar tidak keluar batas
+    const maxScroll = $(this)[0].scrollWidth - $(this).outerWidth();
+    if (targetScroll < 0) targetScroll = 0;
+    if (targetScroll > maxScroll) targetScroll = maxScroll;
 
-        // langsung update sedikit agar terasa responsif di awal
-        currentScroll = currentScroll + (targetScroll - currentScroll) * 0.7;
-        $(this).scrollLeft(currentScroll);
+    // langsung update sedikit agar terasa responsif di awal
+    currentScroll = currentScroll + (targetScroll - currentScroll) * 0.7;
+    $(this).scrollLeft(currentScroll);
 
-        if (!isAnimating) {
-            isAnimating = true;
-        }
-    });
+    if (!isAnimating) {
+      isAnimating = true;
+    }
+  });
 
-    const $carousel_mobil = $("#carousel-mobil");
+  const $carousel_mobil = $("#carousel-mobil");
 
-    $.each(car_products, function (i, p) {
-        const card = `
+  $.each(car_products, function (i, p) {
+    const card = `
             <div class="card position-relative"  style="width: 30rem;border-radius: 25px;margin: 0 15px;">
                 <a href="product-detail.html?category=mobil&product=${p.id}" style="text-decoration: none;color: black;cursor:default">
                     <img src="${p.img}" class="card-img-top" alt="..." style="border-top-left-radius: 5.5%;border-top-right-radius: 5.5%;object-fit: cover;">
                     <div class="card-body">
-                        <h5 class="card-title section-price" style="font-size: 36px;color: #D40000;">${p.price}</h5>
+                        <p class="card-title section-price fw-bold" style="font-size:20px;color: #D40000;">${p.price}</p>
                         <div class="card-text">
-                            <span class="d-block" style="margin: 5px 0px;">${p.name}</span>
+                            <span class="d-block fw-bold" style="margin: 5px 0px;">${p.name}</span>
                             <span class="d-block" style="margin: 5px 0px;">${p.location}</span>
                             <div class="card-detail mb-3" style="border: 2px solid #EFEFEF;border-radius: 10px;padding: 20px 0px;">
                                 <table style="width: 100%;">
@@ -466,36 +471,36 @@ $(document).ready(async function () {
                 </a>
             </div>
         `;
-        $carousel_mobil.append(card);
-    });
+    $carousel_mobil.append(card);
+  });
 
-    $carousel_mobil.on("mousedown", function (e) {
-        isDown = true;
-        startX = e.pageX;
-        scrollLeft = $carousel_mobil.scrollLeft();
-        e.preventDefault(); // cegah block teks
-    });
+  $carousel_mobil.on("mousedown", function (e) {
+    isDown = true;
+    startX = e.pageX;
+    scrollLeft = $carousel_mobil.scrollLeft();
+    e.preventDefault(); // cegah block teks
+  });
 
-    $(window).on("mouseup", function () {
-        isDown = false;
-    });
+  $(window).on("mouseup", function () {
+    isDown = false;
+  });
 
-    $carousel_mobil.on("mousemove", function (e) {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX;
-        const walk = (x - startX); // seberapa jauh mouse digeser
-        $carousel_mobil.scrollLeft(scrollLeft - walk);
-    });
+  $carousel_mobil.on("mousemove", function (e) {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX;
+    const walk = x - startX; // seberapa jauh mouse digeser
+    $carousel_mobil.scrollLeft(scrollLeft - walk);
+  });
 
-    $.each(testimonials, function (i, t) {
-        let text = t.message;
-        if (text.length > 90) {
-            text = text.substring(0, text.lastIndexOf(" "));
-            text = text.replace(/\s*\S+$/, " ...");
-        };
+  $.each(testimonials, function (i, t) {
+    let text = t.message;
+    if (text.length > 90) {
+      text = text.substring(0, text.lastIndexOf(" "));
+      text = text.replace(/\s*\S+$/, " ...");
+    }
 
-        const card = `
+    const card = `
                 <div class="card position-relative" style="width: 18rem;border-radius: 25px;margin-right: 15px;">
                     <img src="${t.image}" class="card-img-top" alt="..."
                         style="border-top-left-radius: 5.5%;border-top-right-radius: 5.5%; object-fit: cover;">
@@ -503,7 +508,9 @@ $(document).ready(async function () {
                         <span class="text-center" style="width: 100%;">
                             <h5 class="card-title d-flex align-items-center justify-content-center" style="font-size: 30px;">
                                 ${t.rating} &nbsp;
-                                ${'<img src="../assets/icon/star.png" style="height:34px;">'.repeat(5)}
+                                ${'<img src="../assets/icon/star.png" style="height:34px;">'.repeat(
+                                  5
+                                )}
                             </h5>
                         </span>
                         <div class="card-text">
@@ -520,30 +527,30 @@ $(document).ready(async function () {
                     </div>
                 </div>
             `;
-        $("#card-s4").append(card);
-    });
+    $("#card-s4").append(card);
+  });
 
-    $.each(dealers, function (index, dealer) {
-        let contact = '';
+  $.each(dealers, function (index, dealer) {
+    let contact = "";
 
-        if (dealer.phone != '') {
-            contact = `
+    if (dealer.phone != "") {
+      contact = `
                 <span class="fw-bold" style="color: #D40000;">
                     <img src="../assets/icon/phone.png" alt="" style="width:24px;height:24px;"> ${dealer.phone}
                 </span>
             `;
-        }
+    }
 
-        if (dealer.whatsapp != '') {
-            contact = `
+    if (dealer.whatsapp != "") {
+      contact = `
                 ${contact}
                 <span class="fw-bold" style="color: #D40000;">
                     <img src="../assets/icon/whatsapp.png" alt="" style="width:24px;height:24px;"> ${dealer.whatsapp}
                 </span>
             `;
-        }
+    }
 
-        const card = `
+    const card = `
                 <div class="card position-relative bg-white" 
                     style="width: 18rem;border-radius: 20px;margin-right: 15px;">
                     <img src="${dealer.image}" class="card-img-top" alt="${dealer.name}"
@@ -584,6 +591,6 @@ $(document).ready(async function () {
                     </div>
                 </div>
             `;
-        $("#card-s5").append(card);
-    });
-})
+    $("#card-s5").append(card);
+  });
+});
