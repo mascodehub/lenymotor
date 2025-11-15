@@ -250,7 +250,7 @@ $(document).ready(async function () {
                         <div class="card position-relative" style="border-radius: 20px;margin:0 0 30px 0">
                             <img src="${p.img}" class="card-img-top" alt="..." style="border-top-left-radius: 5.5%;border-top-right-radius: 5.5%; object-fit: cover;">
                             <div class="card-body">
-                                <h5 class="card-title section-price" style="color: #D40000;">
+                                <h5 class="card-title section-price" style="color: #D40000;font-size:16px">
                                     ${p.price}</h5>
                                 <div class="card-text">
                                     <span class="d-block" style="margin: 5px 0px;font-size:12px;">${p.name}</span>
