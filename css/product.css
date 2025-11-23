@@ -166,6 +166,20 @@ body.no-scroll {
   pointer-events: auto;
 }
 
+.spec-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;  /* cegah pecah baris */
+  font-size: 14px;
+}
+
+.spec-icon {
+  width: 20px;
+  height: 20px;
+}
+
 @media only screen and (max-width: 600px) {
   body {
     font-size: 0.8em;

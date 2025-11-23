@@ -378,7 +378,7 @@ $(document).ready(async function () {
                                                         </span>
                                                     </span>
                                                 </div>
-                                                <div class="col-6 col-md-3">
+                                                <div class="col-6 col-md-auto">
                                                     <span
                                                         class="d-flex align-items-center ms-1 ">
                                                           <img src="../assets/icon/transmission.png" style="width: 20px;height: 20px;">
@@ -391,7 +391,7 @@ $(document).ready(async function () {
                                                     <span
                                                         class="d-flex gap-1 align-items-center ms-1 ">
                                                         <i class="fa fa-circle" style="color: #D40000;"></i>
-                                                        <span style="width:75%;font-size:smaller;">
+                                                        <span>
                                                           ${p.color}
                                                         </span>
                                                     </span>

@@ -273,9 +273,9 @@ $(document).ready(async function () {
                                     <span class="d-block fw-bold" style="margin: 5px 0px;font-size:small;">${p.name} ${p.year}</span>
                                     <span class="d-block" style="margin: 5px 0px;">${p.location}</span>
                                   </div>
-                                    <div class="card-detail mb-2" style="border: 2px solid #EFEFEF;border-radius: 10px;padding: 20px 0px;">
+                                    <div class="card-detail mb-2" style="border: 2px solid #EFEFEF;border-radius: 10px;padding: 0px 12px;">
                                             <div class="row g-2 w-100 d-flex justify-content-center align-items-center" style="margin:auto">
-                                                <div class="col-6 col-md-auto">
+                                                <div class="col-6 col-md-auto mb-1">
                                                     <span
                                                         class="d-flex align-items-center ms-1">
                                                           <img src="../assets/icon/date.png" style="width: 20px;height: 20px;">
@@ -284,7 +284,7 @@ $(document).ready(async function () {
                                                           </span>
                                                         </span>
                                                 </div>
-                                                <div class="col-6 col-md-auto">
+                                                <div class="col-6 col-md-auto mb-1">
                                                     <span
                                                         class="d-flex align-items-center ms-1 ">
                                                         <img src="../assets/icon/road.png" style="width: 20px;height: 20px;">
@@ -293,7 +293,7 @@ $(document).ready(async function () {
                                                         </span>
                                                     </span>
                                                 </div>
-                                                <div class="col-6 col-md-3">
+                                                <div class="col-6 col-md-auto mb-1">
                                                     <span
                                                         class="d-flex align-items-center ms-1 ">
                                                           <img src="../assets/icon/transmission.png" style="width: 20px;height: 20px;">
@@ -302,11 +302,11 @@ $(document).ready(async function () {
                                                           </span>
                                                     </span>
                                                 </div>
-                                                <div class="col-6 col-md-3">
+                                                <div class="col-6 col-md-auto mb-1">
                                                     <span
                                                         class="d-flex gap-1 align-items-center ms-1 ">
                                                         <i class="fa fa-circle" style="color: #D40000;"></i>
-                                                        <span style="width:75%;font-size:smaller;">
+                                                        <span>
                                                           ${p.color}
                                                         </span>
                                                     </span>
