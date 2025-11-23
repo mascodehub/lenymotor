@@ -17,9 +17,17 @@ body {
     row-gap: 1rem;
   }
 }
+/* Responsif: ubah jadi 1 kolom di mobile */
+@media (min-width: 769px) and (max-width: 1180px) {
+  .testi-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    row-gap: 1rem;
+  }
+}
 
 /* Responsif: ubah jadi 1 kolom di mobile */
-@media (min-width: 768px) {
+@media (min-width: 1181px) {
   /* Area khusus untuk card pertama dan terakhir */
   .testi-grid .card:nth-child(1) {
     flex-direction: row;
