@@ -80,7 +80,7 @@ $(document).ready(async function () {
     const card = `
                 <div class="card position-relative" style="width: 18rem;border-radius: 25px;margin-right: 15px;">
                     <img src="${t.image}" class="card-img-top" alt="..."
-                        style="border-top-left-radius: 5.5%;border-top-right-radius: 5.5%;height: 397px; object-fit: cover;">
+                        style="border-top-left-radius: 5.5%;border-top-right-radius: 5.5%;object-fit: cover;">
                     <div class="card-body">
                         <span class="text-center" style="width: 100%;">
                             <h5 class="card-title d-flex align-items-center justify-content-center" style="font-size: 30px;">
@@ -132,7 +132,7 @@ $(document).ready(async function () {
                     style="width: 18rem;border-radius: 20px;margin-right: 15px;">
                     <img src="${dealer.image}" class="card-img-top" alt="${dealer.name}"
                         style="border-top-left-radius: 5.5%;border-top-right-radius: 5.5%;
-                        height: 397px;object-fit: cover;">
+                        object-fit: cover;">
                     <div class="card-body">
                         <h5 class="card-title" style="font-size: 1.6rem;margin: 5px 5px;">
                             ${dealer.name}
