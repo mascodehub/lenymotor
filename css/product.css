@@ -208,6 +208,18 @@ body.no-scroll {
   #section-2 {
     margin: 0 !important;
   }
+
+  .product-card .card .card-detail {
+    font-size: 0.6em !important;
+    padding: 5px 0 !important;
+    min-height: 3rem;
+  }
+
+  .product-card .card .card-detail .card-detail-text {
+    font-size: 1.4em !important;
+  }
+
+  
 }
 
 @media only screen and (max-width: 600px) {
