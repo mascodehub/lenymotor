@@ -42,7 +42,7 @@
               background-color: white;
               border-radius: 100%;
               padding: 12px 15px;
-              left: calc(9.3% + 2px) !important;
+              left: calc(9.5% + 2px);
               transform: translate(-50%, -50%) !important;
               cursor: pointer;
               z-index: 10;
@@ -57,7 +57,7 @@
               background-color: white;
               border-radius: 100%;
               padding: 12px 15px;
-              right: calc(9.3% + 2px) !important;
+              right: calc(9.5% + 2px);
               transform: translate(50%, -50%) !important;
               cursor: pointer;
               z-index: 10;
@@ -357,12 +357,11 @@
         </div>
       </div>
 
-      <nav class="fixed-bottom d-block d-md-none" style="bottom: 30px">
+      <nav class="fixed-bottom d-block d-xl-none start-50 translate-middle-x" style="bottom: 30px;">
         <div
-          class="border border-white shadow-sm"
+          class="border border-white shadow-sm product-filtering"
           style="
             background-color: white;
-            margin: 0 100px;
             border-radius: 100px;
             padding: 15px;
           "
@@ -383,7 +382,7 @@
       </nav>
 
       <nav
-        class="fixed-bottom d-block d-md-none ms-4"
+        class="fixed-bottom d-block d-xl-none ms-4"
         style="bottom: 5vh; left: 78%; right: 1.5vh"
       >
         <a href="#">
@@ -532,8 +531,8 @@
                   <div id="form-filter-transmission-mob">
                     <div class="row">
                       <div class="col">
-                        <input type="checkbox" name="" id="" /> Otomatis &nbsp;
-                        <input type="checkbox" name="" id="" /> Manual
+                        <label><input type="checkbox" name="" id="" /> Otomatis</label> &nbsp;
+                        <label><input type="checkbox" name="" id="" /> Manual</label>
                       </div>
                     </div>
                   </div>
@@ -553,8 +552,8 @@
                   <div id="form-filter-fuel-mob">
                     <div class="row">
                       <div class="col">
-                        <input type="checkbox" name="" id="" /> Bensin &nbsp;
-                        <input type="checkbox" name="" id="" /> Listrik
+                        <label><input type="checkbox" name="" id="" /> Bensin </label>&nbsp;
+                        <label><input type="checkbox" name="" id="" /> Listrik</label>
                       </div>
                     </div>
                   </div>

@@ -134,12 +134,14 @@ $(document).ready(async function () {
         <div class="col">
           <ul style="list-style-type: none">
             <li class="mb-1" style="margin-left: -32px">
-              <input
-                type="checkbox"
-                name="txtCheckbox"
-                id="txtCheckbox"
-              />
-                ${val.brand_name}
+              <label>
+                <input
+                  type="checkbox"
+                  name="txtCheckbox"
+                  id="txtCheckbox"
+                />
+                  ${val.brand_name}
+                </label>
               <i class="fa fa-angle-up text-dark"></i>
             </li>
             <li>
@@ -149,12 +151,14 @@ $(document).ready(async function () {
       content += `
               <ul style="list-style-type: none">
                 <li class="mb-1" style="margin-left: -45px">
-                  <input
-                    type="checkbox"
-                    name="txtCheckbox"
-                    id="txtCheckbox"
-                  />
-                  ${val_sub.sub_name}
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="txtCheckbox"
+                      id="txtCheckbox"
+                    />
+                    ${val_sub.sub_name}
+                  </label>
                 </li>
               </ul>
       `;

@@ -191,7 +191,15 @@ body.no-scroll {
 
   #carousel-banner {
     max-width: 94vw;
-    height: 35vh;
+    height: 31vh;
+  }
+
+  .carousel-next{
+    right: calc(2.8% + 2px) !important;
+  }
+
+  .carousel-prev{
+    left: calc(2.8% + 2px) !important;
   }
 
   .carousel-track img {
@@ -230,6 +238,10 @@ body.no-scroll {
   #carousel-banner {
     max-width: 94vw;
     height: 22vh;
+  }
+
+  .product-card .card .card-detail .card-detail-text {
+    font-size: 1em !important;
   }
 }
 
