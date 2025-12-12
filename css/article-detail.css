@@ -12,6 +12,7 @@ body {
 .article-card {
   background-color: #fff;
   transition: box-shadow 0.2s ease-in-out;
+  padding: 1rem;
 }
 
 .article-card:hover {
@@ -32,4 +33,81 @@ body {
 .article-info p {
   font-size: 0.95rem;
   line-height: 1.4;
+}
+
+#article-detail-desc {
+  text-align: justify !important;
+}
+
+/* 📌 TABLET 768–991px — menampilkan 3 item saja */
+@media (max-width: 991px) {
+  #back-button {
+    margin-top: 2rem;
+  }
+
+  #article-detail-desc {
+    font-size: x-small;
+  }
+
+  #article-detail-tag span {
+    font-size: 0.6rem !important;
+  }
+  /* Recomendation */
+  .article-card {
+    background-color: #fff;
+    transition: box-shadow 0.2s ease-in-out;
+    padding: 0.5rem;
+  }
+
+  .article-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .article-img {
+    width: 40%;
+    object-fit: cover;
+  }
+
+  .article-info {
+    color: #111;
+    font-size: 0.5rem;
+  }
+
+  .article-info h5 {
+    color: #111;
+    font-size: 0.5rem;
+  }
+
+  .article-info p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+  #article-detail-populer .article-img {
+    width: 135px;
+    height: 95px;
+    object-fit: cover;
+  }
+
+  #article-detail-populer .article-info h5 {
+    color: #111;
+    font-size: 0.8rem;
+  }
+
+  #article-detail-populer .article-info p {
+    font-size: 0.6rem;
+    line-height: 1.4;
+  }
+
+  #article-detail-populer .article-info span {
+    font-size: 0.5rem;
+    padding: 0.35rem 0.7rem;
+  }
+}
+
+/* 📌 MOBILE ≤ 767px — 1 besar di atas, 2 kecil di bawah */
+@media (max-width: 767px) {
+  #back-button {
+    margin-top: 0px;
+  }
 }
