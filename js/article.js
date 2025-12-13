@@ -96,37 +96,26 @@ $(document).ready(function () {
     },
   ];
 
+  // FUNGSI BANNER
   function renderBannerArticle(data) {
-    let html = `<div class="d-none d-md-grid banner-grid">`;
-    data.slice(0, 5).forEach((val, index) => {
+    let html = "";
+    data.slice(0, 5).forEach((item) => {
       html += `
-        <div class="banner-item">
-          <img src="${val.image}" alt="${val.title}">
-          <div class="banner-content">
-            <h5>${val.title}</h5>
-            <small>${val.date}</small>
-          </div>
-        </div>`;
+      <div class="banner-item">
+        <img src="${item.image}" alt="${item.title}">
+        <div class="banner-content">
+          <h5>${item.title}</h5>
+          <small>${item.date}</small>
+        </div>
+      </div>
+    `;
     });
-    html += `</div>`;
-    return html;
+
+    $("#banner-article").html(html);
   }
 
-  function renderBannerArticleMobile(data) {
-    let html = `<div class="d-grid d-md-none banner-grid">`;
-    data.slice(0, 3).forEach((val, index) => {
-      html += `
-        <div id="banner-${index}" class="banner-item">
-          <img src="${val.image}" alt="${val.title}">
-          <div class="banner-content">
-            <h5>${val.title}</h5>
-            <small>${val.date}</small>
-          </div>
-        </div>`;
-    });
-    html += `</div>`;
-    return html;
-  }
+  // Render
+  renderBannerArticle(articles);
 
   // -------------------
   // FUNGSI RENDER ARTICLE
@@ -254,12 +243,6 @@ $(document).ready(function () {
   // RENDER AWAL
   renderPagination();
   renderPage(currentPage);
-
-  // -------------------
-  // RENDER BANNER (jika ada)
-  // -------------------
-  $("#banner-article").html(renderBannerArticle(articles));
-  $("#banner-article-mobile").html(renderBannerArticleMobile(articles));
 
   // Sidebar interactivity
   $(".menu-item").click(function () {

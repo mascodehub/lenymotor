@@ -80,20 +80,22 @@ $(document).ready(function () {
   };
 
   // Setiap property dari object detail artikel diarahkan ke halaman html
-  $("#article-title").text(articleData.title);
-  $("#article-date").text(articleData.date);
-  $("#article-author").html(
+  $("#article-detail-title").text(articleData.title);
+  $("#article-detail-date").text(articleData.date);
+  $("#article-detail-author").html(
     `Ditulis oleh <span class="fw-bold">${articleData.author}</span>`
   );
-  $("#article-img").attr("src", articleData.img).attr("alt", articleData.title);
-  $("#article-desc").html(articleData.desc);
+  $("#article-detail-img")
+    .attr("src", articleData.img)
+    .attr("alt", articleData.title);
+  $("#article-detail-desc").html(articleData.desc);
 
   // Render tag list
-  $("#article-tag").empty();
+  $("#article-detail-tag").empty();
   articleData.tags.forEach((tag) => {
-    $("#article-tag").append(`
-          <div class="btn border border-1 border-dark rounded-pill small px-3">
-            ${tag}
+    $("#article-detail-tag").append(`
+          <div class="border border-1 border-dark rounded-pill small py-1 px-2 py-lg-1 px-lg-3">
+            <span>${tag}</span>
           </div>
         `);
   });
@@ -193,10 +195,10 @@ $(document).ready(function () {
   ];
 
   function renderArticlesRecomendation(list) {
-    $("#article-recomendation").empty();
+    $("#article-detail-recomendation").empty();
     list.slice(0, 5).forEach((a) => {
-      $("#article-recomendation").append(`
-       <div id="article" class="article-card d-flex mb-3 rounded-lg shadow-sm" style="border-radius: 0.5rem;padding: 1rem;">
+      $("#article-detail-recomendation").append(`
+       <div id="article" class="article-card d-flex mb-3 rounded-lg shadow-sm" style="border-radius: 0.5rem;">
         <img src="${a.image}" alt="Article" class="article-img rounded-3 me-3" style="border-radius: 0.5rem;">
         <div class="article-info">
           <div class="d-flex align-items-center mb-1">
@@ -306,22 +308,26 @@ $(document).ready(function () {
   ];
 
   function renderArticlesPopuler(list) {
-    $("#article-populer").empty();
+    $("#article-detail-populer").empty();
     list.slice(0, 4).forEach((a) => {
-      $("#article-populer").append(`
-      <div class="col-md-6">
-        <div id="article" class="article-card d-flex align-items-center mb-3 rounded-lg shadow-sm" style="border-radius: 0.5rem;padding: 1rem;">
-          <img src="${a.image}" alt="Article" class="article-img rounded-3 me-3" style="border-radius: 0.5rem;">
-          <div class="article-info">
-            <div class="d-flex align-items-center mb-1">
-              <span class="badge bg-danger me-2 rounded-pill" style="padding: 0.7rem 1rem;">BARU</span>
-              <small class="text-muted">${a.date}</small>
+      $("#article-detail-populer").append(`
+        <div class="col-6 col-lg-6 py-1 px-3">
+          <div id="article" class="article-card d-flex align-items-center mb-3 rounded-lg shadow-sm" style="border-radius: 0.5rem;height: 100%;">
+            <img src="${
+              a.image
+            }" alt="Article" class="bg-success article-img rounded-3 me-3" style="border-radius: 0.5rem;">
+            <div class="article-info">
+              <div class="d-flex align-items-center mb-1">
+                <span class="badge bg-danger me-2 rounded-pill">BARU</span>
+                <small class="text-muted">${a.date}</small>
+              </div>
+              <h5 class="fw-bold mb-1"><a href="article-detail.html?title=${
+                a.title
+              }">${a.title}</a></h5>
+                <p class="text-muted mb-0">${a.desc.slice(0, 90)} [...]</p>
             </div>
-            <h5 class="fw-bold mb-1"><a href="article-detail.html?title=${a.title}">${a.title}</a></h5>
-              <p class="text-muted mb-0">${a.desc} [...]</p>
           </div>
         </div>
-      </div>
       `);
     });
   }

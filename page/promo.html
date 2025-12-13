@@ -1,239 +1,435 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Leny Motor</title>
 
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../vendor/fontawesome-5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="../vendor/fontawesome-5.15.4/css/all.min.css"
+    />
 
-    <link rel="stylesheet" href="../css/promo.css">
-</head>
+    <link rel="stylesheet" href="../css/promo.css" />
+  </head>
 
-<body class="container-fluid m-0 p-0">
+  <body class="container-fluid m-0 p-0">
     <div id="navbar"></div>
 
     <div id="main-content">
-        <div id="content">
-            <div id="section-1" class="d-flex align-items-center justify-content-center text-center position-relative">
-                <div id="carousel-banner" class="mt-0 mb-0 mt-md-5 mb-md-5 rounded-3 position-relative overflow-hidden"
-                    style="width: 100%; ">
-
-                    <div class="overflow-hidden ">
-                        <div class="carousel-track d-flex h-100 position-absolute top-0 start-0"
-                            style="transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="position-absolute top-50 shadow carousel-prev d-none d-md-flex"
-                    style="background-color: white;border-radius: 100%; padding: 12px 15px;font-size: 22pt; cursor:pointer;z-index:10;left: calc(9.3% + 2px) !important; transform: translate(-50%, -50%) !important;">
-                    <i class="fa fa-arrow-left text-dark"></i>
-                </div>
-
-                <div class="position-absolute top-50 shadow carousel-next d-none d-md-flex"
-                    style="background-color: white;border-radius: 100%; padding: 12px 15px;font-size: 22pt; cursor:pointer;z-index:10;right: calc(9.3% + 2px) !important; transform: translate(50%, -50%) !important;">
-                    <i class="fa fa-arrow-right text-dark"></i>
-                </div>
-
-                <div class="position-absolute top-100 start-50 translate-middle" id="carousel-point">
-                    <div id="carousel-page" class="d-flex gap-2">
-                    </div>
-                </div>
+      <div id="content">
+        <div
+          id="section-1"
+          class="d-flex align-items-center justify-content-center text-center position-relative"
+        >
+          <div
+            id="carousel-banner"
+            class="mt-0 mb-0 mt-md-5 mb-md-5 rounded-3 position-relative overflow-hidden"
+            style="width: 100%"
+          >
+            <div class="overflow-hidden">
+              <div
+                class="carousel-track d-flex h-100 position-absolute top-0 start-0"
+                style="transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1)"
+              ></div>
             </div>
+          </div>
 
-            <div id="section-2" style="margin: 0 9.5%;">
-                <div class="row" style="--bs-gutter-x:0">
-                    <div class="col d-none d-md-block">
-                        <div class="row">
-                            <div class="col" style="margin: 20px 0px;">
-                                <span>Beranda > <b>Promo</b></span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <div style="background-color: white;width: 100%;border-radius: 30px;padding: 30px;">
-                                    <div class="input-group">
-                                        <span class="input-group-text" id="labelSearch"
-                                            style="border: 0px solid #e2e2e2; border-top-width: 1px; border-bottom-width: 1px; border-left-width: 1px;background-color: white;">
-                                            <i class="fa fa-search"></i>
-                                        </span>
-                                        <input type="text" class="form-control" id="txtSearch" placeholder="Cari promo"
-                                            aria-label="Cari promo" aria-describedby="labelSearch"
-                                            style="border: 0px solid #e2e2e2; border-bottom-width: 1px; border-top-width: 1px; border-right-width: 1px;">
-                                    </div>
+          <div
+            class="position-absolute top-50 shadow carousel-prev d-none d-lg-flex"
+            style="
+              background-color: white;
+              border-radius: 100%;
+              padding: 12px 15px;
+              font-size: 22pt;
+              cursor: pointer;
+              z-index: 10;
+              left: calc(9.3% + 2px) !important;
+              transform: translate(-50%, -50%) !important;
+            "
+          >
+            <i class="fa fa-arrow-left text-dark"></i>
+          </div>
 
-                                    <div class="row" style="padding: 15px;">
-                                        <div class="col-12" style="padding:10px;border-bottom: 2px solid red;">
-                                            <span style="font-weight: normal;color: red;font-weight: bold;">
-                                                Semua Promo
-                                            </span>
-                                        </div>
+          <div
+            class="position-absolute top-50 shadow carousel-next d-none d-lg-flex"
+            style="
+              background-color: white;
+              border-radius: 100%;
+              padding: 12px 15px;
+              font-size: 22pt;
+              cursor: pointer;
+              z-index: 10;
+              right: calc(9.3% + 2px) !important;
+              transform: translate(50%, -50%) !important;
+            "
+          >
+            <i class="fa fa-arrow-right text-dark"></i>
+          </div>
 
-                                        <div class="col-12 mt-2" style="padding:10px;border-bottom: 2px solid #b9b9b9;">
-                                            <span style="font-weight: normal;color: #b9b9b9;">
-                                                Promo Leny Oktober
-                                            </span>
-                                        </div>
-
-                                        <div class="col-12 mt-2" style="padding:10px;border-bottom: 2px solid #b9b9b9;">
-                                            <span style="font-weight: normal;color: #b9b9b9;">
-                                                Promo Jumat Berkah
-                                            </span>
-                                        </div>
-
-                                        <div class="col-12 mt-2" style="padding:10px;border-bottom: 2px solid #b9b9b9;">
-                                            <span style="font-weight: normal;color: #b9b9b9;">
-                                                Promo Akhir Tahun
-                                            </span>
-                                        </div>
-
-                                        <div class="col-12 mt-2" style="padding:10px;border-bottom: 2px solid #b9b9b9;">
-                                            <span style="font-weight: normal;color: #b9b9b9;">
-                                                Promo 10.10
-                                            </span>
-                                        </div>
-
-                                        <div class="col-12 mt-2" style="padding:10px;border-bottom: 2px solid #b9b9b9;">
-                                            <span style="font-weight: normal;color: #b9b9b9;">
-                                                Potongan Harga
-                                            </span>
-                                        </div>
-
-                                        <div class="col-12 mt-2" style="padding:10px;border-bottom: 2px solid #b9b9b9;">
-                                            <span style="font-weight: normal;color: #b9b9b9;">
-                                                Promo Siapa Cepat Dia Dapat
-                                            </span>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col col-md-9" style="padding-left: 20px;margin-right: 20px;">
-                        <div class="row">
-                            <div class="col d-flex" style="margin: 20px 0px;">
-                                <b id="spanFilterProductTotal">Menampilkan 9 Promo</b>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col">
-                                <div class="row" id="card-promo">
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col text-center">
-                                <div class="pagination-container" id="section-pagination">
-                                    <button class="page-btn prev"><i class="fa fa-chevron-left"></i></button>
-                                    <ul class="pagination">
-                                    </ul>
-                                    <button class="page-btn next"><i class="fa fa-chevron-right"></i></button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          <div
+            class="position-absolute top-100 start-50 translate-middle"
+            id="carousel-point"
+          >
+            <div id="carousel-page" class="d-flex gap-2"></div>
+          </div>
         </div>
 
-        <nav class="fixed-bottom d-block d-md-none" style="bottom: 30px">
-            <div class="border border-white shadow"
-                style="background-color: white;margin: 0 120px;border-radius: 100px;padding: 10px;">
-                <div class="row text-center">
-                    <div class="col" id="btn-sort-mob">
-                        <i class="fa fa-sort text-dark"></i> Urutan
-                    </div>
+        <div id="section-2">
+          <div class="row" style="--bs-gutter-x: 0">
+            <div class="col d-none d-lg-block">
+              <div class="row">
+                <div class="col" style="margin: 20px 0px">
+                  <span>Beranda > <b>Promo</b></span>
                 </div>
-            </div>
-        </nav>
-
-        <nav class="fixed-bottom" id="btn-sort-promo" style="bottom: 20vh">
-            <div class="text-center w-100" style="background-color: white;border-radius: 10px 10px 0 0;">
-                <span style="padding: 0 50px;font-size: 2pt;background-color: #dfdede;"></span>
-            </div>
-
-            <div class="border border-white" style="background-color: white;padding: 15px;">
-                <div class="row">
-                    <div class="col d-flex" style="padding: 10px 20px;justify-content: space-between;color: red;">
-                        <h4>Urutkan</h4>
-                        <span id="mobile-reset-sort">Reset</span>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <div
+                    style="
+                      background-color: white;
+                      width: 100%;
+                      border-radius: 1rem;
+                      padding: 1.5rem;
+                    "
+                  >
+                    <div class="input-group">
+                      <span
+                        class="input-group-text"
+                        id="labelSearch"
+                        style="
+                          border: 0px solid #e2e2e2;
+                          border-top-width: 1px;
+                          border-bottom-width: 1px;
+                          border-left-width: 1px;
+                          background-color: white;
+                        "
+                      >
+                        <i class="fa fa-search"></i>
+                      </span>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="txtSearch"
+                        placeholder="Cari promo"
+                        aria-label="Cari promo"
+                        aria-describedby="labelSearch"
+                        style="
+                          border: 0px solid #e2e2e2;
+                          border-bottom-width: 1px;
+                          border-top-width: 1px;
+                          border-right-width: 1px;
+                        "
+                      />
                     </div>
+
+                    <div class="row" style="padding: 15px">
+                      <div
+                        class="col-12"
+                        style="padding: 10px; border-bottom: 2px solid red"
+                      >
+                        <span
+                          style="
+                            font-weight: normal;
+                            color: red;
+                            font-weight: bold;
+                            cursor: pointer;
+                          "
+                        >
+                          Semua Promo
+                        </span>
+                      </div>
+
+                      <div
+                        class="col-12 mt-2"
+                        style="padding: 10px; border-bottom: 2px solid #b9b9b9"
+                      >
+                        <span
+                          style="
+                            font-weight: normal;
+                            color: #b9b9b9;
+                            cursor: pointer;
+                          "
+                        >
+                          Promo Leny Oktober
+                        </span>
+                      </div>
+
+                      <div
+                        class="col-12 mt-2"
+                        style="padding: 10px; border-bottom: 2px solid #b9b9b9"
+                      >
+                        <span
+                          style="
+                            font-weight: normal;
+                            color: #b9b9b9;
+                            cursor: pointer;
+                          "
+                        >
+                          Promo Jumat Berkah
+                        </span>
+                      </div>
+
+                      <div
+                        class="col-12 mt-2"
+                        style="padding: 10px; border-bottom: 2px solid #b9b9b9"
+                      >
+                        <span
+                          style="
+                            font-weight: normal;
+                            color: #b9b9b9;
+                            cursor: pointer;
+                          "
+                        >
+                          Promo Akhir Tahun
+                        </span>
+                      </div>
+
+                      <div
+                        class="col-12 mt-2"
+                        style="padding: 10px; border-bottom: 2px solid #b9b9b9"
+                      >
+                        <span
+                          style="
+                            font-weight: normal;
+                            color: #b9b9b9;
+                            cursor: pointer;
+                          "
+                        >
+                          Promo 10.10
+                        </span>
+                      </div>
+
+                      <div
+                        class="col-12 mt-2"
+                        style="padding: 10px; border-bottom: 2px solid #b9b9b9"
+                      >
+                        <span
+                          style="
+                            font-weight: normal;
+                            color: #b9b9b9;
+                            cursor: pointer;
+                          "
+                        >
+                          Potongan Harga
+                        </span>
+                      </div>
+
+                      <div
+                        class="col-12 mt-2"
+                        style="padding: 10px; border-bottom: 2px solid #b9b9b9"
+                      >
+                        <span
+                          style="
+                            font-weight: normal;
+                            color: #b9b9b9;
+                            cursor: pointer;
+                          "
+                        >
+                          Promo Siapa Cepat Dia Dapat
+                        </span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="row" id="mobile-list-sort">
-                    <div class="col-12 d-flex align-items-center form-check"
-                        style="padding: 10px 20px;justify-content: space-between;">
-                        <label class="form-check-label" for="flexCheckRecommendation">
-                            Semua Promo
-                        </label>
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckRecommendation">
-                    </div>
-                    <div class="col-12 d-flex align-items-center form-check"
-                        style="padding: 10px 20px;justify-content: space-between;">
-                        <label class="form-check-label" for="flexCheckPromo">
-                            Promo Leny Oktober
-                        </label>
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckPromo">
-                    </div>
-                    <div class="col-12 d-flex align-items-center form-check"
-                        style="padding: 10px 20px;justify-content: space-between;">
-                        <label class="form-check-label" for="flexCheckNewer">
-                            Promo Jumat Berkah
-                        </label>
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckNewer">
-                    </div>
-                    <div class="col-12 d-flex align-items-center form-check"
-                        style="padding: 10px 20px;justify-content: space-between;">
-                        <label class="form-check-label" for="flexCheckLowest">
-                            Promo Akhir Tahun
-                        </label>
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckLowest">
-                    </div>
-                    <div class="col-12 d-flex align-items-center form-check"
-                        style="padding: 10px 20px;justify-content: space-between;">
-                        <label class="form-check-label" for="flexCheckHighest">
-                            Promo 10.10
-                        </label>
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckHighest">
-                    </div>
-                    <div class="col-12 d-flex align-items-center form-check"
-                        style="padding: 10px 20px;justify-content: space-between;">
-                        <label class="form-check-label" for="flexCheckNewPrice">
-                            Potongan Harga
-                        </label>
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckNewPrice">
-                    </div>
-                    <div class="col-12 d-flex align-items-center form-check"
-                        style="padding: 10px 20px;justify-content: space-between;">
-                        <label class="form-check-label" for="flexCheckKM">
-                            Promo Siapa Cepat Dia Dapat
-                        </label>
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckKM">
-                    </div>
-                </div>
-                <button class="btn mt-3"
-                    style="width: 100%;border: 2px solid red;border-radius: 30px;background-color: red;color: white;">
-                    <b>Terapkan</b>
-                </button>
+              </div>
             </div>
-        </nav>
 
-        <div id="overlay-promo"></div>
+            <div class="col col-md-12 col-lg-9 p-3">
+              <div class="row">
+                <div class="col d-flex" style="margin: 10px 0px">
+                  <b id="spanFilterProductTotal">Menampilkan 9 Promo</b>
+                </div>
+              </div>
+              <div class="row" id="card-promo"></div>
 
-        <div id="footbar"></div>
+              <div class="row">
+                <div class="col text-center">
+                  <div class="pagination-container" id="section-pagination">
+                    <button class="page-btn prev">
+                      <i class="fa fa-chevron-left"></i>
+                    </button>
+                    <ul class="pagination"></ul>
+                    <button class="page-btn next">
+                      <i class="fa fa-chevron-right"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <nav class="fixed-bottom d-block d-md-none" style="bottom: 30px">
+        <div
+          class="border border-white shadow"
+          style="
+            background-color: white;
+            margin: 0 120px;
+            border-radius: 100px;
+            padding: 10px;
+          "
+        >
+          <div class="row text-center">
+            <div class="col" id="btn-sort-mob">
+              <i class="fa fa-sort text-dark"></i> Urutan
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <nav class="fixed-bottom" id="btn-sort-promo" style="bottom: 20vh">
+        <div
+          class="text-center w-100"
+          style="background-color: white; border-radius: 10px 10px 0 0"
+        >
+          <span
+            style="padding: 0 50px; font-size: 2pt; background-color: #dfdede"
+          ></span>
+        </div>
+
+        <div
+          class="border border-white"
+          style="background-color: white; padding: 15px"
+        >
+          <div class="row">
+            <div
+              class="col d-flex"
+              style="
+                padding: 10px 20px;
+                justify-content: space-between;
+                color: red;
+              "
+            >
+              <h4>Urutkan</h4>
+              <span id="mobile-reset-sort">Reset</span>
+            </div>
+          </div>
+          <div class="row" id="mobile-list-sort">
+            <div
+              class="col-12 d-flex align-items-center form-check"
+              style="padding: 10px 20px; justify-content: space-between"
+            >
+              <label class="form-check-label" for="flexCheckRecommendation">
+                Semua Promo
+              </label>
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="flexCheckRecommendation"
+              />
+            </div>
+            <div
+              class="col-12 d-flex align-items-center form-check"
+              style="padding: 10px 20px; justify-content: space-between"
+            >
+              <label class="form-check-label" for="flexCheckPromo">
+                Promo Leny Oktober
+              </label>
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="flexCheckPromo"
+              />
+            </div>
+            <div
+              class="col-12 d-flex align-items-center form-check"
+              style="padding: 10px 20px; justify-content: space-between"
+            >
+              <label class="form-check-label" for="flexCheckNewer">
+                Promo Jumat Berkah
+              </label>
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="flexCheckNewer"
+              />
+            </div>
+            <div
+              class="col-12 d-flex align-items-center form-check"
+              style="padding: 10px 20px; justify-content: space-between"
+            >
+              <label class="form-check-label" for="flexCheckLowest">
+                Promo Akhir Tahun
+              </label>
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="flexCheckLowest"
+              />
+            </div>
+            <div
+              class="col-12 d-flex align-items-center form-check"
+              style="padding: 10px 20px; justify-content: space-between"
+            >
+              <label class="form-check-label" for="flexCheckHighest">
+                Promo 10.10
+              </label>
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="flexCheckHighest"
+              />
+            </div>
+            <div
+              class="col-12 d-flex align-items-center form-check"
+              style="padding: 10px 20px; justify-content: space-between"
+            >
+              <label class="form-check-label" for="flexCheckNewPrice">
+                Potongan Harga
+              </label>
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="flexCheckNewPrice"
+              />
+            </div>
+            <div
+              class="col-12 d-flex align-items-center form-check"
+              style="padding: 10px 20px; justify-content: space-between"
+            >
+              <label class="form-check-label" for="flexCheckKM">
+                Promo Siapa Cepat Dia Dapat
+              </label>
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="flexCheckKM"
+              />
+            </div>
+          </div>
+          <button
+            class="btn mt-3"
+            style="
+              width: 100%;
+              border: 2px solid red;
+              border-radius: 30px;
+              background-color: red;
+              color: white;
+            "
+          >
+            <b>Terapkan</b>
+          </button>
+        </div>
+      </nav>
+
+      <div id="overlay-promo"></div>
+
+      <div id="footbar"></div>
     </div>
+  </body>
+  <script src="../js/jquery-3.7.1.min.js"></script>
+  <script src="../js/bootstrap.bundle.min.js"></script>
+  <script src="../vendor/fontawesome-5.15.4/js/all.min.js"></script>
 
-
-</body>
-<script src="../js/jquery-3.7.1.min.js"></script>
-<script src="../js/bootstrap.bundle.min.js"></script>
-<script src="../vendor/fontawesome-5.15.4/js/all.min.js"></script>
-
-<script src="../js/promo.js"></script>
-
+  <script src="../js/promo.js"></script>
 </html>

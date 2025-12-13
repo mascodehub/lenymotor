@@ -8,12 +8,12 @@ body {
   background-color: #f2f2f2;
 }
 
-/* banner style */
+/* DESKTOP (default) – muncul 5 */
 .banner-grid {
+  display: grid;
   grid-template-columns: 2fr 1fr 1fr;
   grid-template-rows: repeat(2, 220px);
   margin-bottom: 30px;
-  position: relative;
   border-radius: 1rem;
   overflow: hidden;
 }
@@ -28,7 +28,7 @@ body {
   height: 100%;
   object-fit: cover;
   filter: brightness(0.7);
-  transition: filter 0.3s ease;
+  transition: filter 0.3s;
 }
 
 .banner-item:hover img {
@@ -37,43 +37,77 @@ body {
 
 .banner-content {
   position: absolute;
-  bottom: 10px;
-  left: 15px;
-  color: white;
+  bottom: 12px;
+  left: 16px;
+  color: #fff;
 }
 
 .banner-content h5 {
+  margin-bottom: 3px;
   font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 4px;
 }
 
 .banner-content small {
   font-size: 0.8rem;
 }
 
+/* ITEM 0 BESAR */
 .banner-item:first-child {
   grid-row: span 2;
 }
 
-@media (max-width: 768px) {
+/* 📌 TABLET 768–991px — menampilkan 3 item saja */
+@media (max-width: 991px) {
   .banner-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 238px 238px;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: repeat(2, 220px);
     grid-template-areas:
-      "first first"
-      "second third";
+      "big small1"
+      "big small2";
   }
 
-  #banner-0 {
-    grid-area: first;
+  .banner-item:nth-child(1) {
+    grid-area: big;
   }
-  #banner-1 {
-    grid-area: second;
+  .banner-item:nth-child(2) {
+    grid-area: small1;
   }
-  #banner-2 {
-    grid-area: third;
+  .banner-item:nth-child(3) {
+    grid-area: small2;
+  }
+
+  /* hide items ke-4 & 5 */
+  .banner-item:nth-child(n + 4) {
+    display: none;
+  }
+}
+
+/* 📌 MOBILE ≤ 767px — 1 besar di atas, 2 kecil di bawah */
+@media (max-width: 767px) {
+  .banner-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 260px 180px;
+    grid-template-areas:
+      "big big"
+      "small1 small2";
+  }
+
+  .banner-item:nth-child(1) {
+    grid-area: big;
+  }
+
+  .banner-item:nth-child(2) {
+    grid-area: small1;
+  }
+
+  .banner-item:nth-child(3) {
+    grid-area: small2;
+  }
+
+  /* hanya 3 item */
+  .banner-item:nth-child(n + 4) {
+    display: none !important;
   }
 }
 
