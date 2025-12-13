@@ -134,12 +134,14 @@ $(document).ready(async function () {
         <div class="col">
           <ul style="list-style-type: none">
             <li class="mb-1" style="margin-left: -32px">
-              <input
-                type="checkbox"
-                name="txtCheckbox"
-                id="txtCheckbox"
-              />
-                ${val.brand_name}
+              <label>
+                <input
+                  type="checkbox"
+                  name="txtCheckbox"
+                  id="txtCheckbox"
+                />
+                  ${val.brand_name}
+                </label>
               <i class="fa fa-angle-up text-dark"></i>
             </li>
             <li>
@@ -149,12 +151,14 @@ $(document).ready(async function () {
       content += `
               <ul style="list-style-type: none">
                 <li class="mb-1" style="margin-left: -45px">
-                  <input
-                    type="checkbox"
-                    name="txtCheckbox"
-                    id="txtCheckbox"
-                  />
-                  ${val_sub.sub_name}
+                  <label>
+                    <input
+                      type="checkbox"
+                      name="txtCheckbox"
+                      id="txtCheckbox"
+                    />
+                    ${val_sub.sub_name}
+                  </label>
                 </li>
               </ul>
       `;
@@ -364,7 +368,7 @@ $(document).ready(async function () {
                                                     <span
                                                         class="d-flex align-items-center ms-1">
                                                           <img src="../assets/icon/date.png" style="width: 20px;height: 20px;">
-                                                          <span>
+                                                          <span class='card-detail-text'>
                                                             &nbsp;${p.year}
                                                           </span>
                                                         </span>
@@ -373,7 +377,7 @@ $(document).ready(async function () {
                                                     <span
                                                         class="d-flex align-items-center ms-1 ">
                                                         <img src="../assets/icon/road.png" style="width: 20px;height: 20px;">
-                                                        <span>
+                                                        <span class='card-detail-text'>
                                                           &nbsp;${p.km}
                                                         </span>
                                                     </span>
@@ -382,7 +386,7 @@ $(document).ready(async function () {
                                                     <span
                                                         class="d-flex align-items-center ms-1 ">
                                                           <img src="../assets/icon/transmission.png" style="width: 20px;height: 20px;">
-                                                          <span>
+                                                          <span class='card-detail-text'>
                                                             &nbsp;${p.transmission}
                                                           </span>
                                                     </span>
@@ -391,8 +395,8 @@ $(document).ready(async function () {
                                                     <span
                                                         class="d-flex gap-1 align-items-center ms-1 ">
                                                         <i class="fa fa-circle" style="color: #D40000;"></i>
-                                                        <span>
-                                                          ${p.color}
+                                                        <span class='card-detail-text'>
+                                                          &nbsp;${p.color}
                                                         </span>
                                                     </span>
                                                 </div>
@@ -410,7 +414,7 @@ $(document).ready(async function () {
                                     </span>
                                 </div>
                             </div>
-                            <div class="position-absolute top-0 start-100 translate-middle shadow btnFavorite" data-toggle=0 style="background-color: white;border-radius: 100%; padding: 5px 8px;margin-left: -20px;margin-top: 20px;cursor: pointer;z-index:2">
+                            <div class="position-absolute top-0 start-100 translate-middle shadow btnFavorite" data-toggle=0 style="background-color: white;border-radius: 100%; padding: 5px 8px;margin-left: -25px;margin-top: 25px;cursor: pointer;z-index:2;font-size:1.3em">
                                 <i class="far fa-star text-dark"></i>
                             </div>
                         </div>
