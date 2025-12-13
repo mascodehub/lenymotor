@@ -265,7 +265,7 @@ $(document).ready(async function () {
   $("#other-product").html("");
   $.each(PRODUCT_DETAIL, function (idx, p) {
     $("#other-product").append(`
-            <div class="product-card" style="width: 25em">
+            <div class="product-card">
               <a href="product-detail.html?category=${PRODUCT_CATEGORY}&product=${p.id}" style="text-decoration: none;color: black;cursor:default">
                 <div class="card position-relative" style="border-radius: 20px">
                     <img src="${p.img}" class="card-img-top" alt="..." style="border-top-left-radius: 5.5%;border-top-right-radius: 5.5%; object-fit: cover;">
@@ -275,15 +275,15 @@ $(document).ready(async function () {
                         </h5>
                         <div class="card-text">
                           <div id="product-card-title">
-                            <span class="d-block fw-bold" style="margin: 5px 0px;font-size:small;">${p.name} ${p.year}</span>
+                            <span class="d-block fw-bold" style="margin: 5px 0px;">${p.name} ${p.year}</span>
                             <span class="d-block" style="margin: 5px 0px;">${p.location}</span>
                           </div>
-                            <div class="card-detail mb-2" style="border: 2px solid #EFEFEF;border-radius: 10px;padding: 0px 12px;">
+                            <div class="card-detail mb-2" style="border: 2px solid #EFEFEF;border-radius: 10px;padding: 0px ;">
                                     <div class="row g-2 w-100 d-flex justify-content-center align-items-center" style="margin:auto">
                                         <div class="col-6 col-md-auto mb-1">
                                             <span
                                                 class="d-flex align-items-center ms-1">
-                                                  <img src="../assets/icon/date.png" style="width: 20px;height: 20px;">
+                                                  <img src="../assets/icon/date.png" style="width: 2em;height: 2em;">
                                                   <span>
                                                     &nbsp;${p.year}
                                                   </span>
@@ -292,7 +292,7 @@ $(document).ready(async function () {
                                         <div class="col-6 col-md-auto mb-1">
                                             <span
                                                 class="d-flex align-items-center ms-1 ">
-                                                <img src="../assets/icon/road.png" style="width: 20px;height: 20px;">
+                                                <img src="../assets/icon/road.png" style="width: 2em;height: 2em;">
                                                 <span>
                                                   &nbsp;${p.km}
                                                 </span>
@@ -301,7 +301,7 @@ $(document).ready(async function () {
                                         <div class="col-6 col-md-auto mb-1">
                                             <span
                                                 class="d-flex align-items-center ms-1 ">
-                                                  <img src="../assets/icon/transmission.png" style="width: 20px;height: 20px;">
+                                                  <img src="../assets/icon/transmission.png" style="width: 2em;height: 2em;">
                                                   <span>
                                                     &nbsp;${p.transmission}
                                                   </span>
