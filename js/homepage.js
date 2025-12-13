@@ -368,7 +368,7 @@ $(document).ready(async function () {
 
   $.each(MOTOR_PRODUCT_DETAIL, function (i, p) {
     const card = `
-            <div class="card position-relative"  style="width: 30rem;border-radius: 25px;margin: 0 15px;">
+            <div class="card position-relative"  style="border-radius: 25px;margin: 0 15px;">
                 <a href="product-detail.html?category=motor&product=${p.id}" style="text-decoration: none;color: black;cursor:default">
                     <img src="${p.img}" class="card-img-top" alt="..." style="border-top-left-radius: 5.5%;border-top-right-radius: 5.5%; object-fit: cover;">
                     <div class="card-body">
