@@ -1,4 +1,6 @@
-let PRODUCT_DETAIL, PRODUCT_IMAGES, PRODUCT_CATEGORY, PRODUCT_ID;
+let PRODUCT_DETAIL, PRODUCT_IMAGES, PRODUCT_CATEGORY, PRODUCT_ID, DISPLAY_MODE;
+
+DISPLAY_MODE = $('#product-list-img-vertical').hasClass('d-block') ? 'mobile' : '';
 
 function initData() {
   const urlParams = new URLSearchParams(window.location.search);
@@ -133,10 +135,10 @@ $(document).ready(async function () {
                 <img src="${PRODUCT_IMAGES[idxProduct]}" class="card-img-top" alt="..." style="object-fit: contain;">    
             `);
 
-      $("#product-img-mob #product-list-img").html("");
+      $("#product-img-mob #product-list-img, #product-list-img-vertical").html("");
       $.each(PRODUCT_IMAGES, function (idx, val) {
         let active = idxProduct == idx ? "border: 3px solid red;" : "";
-        $("#product-img-mob #product-list-img").append(`
+        $("#product-img-mob #product-list-img, #product-list-img-vertical").append(`
                     <div class="product-img" data-id="${idx}">
                         <img src="${val}" class="card-img-top" alt="..."
                             style="width: 100%; height: 100%;${active}">
@@ -182,7 +184,7 @@ $(document).ready(async function () {
 
   $(document).on(
     "click",
-    "#product-img-mob #product-list-img .product-img",
+    "#product-img-mob #product-list-img .product-img, #product-list-img-vertical .product-img",
     function (e) {
       e.stopPropagation();
       $("body").addClass("no-scroll");
@@ -194,7 +196,7 @@ $(document).ready(async function () {
 
   $(document).on(
     "click",
-    ".main-img#product-list-img .product-img",
+    ".main-img#product-list-img .product-img, #product-list-img-vertical .product-img",
     function (e) {
       e.stopPropagation();
       idxProduct = $(this).data("id");
@@ -212,7 +214,10 @@ $(document).ready(async function () {
     else card_scroll.animate({ scrollLeft: "-=200" }, 300);
 
     idxProduct = idxProduct <= 0 ? PRODUCT_IMAGES.length - 1 : idxProduct - 1;
-    renderProductImg();
+
+
+
+    renderProductImg(DISPLAY_MODE);
   });
 
   $("#btn-next-product").click(function () {
@@ -224,7 +229,7 @@ $(document).ready(async function () {
     else card_scroll.animate({ scrollLeft: "+=200" }, 300);
 
     idxProduct = idxProduct >= PRODUCT_IMAGES.length - 1 ? 0 : idxProduct + 1;
-    renderProductImg();
+    renderProductImg(DISPLAY_MODE);
   });
 
   let touchStartX = 0;
@@ -260,76 +265,76 @@ $(document).ready(async function () {
   $("#other-product").html("");
   $.each(PRODUCT_DETAIL, function (idx, p) {
     $("#other-product").append(`
-            <div class="col-8 col-md-3 product-card">
-                <a href="product-detail.html?category=${PRODUCT_CATEGORY}&product=${p.id}" style="text-decoration: none;color: black;cursor:default">
-                        <div class="card position-relative" style="border-radius: 20px">
-                            <img src="${p.img}" class="card-img-top" alt="..." style="border-top-left-radius: 5.5%;border-top-right-radius: 5.5%; object-fit: cover;">
-                            <div class="card-body">
-                                <h5 class="card-title section-price" style="color: #D40000;">
-                                    ${p.price}
-                                </h5>
-                                <div class="card-text">
-                                  <div id="product-card-title">
-                                    <span class="d-block fw-bold" style="margin: 5px 0px;font-size:small;">${p.name} ${p.year}</span>
-                                    <span class="d-block" style="margin: 5px 0px;">${p.location}</span>
-                                  </div>
-                                    <div class="card-detail mb-2" style="border: 2px solid #EFEFEF;border-radius: 10px;padding: 0px 12px;">
-                                            <div class="row g-2 w-100 d-flex justify-content-center align-items-center" style="margin:auto">
-                                                <div class="col-6 col-md-auto mb-1">
-                                                    <span
-                                                        class="d-flex align-items-center ms-1">
-                                                          <img src="../assets/icon/date.png" style="width: 20px;height: 20px;">
-                                                          <span>
-                                                            &nbsp;${p.year}
-                                                          </span>
-                                                        </span>
-                                                </div>
-                                                <div class="col-6 col-md-auto mb-1">
-                                                    <span
-                                                        class="d-flex align-items-center ms-1 ">
-                                                        <img src="../assets/icon/road.png" style="width: 20px;height: 20px;">
-                                                        <span>
-                                                          &nbsp;${p.km}
-                                                        </span>
-                                                    </span>
-                                                </div>
-                                                <div class="col-6 col-md-auto mb-1">
-                                                    <span
-                                                        class="d-flex align-items-center ms-1 ">
-                                                          <img src="../assets/icon/transmission.png" style="width: 20px;height: 20px;">
-                                                          <span>
-                                                            &nbsp;${p.transmission}
-                                                          </span>
-                                                    </span>
-                                                </div>
-                                                <div class="col-6 col-md-auto mb-1">
-                                                    <span
-                                                        class="d-flex gap-1 align-items-center ms-1 ">
-                                                        <i class="fa fa-circle" style="color: #D40000;"></i>
-                                                        <span>
-                                                          ${p.color}
-                                                        </span>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                    </div>
-                                    <span class="d-block foot-card" style="border: 2px solid #EFEFEF;border-radius: 30px;padding: 5px 20px;background-color: #EFEFEF;">
-                                        <div class="row g-0">
-                                            <div class="col">
-                                                <i class="fa fa-info-circle"></i> Cicilan Mulai
-                                            </div>
-                                            <div class="col" style="text-align: right;">
-                                                ${p.cicilan}
-                                            </div>
+            <div class="product-card" style="width: 25em">
+              <a href="product-detail.html?category=${PRODUCT_CATEGORY}&product=${p.id}" style="text-decoration: none;color: black;cursor:default">
+                <div class="card position-relative" style="border-radius: 20px">
+                    <img src="${p.img}" class="card-img-top" alt="..." style="border-top-left-radius: 5.5%;border-top-right-radius: 5.5%; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title section-price" style="color: #D40000;">
+                            ${p.price}
+                        </h5>
+                        <div class="card-text">
+                          <div id="product-card-title">
+                            <span class="d-block fw-bold" style="margin: 5px 0px;font-size:small;">${p.name} ${p.year}</span>
+                            <span class="d-block" style="margin: 5px 0px;">${p.location}</span>
+                          </div>
+                            <div class="card-detail mb-2" style="border: 2px solid #EFEFEF;border-radius: 10px;padding: 0px 12px;">
+                                    <div class="row g-2 w-100 d-flex justify-content-center align-items-center" style="margin:auto">
+                                        <div class="col-6 col-md-auto mb-1">
+                                            <span
+                                                class="d-flex align-items-center ms-1">
+                                                  <img src="../assets/icon/date.png" style="width: 20px;height: 20px;">
+                                                  <span>
+                                                    &nbsp;${p.year}
+                                                  </span>
+                                                </span>
                                         </div>
-                                    </span>
+                                        <div class="col-6 col-md-auto mb-1">
+                                            <span
+                                                class="d-flex align-items-center ms-1 ">
+                                                <img src="../assets/icon/road.png" style="width: 20px;height: 20px;">
+                                                <span>
+                                                  &nbsp;${p.km}
+                                                </span>
+                                            </span>
+                                        </div>
+                                        <div class="col-6 col-md-auto mb-1">
+                                            <span
+                                                class="d-flex align-items-center ms-1 ">
+                                                  <img src="../assets/icon/transmission.png" style="width: 20px;height: 20px;">
+                                                  <span>
+                                                    &nbsp;${p.transmission}
+                                                  </span>
+                                            </span>
+                                        </div>
+                                        <div class="col-6 col-md-auto mb-1">
+                                            <span
+                                                class="d-flex gap-1 align-items-center ms-1 ">
+                                                <i class="fa fa-circle" style="color: #D40000;"></i>
+                                                <span>
+                                                  ${p.color}
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                            </div>
+                            <span class="d-block foot-card" style="border: 2px solid #EFEFEF;border-radius: 30px;padding: 5px 20px;background-color: #EFEFEF;">
+                                <div class="row g-0">
+                                    <div class="col">
+                                        <i class="fa fa-info-circle"></i> Cicilan Mulai
+                                    </div>
+                                    <div class="col" style="text-align: right;">
+                                        ${p.cicilan}
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="position-absolute top-0 start-100 translate-middle shadow btnFavorite" data-toggle=0 style="background-color: white;border-radius: 100%; padding: 5px 8px;margin-left: -20px;margin-top: 20px;cursor: pointer;z-index:2">
-                                <i class="far fa-star text-dark"></i>
-                            </div>
+                            </span>
                         </div>
-                    </a>
+                    </div>
+                    <div class="position-absolute top-0 start-100 translate-middle shadow btnFavorite" data-toggle=0 style="background-color: white;border-radius: 100%; padding: 5px 8px;margin-left: -20px;margin-top: 20px;cursor: pointer;z-index:2">
+                        <i class="far fa-star text-dark"></i>
+                    </div>
+                </div>
+              </a>
             </div>
         `);
   });
