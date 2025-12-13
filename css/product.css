@@ -142,8 +142,8 @@ body.no-scroll {
   border: none !important;
 }
 
-#form-filter-mob > div:first-child,
-#form-filter-content-mob > div:first-child {
+#form-filter-mob>div:first-child,
+#form-filter-content-mob>div:first-child {
   border-top: none !important;
   box-shadow: none !important;
 }
@@ -171,7 +171,8 @@ body.no-scroll {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  white-space: nowrap;  /* cegah pecah baris */
+  white-space: nowrap;
+  /* cegah pecah baris */
   font-size: 14px;
 }
 
@@ -194,11 +195,11 @@ body.no-scroll {
     height: 31vh;
   }
 
-  .carousel-next{
+  .carousel-next {
     right: calc(2.8% + 2px) !important;
   }
 
-  .carousel-prev{
+  .carousel-prev {
     left: calc(2.8% + 2px) !important;
   }
 
@@ -227,7 +228,7 @@ body.no-scroll {
     font-size: 1.4em !important;
   }
 
-  
+
 }
 
 @media only screen and (max-width: 600px) {
@@ -244,5 +245,3 @@ body.no-scroll {
     font-size: 1em !important;
   }
 }
-
-
