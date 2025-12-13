@@ -71,28 +71,28 @@
 
 #section-2 #section-header,
 #section-3 #section-header,
-#section-4 #section-header,
+#testimoni #section-header,
 #cabang #section-header {
   padding: 50px 200px;
 }
 
 #section-2 h5,
 #section-3 h5,
-#section-4 h5,
+#testimoni h5,
 #cabang h5 {
   font-size: 48px;
 }
 
 #section-2 .card img,
 #section-3 .card img,
-#section-4 .card img,
+#testimoni .card img,
 #cabang .card img {
   height: 397px;
 }
 
 #section-2 .card .card-detail img,
 #section-3 .card .card-detail img,
-#section-4 .card .card-detail img,
+#testimoni .card .card-detail img,
 #cabang .card .card-detail img {
   height: 24px;
 }
@@ -113,7 +113,7 @@
   padding: 10px 15px;
 }
 
-#card-s4 .card,
+#card-testimoni .card,
 #card-cabang .card {
   flex: 0 0 calc(25% - 20px);
   min-width: 300px;
@@ -124,7 +124,7 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-#card-s4 .card-body,
+#card-testimoni .card-body,
 #card-cabang .card-body {
   padding: 10px 15px;
 }
@@ -173,14 +173,14 @@
 
   #section-2 #section-header,
   #section-3 #section-header,
-  #section-4 #section-header,
+  #testimoni #section-header,
   #cabang #section-header {
     padding: 20px;
   }
 
   #section-2 h5,
   #section-3 h5,
-  #section-4 h5,
+  #testimoni h5,
   #cabang h5 {
     font-size: 18px;
     font-weight: bold;
@@ -188,21 +188,21 @@
 
   #section-2 .card img,
   #section-3 .card img,
-  #section-4 .card img,
+  #testimoni .card img,
   #cabang .card img {
     height: 246px;
   }
 
   #section-2 h5.section-price,
   #section-3 h5.section-price,
-  #section-4 h5.section-price,
+  #testimoni h5.section-price,
   #cabang h5.section-price {
     font-size: 24px !important;
   }
 
   #section-2 .card,
   #section-3 .card,
-  #section-4 .card,
+  #testimoni .card,
   #cabang .card {
     margin: 0 !important;
   }
@@ -211,8 +211,8 @@
   #section-2 .foot-card,
   #section-3 table,
   #section-3 .foot-card,
-  #section-4 table,
-  #section-4 .foot-card,
+  #testimoni table,
+  #testimoni .foot-card,
   #cabang table,
   #cabang .foot-card {
     font-size: 8pt;

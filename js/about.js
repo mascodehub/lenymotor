@@ -104,7 +104,7 @@ $(document).ready(async function () {
                     </div>
                 </div>
             `;
-    $("#card-s4").append(card);
+    $("#card-testimoni").append(card);
   });
 
   $.each(dealers, function (index, dealer) {
