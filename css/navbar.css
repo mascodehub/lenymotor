@@ -108,8 +108,8 @@
 .running-text {
   display: inline-block;
   white-space: nowrap;
-  padding-left: 100%;
-  animation: marquee 10s linear infinite;
+  padding-left: 200%;
+  animation: marquee 23s linear infinite;
 }
 
 @keyframes marquee {
