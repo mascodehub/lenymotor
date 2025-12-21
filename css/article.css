@@ -57,8 +57,8 @@ body {
   grid-row: span 2;
 }
 
-/* 📌 TABLET 768–991px — menampilkan 3 item saja */
-@media (max-width: 991px) {
+/* 📌 TABLET 768–1024px — menampilkan 3 item saja */
+@media (max-width: 1024px) {
   .banner-grid {
     grid-template-columns: 2fr 1fr;
     grid-template-rows: repeat(2, 220px);

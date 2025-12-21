@@ -39,8 +39,8 @@ body {
   text-align: justify !important;
 }
 
-/* 📌 TABLET 768–991px — menampilkan 3 item saja */
-@media (max-width: 991px) {
+/* 📌 TABLET 768–1024px — menampilkan 3 item saja */
+@media (max-width: 1024px) {
   #back-button {
     margin-top: 2rem;
   }
