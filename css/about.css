@@ -151,7 +151,7 @@
 }
 
 /* MOBILE */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
   #section-layanan-1,
   #section-layanan-2 {
     padding: 2rem 1rem;

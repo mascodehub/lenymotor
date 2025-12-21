@@ -1,7 +1,10 @@
 $(document).ready(function () {
   $("#navbar").load("../components/navbar.html");
   $("#footbar").load("../components/footbar.html");
-  // Data testimoni
+
+  // =====================
+  // DATA TESTIMONIALS
+  // =====================
   const testimonials = [
     {
       rating: 5.0,
@@ -64,49 +67,65 @@ $(document).ready(function () {
     },
   ];
 
-  // Render card
-  testimonials.forEach((testi) => {
-    const card = `
-          <div class="card position-relative">
-            <img src="${testi.image}" class="card-img-top" alt="${
-      testi.product
-    }">
-            <div class="card-body">
-              <span class="text-center w-100 d-block">
-                <div class="card-title d-flex align-items-center">
-                 <span class="fw-bold" style="font-size:1rem">${testi.rating.toFixed(
-                   1
-                 )}</span> &nbsp;
-                  ${'<img src="../assets/icon/star.png" style="width:1.5rem;height:1rem">'.repeat(
-                    Math.floor(testi.rating)
-                  )}
-                </div>
+  // =====================
+  // RESPONSIVE PER PAGE
+  // =====================
+  function getPerPage() {
+    const w = window.innerWidth;
+    if (w >= 990 && w <= 1399) return 6; // tablet
+    return 8; // mobile & desktop besar
+  }
+
+  let perPage = getPerPage();
+  let currentPage = 1;
+  let totalPages = Math.ceil(testimonials.length / perPage);
+
+  // =====================
+  // RENDER DATA
+  // =====================
+  function renderData() {
+    const container = $("#testi-container");
+    container.empty();
+
+    const start = (currentPage - 1) * perPage;
+    const end = start + perPage;
+    const pageData = testimonials.slice(start, end);
+
+    pageData.forEach((testi) => {
+      const card = `
+        <div class="card position-relative m-1 m-md-0">
+          <img src="${testi.image}" class="card-img-top" alt="${testi.product}">
+          <div class="card-body">
+            <div class="card-title d-flex align-items-center">
+              <span class="fw-bold" style="font-size:1rem">${testi.rating.toFixed(
+                1
+              )}</span>&nbsp;
+              ${'<img src="../assets/icon/star.png" style="width:1.5rem;height:1rem">'.repeat(
+                Math.floor(testi.rating)
+              )}
+            </div>
+            <div class="card-text">
+              <span class="d-block mb-4" style="height:4.5rem">
+                ${testi.message}
               </span>
-              <div class="card-text">
-                <span class="d-block mb-4" style="margin: 0.2rem 0.2rem;height:4.5rem;">
-                  ${testi.message}
-                </span>
-                <span class="d-block" style="margin: 0.2rem 0.2rem;color: #AFAFAF;">
-                  ${testi.product}
-                </span>
-                <span class="d-block" style="margin: 0.2rem 0.2rem;color: #AFAFAF;">
-                  ${testi.date}
-                </span>
-              </div>
+              <span class="d-block text-muted">${testi.product}</span>
+              <span class="d-block text-muted">${testi.date}</span>
             </div>
           </div>
-        `;
-    $("#testi-container").append(card);
-  });
+        </div>
+      `;
+      container.append(card);
+    });
+  }
 
-  // -------------------
-  // KONFIGURASI PAGINATION
-  // -------------------
-  const perPage = 5;
-  let currentPage = 1;
-  const totalPages = Math.ceil(testimonials.length / perPage);
-
+  // =====================
+  // RENDER PAGINATION
+  // =====================
   function renderPagination() {
+    perPage = getPerPage();
+    totalPages = Math.ceil(testimonials.length / perPage);
+    if (currentPage > totalPages) currentPage = totalPages;
+
     const pagination = $(".pagination");
     pagination.empty();
 
@@ -156,6 +175,9 @@ $(document).ready(function () {
     renderData();
   }
 
+  // =====================
+  // EVENTS
+  // =====================
   $(document).on("click", ".pagination li", function () {
     const text = $(this).text();
     if (text === "..." || parseInt(text) === currentPage) return;
@@ -176,5 +198,13 @@ $(document).ready(function () {
       renderPagination();
     }
   });
+
+  $(window).on("resize", function () {
+    renderPagination();
+  });
+
+  // =====================
+  // INIT
+  // =====================
   renderPagination();
 });
