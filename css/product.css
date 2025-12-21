@@ -142,8 +142,8 @@ body.no-scroll {
   border: none !important;
 }
 
-#form-filter-mob>div:first-child,
-#form-filter-content-mob>div:first-child {
+#form-filter-mob > div:first-child,
+#form-filter-content-mob > div:first-child {
   border-top: none !important;
   box-shadow: none !important;
 }
@@ -192,7 +192,7 @@ body.no-scroll {
 
   #carousel-banner {
     max-width: 94vw;
-    height: 31vh;
+    height: 22vh;
   }
 
   .carousel-next {
@@ -227,8 +227,6 @@ body.no-scroll {
   .product-card .card .card-detail .card-detail-text {
     font-size: 1.4em !important;
   }
-
-
 }
 
 @media only screen and (max-width: 600px) {
@@ -238,7 +236,7 @@ body.no-scroll {
 
   #carousel-banner {
     max-width: 94vw;
-    height: 22vh;
+    height: 18vh;
   }
 
   .product-card .card .card-detail .card-detail-text {
