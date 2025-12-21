@@ -35,27 +35,18 @@
   border-radius: 4px;
 }
 
-/* Banner */
-
-#section-2 #section-header,
-#section-3 #section-header,
-#testimoni #section-header,
-#cabang #section-header {
-  padding: 50px 200px;
-}
-
 #section-2 h5,
 #section-3 h5,
 #testimoni h5,
 #cabang h5 {
-  font-size: 48px;
+  font-size: 2.5rem;
 }
 
 #section-2 .card img,
 #section-3 .card img,
 #testimoni .card img,
 #cabang .card img {
-  height: 397px;
+  height: 346px;
 }
 
 #section-2 .card .card-detail img,
@@ -99,7 +90,10 @@
 
 /* Card Cabang */
 #card-cabang {
-  max-width: 92.7vw;
+  width: 100%;
+  overflow: hidden;
+  overflow-x: auto;
+  scroll-behavior: smooth;
 }
 
 #card-cabang .card-text {
@@ -114,12 +108,19 @@
     font-size: 0.8rem;
   }
 
-  #section-4 #section-header,
+  #testimoni #section-header,
   #cabang #section-header {
     padding: 20px;
   }
 
-  #section-4 h5,
+  #section-2 .card img,
+  #section-3 .card img,
+  #testimoni .card img,
+  #cabang .card img {
+    height: 246px;
+  }
+
+  #testimoni h5,
   #cabang h5 {
     font-size: 18px;
     font-weight: bold;
@@ -174,13 +175,6 @@
   #cabang h5 {
     font-size: 18px;
     font-weight: bold;
-  }
-
-  #section-2 .card img,
-  #section-3 .card img,
-  #testimoni .card img,
-  #cabang .card img {
-    height: 246px;
   }
 
   #section-2 h5.section-price,
