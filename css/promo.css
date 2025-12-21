@@ -51,19 +51,20 @@ body.no-scroll {
 .carousel-scroll {
   display: flex;
   overflow-x: auto;
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   gap: 20px;
   padding: 20px;
-  scroll-snap-type: x mandatory;
+  scroll-snap-type: none;
   user-select: none;
 }
 
 .carousel-md-scroll {
   display: flex;
-  scroll-behavior: smooth;
+  overflow-x: auto;
+  scroll-behavior: auto;
   gap: 10px;
-  padding: 20px 0;
-  scroll-snap-type: x mandatory;
+  padding: 20px;
+  scroll-snap-type: none;
   user-select: none;
 }
 
@@ -77,13 +78,13 @@ body.no-scroll {
 }
 
 #carousel-banner {
-  max-width: 80vw;
-  height: 50vh;
+  max-width: 90vw;
+  height: 55vh;
 }
 
 .carousel-track img {
-  object-fit: cover;
-  max-width: 80vw;
+  object-fit: fill;
+  max-width: 90vw;
   width: 100%;
   height: 100%;
 }
@@ -201,14 +202,26 @@ body.no-scroll {
 @media only screen and (max-width: 1024px) {
   #carousel-banner {
     max-width: 94vw;
-    height: 20vh;
+    height: 22vh;
+  }
+
+  .carousel-next {
+    right: calc(2.8% + 2px) !important;
+  }
+
+  .carousel-prev {
+    left: calc(2.8% + 2px) !important;
   }
 
   .carousel-track img {
-    object-fit: cover;
+    object-fit: fill;
     max-width: 94vw;
     width: 100%;
     height: 100%;
+  }
+
+  #carousel-point {
+    margin-top: -30px;
   }
 
   #section-2 {
@@ -242,8 +255,38 @@ body.no-scroll {
     font-size: 0.65rem;
   }
 
+  #carousel-banner {
+    max-width: 90vw;
+    height: 17vh;
+  }
+
+  .carousel-track img {
+    width: 100%;
+    max-width: 90vw;
+    height: calc(33vh - 15vh);
+  }
+
   #carousel-point {
-    margin-top: -30px;
+    margin-top: -15px;
+  }
+
+  .carousel-md-scroll {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: auto;
+    gap: 20px;
+    padding: 20px;
+    scroll-snap-type: none;
+    user-select: none;
+  }
+
+  .carousel-md-scroll::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .carousel-md-scroll::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
   }
 
   .pagination {
